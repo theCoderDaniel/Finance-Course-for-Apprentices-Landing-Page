@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finanzkurs für Azubis – Deine Geldrevolution</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/@tabler/icons@2.47.0/iconfont/tabler-icons.min.js"></script>
+  <meta name="color-scheme" content="dark">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .headline { font-family: 'Poppins', 'Inter', sans-serif; }
+    .glass {
+      background: rgba(24, 24, 32, 0.92);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(80,200,180,0.12);
+      box-shadow: 0 8px 32px 0 rgba(16,16,32,0.18);
+    }
+    .headline-strong {
+      letter-spacing: -0.01em;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+    .glow-btn {
+      box-shadow: 0 0 8px #22d3ee, 0 0 16px #a21caf;
+      border: 2px solid #22d3ee;
+    }
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    @keyframes floating {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-8px);}
+    }
+    .checklist li::before {
+      content: '';
+      display: inline-block;
+      width: 1.1em;
+      height: 1.1em;
+      margin-right: 0.5em;
+      background: linear-gradient(135deg, #22d3ee 60%, #a3e635 100%);
+      mask: url('https://tabler-icons.io/static/tabler-icons/icons/check.svg') no-repeat center/contain;
+      -webkit-mask: url('https://tabler-icons.io/static/tabler-icons/icons/check.svg') no-repeat center/contain;
+      vertical-align: middle;
+    }
+    @media (max-width: 640px) {
+      .headline { font-size: 2rem !important; }
+      .sticky-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-[#0f172a] via-[#18181b] to-[#1e293b] text-white min-h-screen">
+  <!-- HERO -->
+  <section class="relative flex flex-col items-center justify-center min-h-[90vh] px-4 text-center overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/90 via-violet-900/70 to-lime-900/60 z-0"></div>
+    <div class="relative z-10 max-w-2xl mx-auto py-20 sm:py-28 flex flex-col items-center" data-aos="fade-down">
+      <span class="inline-block px-4 py-1 mb-6 rounded-full bg-cyan-800/80 text-cyan-200 text-xs font-semibold tracking-widest uppercase">Nur für kurze Zeit</span>
+      <h1 class="headline headline-strong text-4xl sm:text-5xl md:text-6xl mb-8 text-center">
+        <span class="block text-cyan-300">Mehr Geld. Mehr Freiheit.</span>
+        <span class="block text-lime-300">Dein Azubi-Finanzkurs</span>
+      </h1>
+      <p class="text-lg sm:text-xl mb-10 text-white font-semibold max-w-xl mx-auto">
+        <span class="text-cyan-200 font-bold">Sichere dir jetzt</span> das Wissen, das <span class="text-lime-200 font-bold">dein Leben verändert</span> – mit <span class="text-violet-300 font-bold">KI & smarten Apps</span> zu mehr Geld und besseren Noten.
+      </p>
+      <a href="#preis" class="inline-block px-10 py-5 rounded-full bg-gradient-to-r from-cyan-400 via-violet-500 to-lime-400 text-white font-extrabold text-xl shadow-xl glow-btn hover:scale-105 transition-all duration-300 floating mb-8">Jetzt Kurs sichern</a>
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-3 mb-4">
+        <div class="flex -space-x-2">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-10 h-10 rounded-full border-2 border-cyan-400" alt="">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full border-2 border-lime-400" alt="">
+          <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-10 h-10 rounded-full border-2 border-violet-400" alt="">
+        </div>
+        <span class="ml-3 text-white text-base font-medium">Schon <span class="text-cyan-200 font-bold">+200 Azubis</span> dabei!</span>
+      </div>
+      <div class="mt-2 flex flex-wrap justify-center gap-4 text-xs text-cyan-100">
+        <span class="flex items-center gap-1"><i class="ti ti-shield-check text-cyan-300"></i> 30 Tage Geld-zurück-Garantie</span>
+        <span class="flex items-center gap-1"><i class="ti ti-lock text-lime-300"></i> Sichere Zahlung</span>
+        <span class="flex items-center gap-1"><i class="ti ti-device-mobile text-violet-300"></i> 100% mobil & digital</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEWERTUNGEN -->
+  <section class="py-14 px-4 bg-[#101624]">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10" data-aos="fade-up">
+        <div class="flex items-center gap-2">
+          <i class="ti ti-star-filled text-yellow-400 text-2xl"></i>
+          <i class="ti ti-star-filled text-yellow-400 text-2xl"></i>
+          <i class="ti ti-star-filled text-yellow-400 text-2xl"></i>
+          <i class="ti ti-star-filled text-yellow-400 text-2xl"></i>
+          <i class="ti ti-star-filled text-yellow-400 text-2xl"></i>
+        </div>
+        <span class="text-cyan-200 text-xl font-bold">4,9/5 von 200+ Teilnehmern</span>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass rounded-xl p-6 shadow-lg" data-aos="fade-right">
+          <div class="flex items-center gap-2 mb-2">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-8 h-8 rounded-full border-2 border-cyan-400" alt="">
+            <span class="font-bold text-cyan-200">Lisa, 19</span>
+          </div>
+          <p class="text-white text-base">„Ich habe endlich einen Plan für mein Geld – und spare sogar was! Die KI-Tipps sind genial.“</p>
+        </div>
+        <div class="glass rounded-xl p-6 shadow-lg" data-aos="fade-up">
+          <div class="flex items-center gap-2 mb-2">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-8 h-8 rounded-full border-2 border-lime-400" alt="">
+            <span class="font-bold text-lime-200">Jonas, 21</span>
+          </div>
+          <p class="text-white text-base">„Mit den App-Empfehlungen habe ich meine Ausgaben endlich im Griff. Super verständlich erklärt!“</p>
+        </div>
+        <div class="glass rounded-xl p-6 shadow-lg" data-aos="fade-left">
+          <div class="flex items-center gap-2 mb-2">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-8 h-8 rounded-full border-2 border-violet-400" alt="">
+            <span class="font-bold text-violet-200">Sarah, 18</span>
+          </div>
+          <p class="text-white text-base">„Ich hätte nie gedacht, dass Finanzen so easy sein können. Absolute Empfehlung!“</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSFORMATION: Vorher/Nachher -->
+  <section class="py-20 px-4 bg-gradient-to-br from-[#101624] via-[#18181b] to-[#1e293b]">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="headline text-4xl sm:text-5xl font-extrabold mb-14 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-lime-300 to-violet-300 drop-shadow-[0_2px_16px_rgba(0,255,255,0.5)]" data-aos="fade-up">
+        Deine Transformation
+      </h2>
+      <div class="flex flex-col md:flex-row gap-10 justify-center items-stretch">
+        <div class="flex-1 flex flex-col items-center justify-center rounded-3xl bg-gradient-to-br from-[#18181b] to-[#232b3a] shadow-2xl border-4 border-red-400/80 p-0 overflow-hidden relative group transition-all duration-300 hover:scale-105">
+          <div class="w-full h-2 bg-gradient-to-r from-red-500 via-yellow-400 to-cyan-400"></div>
+          <div class="p-10 flex flex-col items-center">
+            <div class="mb-4">
+              <i class="ti ti-mood-sad-squint text-6xl text-red-400 drop-shadow-[0_2px_8px_rgba(255,0,0,0.4)]"></i>
+            </div>
+            <h3 class="font-bold text-2xl mb-4 text-red-300 uppercase tracking-wide text-center drop-shadow-[0_2px_8px_rgba(255,0,0,0.3)]">Vorher</h3>
+            <ul class="text-slate-100 text-lg font-semibold space-y-4 text-center">
+              <li>Immer knapp bei Kasse</li>
+              <li>Unsicherheit bei Geld & Lernen</li>
+              <li>Stress vor Prüfungen</li>
+              <li>Keine Strategie für Erfolg</li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex-1 flex flex-col items-center justify-center rounded-3xl bg-gradient-to-br from-[#232b3a] to-[#18181b] shadow-2xl border-4 border-lime-400/80 p-0 overflow-hidden relative group transition-all duration-300 hover:scale-105">
+          <div class="w-full h-2 bg-gradient-to-r from-lime-400 via-cyan-400 to-violet-400"></div>
+          <div class="p-10 flex flex-col items-center">
+            <div class="mb-4">
+              <i class="ti ti-mood-happy text-6xl text-lime-300 drop-shadow-[0_2px_8px_rgba(163,230,53,0.4)]"></i>
+            </div>
+            <h3 class="font-bold text-2xl mb-4 text-lime-300 uppercase tracking-wide text-center drop-shadow-[0_2px_8px_rgba(163,230,53,0.3)]">Nachher</h3>
+            <ul class="text-lime-100 text-lg font-semibold space-y-4 text-center">
+              <li>Mehr Geld & Freiheit</li>
+              <li>Finanzen & Lernen im Griff</li>
+              <li>Entspannt zu Bestnoten</li>
+              <li>Klare Strategie für deinen Erfolg</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VORTEILE -->
+  <section class="py-20 px-4 bg-gradient-to-br from-[#1e293b] via-[#232b3a] to-[#101624]">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="headline text-3xl sm:text-4xl font-extrabold mb-14 text-transparent bg-clip-text bg-gradient-to-r from-lime-300 via-cyan-300 to-violet-300 drop-shadow-[0_2px_16px_rgba(34,211,238,0.5)]" data-aos="fade-up">
+        Warum dieser Kurs? Deine Vorteile:
+      </h2>
+      <div class="flex flex-wrap justify-center gap-10">
+        <div class="flex flex-col items-center bg-gradient-to-br from-cyan-900 via-[#18181b] to-cyan-800 rounded-2xl shadow-2xl px-10 py-12 min-w-[240px] max-w-xs border-4 border-cyan-400/80 hover:shadow-cyan-400/40 transition-all duration-300">
+          <i class="ti ti-rocket text-5xl text-cyan-300 mb-3 drop-shadow-[0_2px_8px_rgba(34,211,238,0.4)]"></i>
+          <span class="font-bold text-xl text-cyan-100 mb-2">Schneller Start</span>
+          <span class="text-base text-cyan-100 font-medium">Sofort umsetzbare Tipps für mehr Geld & Erfolg.</span>
+        </div>
+        <div class="flex flex-col items-center bg-gradient-to-br from-lime-900 via-[#18181b] to-lime-800 rounded-2xl shadow-2xl px-10 py-12 min-w-[240px] max-w-xs border-4 border-lime-400/80 hover:shadow-lime-400/40 transition-all duration-300">
+          <i class="ti ti-brain text-5xl text-lime-300 mb-3 drop-shadow-[0_2px_8px_rgba(163,230,53,0.4)]"></i>
+          <span class="font-bold text-xl text-lime-100 mb-2">KI & App Power</span>
+          <span class="text-base text-lime-100 font-medium">Lerne smarter, nicht härter – mit den besten Tools.</span>
+        </div>
+        <div class="flex flex-col items-center bg-gradient-to-br from-violet-900 via-[#18181b] to-violet-800 rounded-2xl shadow-2xl px-10 py-12 min-w-[240px] max-w-xs border-4 border-violet-400/80 hover:shadow-violet-400/40 transition-all duration-300">
+          <i class="ti ti-cash text-5xl text-violet-300 mb-3 drop-shadow-[0_2px_8px_rgba(139,92,246,0.4)]"></i>
+          <span class="font-bold text-xl text-violet-100 mb-2">Mehr Geld</span>
+          <span class="text-base text-violet-100 font-medium">Endlich Überblick & Kontrolle über deine Finanzen.</span>
+        </div>
+        <div class="flex flex-col items-center bg-gradient-to-br from-cyan-900 via-[#18181b] to-cyan-800 rounded-2xl shadow-2xl px-10 py-12 min-w-[240px] max-w-xs border-4 border-cyan-400/80 hover:shadow-cyan-400/40 transition-all duration-300">
+          <i class="ti ti-heart-handshake text-5xl text-cyan-300 mb-3 drop-shadow-[0_2px_8px_rgba(34,211,238,0.4)]"></i>
+          <span class="font-bold text-xl text-cyan-100 mb-2">Echte Community</span>
+          <span class="text-base text-cyan-100 font-medium">Austausch, Support & Motivation von Azubis für Azubis.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KURSINHALTE -->
+  <section class="py-24 px-4 bg-gradient-to-br from-[#232b3a] via-[#18181b] to-[#1e293b]" id="inhalte">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="headline text-3xl sm:text-4xl font-extrabold mb-14 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-lime-300 to-violet-300 text-center drop-shadow-[0_2px_16px_rgba(163,230,53,0.5)]" data-aos="fade-up">
+        Das bekommst du im Kurs
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div class="relative flex flex-col items-center bg-[#18181b] rounded-3xl shadow-2xl border-0 px-10 py-14 group hover:scale-105 transition-all duration-300 ring-4 ring-cyan-400/60">
+          <span class="absolute -top-5 left-1/2 -translate-x-1/2 bg-cyan-400 text-[#18181b] font-bold px-4 py-1 rounded-full text-xs uppercase tracking-widest shadow-lg">#1</span>
+          <i class="ti ti-wallet text-5xl text-cyan-300 mb-4 drop-shadow-[0_2px_8px_rgba(34,211,238,0.4)]"></i>
+          <h3 class="font-bold text-cyan-200 mb-3 text-xl text-center">Budget & Geldfluss</h3>
+          <ul class="text-white text-base font-semibold space-y-2 text-center">
+            <li>Azubi-Gehalt optimal aufteilen</li>
+            <li>Fixkosten, Spaß & Sparen im Griff</li>
+            <li>Vorlagen für deinen Finanzplan</li>
+          </ul>
+        </div>
+        <div class="relative flex flex-col items-center bg-[#18181b] rounded-3xl shadow-2xl border-0 px-10 py-14 group hover:scale-105 transition-all duration-300 ring-4 ring-lime-400/60">
+          <span class="absolute -top-5 left-1/2 -translate-x-1/2 bg-lime-400 text-[#18181b] font-bold px-4 py-1 rounded-full text-xs uppercase tracking-widest shadow-lg">#2</span>
+          <i class="ti ti-brain text-5xl text-lime-300 mb-4 drop-shadow-[0_2px_8px_rgba(163,230,53,0.4)]"></i>
+          <h3 class="font-bold text-lime-200 mb-3 text-xl text-center">KI & Lerntricks</h3>
+          <ul class="text-white text-base font-semibold space-y-2 text-center">
+            <li>KI-Tools für smarteres Lernen</li>
+            <li>Apps für Zusammenfassungen & Prüfungen</li>
+            <li>Effizient lernen ohne Stress</li>
+          </ul>
+        </div>
+        <div class="relative flex flex-col items-center bg-[#18181b] rounded-3xl shadow-2xl border-0 px-10 py-14 group hover:scale-105 transition-all duration-300 ring-4 ring-violet-400/60">
+          <span class="absolute -top-5 left-1/2 -translate-x-1/2 bg-violet-400 text-[#18181b] font-bold px-4 py-1 rounded-full text-xs uppercase tracking-widest shadow-lg">#3</span>
+          <i class="ti ti-cash-banknote text-5xl text-violet-300 mb-4 drop-shadow-[0_2px_8px_rgba(139,92,246,0.4)]"></i>
+          <h3 class="font-bold text-violet-200 mb-3 text-xl text-center">Finanzwissen, das zählt</h3>
+          <ul class="text-white text-base font-semibold space-y-2 text-center">
+            <li>Konten, Steuern, Versicherungen easy erklärt</li>
+            <li>Fehler vermeiden, Chancen nutzen</li>
+            <li>Tipps für mehr Netto vom Brutto</li>
+          </ul>
+        </div>
+        <div class="relative flex flex-col items-center bg-[#18181b] rounded-3xl shadow-2xl border-0 px-10 py-14 group hover:scale-105 transition-all duration-300 ring-4 ring-cyan-400/60">
+          <span class="absolute -top-5 left-1/2 -translate-x-1/2 bg-cyan-400 text-[#18181b] font-bold px-4 py-1 rounded-full text-xs uppercase tracking-widest shadow-lg">#4</span>
+          <i class="ti ti-device-mobile text-5xl text-cyan-300 mb-4 drop-shadow-[0_2px_8px_rgba(34,211,238,0.4)]"></i>
+          <h3 class="font-bold text-cyan-200 mb-3 text-xl text-center">Die besten Apps</h3>
+          <ul class="text-white text-base font-semibold space-y-2 text-center">
+            <li>Empfehlungen für Banking, Sparen & Lernen</li>
+            <li>Direkt anwendbar & kostenlos</li>
+            <li>Mit Schritt-für-Schritt-Anleitungen</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREIS & CTA -->
+  <section id="preis" class="py-24 px-4 bg-gradient-to-r from-cyan-900 via-violet-900 to-lime-900 flex items-center justify-center min-h-[60vh]">
+    <div class="relative max-w-2xl w-full mx-auto rounded-3xl shadow-2xl overflow-hidden flex flex-col items-center justify-center"
+         style="background: radial-gradient(ellipse at 60% 40%, #18181b 90%, #232b3a 100%);">
+    <div class="absolute inset-0 pointer-events-none z-0"
+         style="background: radial-gradient(circle at 70% 30%,rgba(34,211,238,0.15) 0,transparent 70%),radial-gradient(circle at 30% 70%,rgba(163,230,53,0.12) 0,transparent 70%);"></div>
+    <div class="relative z-10 flex flex-col items-center px-8 py-14">
+      <h2 class="headline text-4xl sm:text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-lime-300 to-violet-300 drop-shadow-[0_2px_16px_rgba(0,255,255,0.5)]">
+        Jetzt starten – <span class="text-lime-200">nur 29&nbsp;€</span>
+      </h2>
+      <div class="mb-4 text-lg sm:text-xl font-bold text-white tracking-wide">
+        <span class="bg-gradient-to-r from-cyan-300 via-lime-300 to-violet-300 bg-clip-text text-transparent">Nur für kurze Zeit:</span>
+        <span id="countdown" class="text-lime-200"></span>
+      </div>
+      <p class="mb-4 text-white text-lg font-medium">Einmal zahlen, <span class="text-cyan-200 font-bold">lebenslang profitieren</span>.</p>
+      <p class="mb-6 text-cyan-200 font-bold text-lg">30 Tage Geld-zurück-Garantie <span class="text-white font-normal">– kein Risiko!</span></p>
+      <a href="#" class="inline-block px-14 py-5 rounded-full bg-gradient-to-r from-cyan-400 via-violet-500 to-lime-400 text-white font-extrabold text-2xl shadow-2xl hover:scale-105 transition-all duration-300 floating mb-8 ring-4 ring-cyan-400/40">
+        Kursplatz sichern
+      </a>
+      <div class="flex flex-col items-center gap-2 w-full">
+        <div class="text-cyan-100 text-base font-medium">Sichere Zahlung · Sofortiger Zugang · 100% digital</div>
+        <div class="text-lime-200 font-bold text-base">+ Bonus: Exklusive App-Liste für smarte Azubis!</div>
+        <div class="text-violet-200 text-sm mt-2">Nur noch wenige Plätze verfügbar!</div>
+      </div>
+    </div>
+    </div>
+    <script>
+    // Countdown bis Mitternacht
+    function updateCountdown() {
+      const now = new Date();
+      const midnight = new Date();
+      midnight.setHours(23,59,59,999);
+      const diff = midnight - now;
+      if(diff > 0) {
+        const h = String(Math.floor(diff/1000/60/60)).padStart(2,'0');
+        const m = String(Math.floor(diff/1000/60)%60).padStart(2,'0');
+        const s = String(Math.floor(diff/1000)%60).padStart(2,'0');
+        document.getElementById('countdown').textContent = `${h}:${m}:${s} Std.`;
+      }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+    </script>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 px-4 bg-[#101624]">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="headline text-3xl sm:text-4xl font-extrabold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-lime-300 to-violet-300 drop-shadow-[0_2px_16px_rgba(34,211,238,0.5)]" data-aos="fade-up">
+        Häufige Fragen & Antworten
+      </h2>
+      <div id="faq" class="space-y-6">
+        <div class="glass rounded-xl shadow-lg p-6 cursor-pointer group transition-all duration-300 hover:ring-2 hover:ring-cyan-400" data-aos="fade-right" onclick="toggleFaq(0)">
+          <div class="flex justify-between items-center">
+            <span class="font-semibold text-cyan-200 text-lg">Brauche ich Vorkenntnisse?</span>
+            <span class="text-cyan-300 group-hover:rotate-90 transition-transform duration-300 text-xl">&#9654;</span>
+          </div>
+          <div class="faq-content mt-3 text-white hidden">Nein! Der Kurs ist für Einsteiger gemacht und erklärt alles Schritt für Schritt.</div>
+        </div>
+        <div class="glass rounded-xl shadow-lg p-6 cursor-pointer group transition-all duration-300 hover:ring-2 hover:ring-lime-400" data-aos="fade-right" data-aos-delay="100" onclick="toggleFaq(1)">
+          <div class="flex justify-between items-center">
+            <span class="font-semibold text-lime-200 text-lg">Wie helfen mir KI-Tools beim Lernen?</span>
+            <span class="text-lime-300 group-hover:rotate-90 transition-transform duration-300 text-xl">&#9654;</span>
+          </div>
+          <div class="faq-content mt-3 text-white hidden">Du lernst, wie du Chatbots & KI-Apps gezielt für Recherche, Zusammenfassungen und Prüfungsvorbereitung nutzt – für Bestnoten ohne Stress!</div>
+        </div>
+        <div class="glass rounded-xl shadow-lg p-6 cursor-pointer group transition-all duration-300 hover:ring-2 hover:ring-violet-400" data-aos="fade-right" data-aos-delay="200" onclick="toggleFaq(2)">
+          <div class="flex justify-between items-center">
+            <span class="font-semibold text-violet-200 text-lg">Was bringt mir der Kurs im Alltag?</span>
+            <span class="text-violet-300 group-hover:rotate-90 transition-transform duration-300 text-xl">&#9654;</span>
+          </div>
+          <div class="faq-content mt-3 text-white hidden">Du bekommst sofort umsetzbare Tipps, Tools und Vorlagen, die dir helfen, Geld zu sparen und deine Ausbildung erfolgreicher zu meistern.</div>
+        </div>
+        <div class="glass rounded-xl shadow-lg p-6 cursor-pointer group transition-all duration-300 hover:ring-2 hover:ring-cyan-400" data-aos="fade-right" data-aos-delay="300" onclick="toggleFaq(3)">
+          <div class="flex justify-between items-center">
+            <span class="font-semibold text-cyan-200 text-lg">Wie schnell sehe ich Ergebnisse?</span>
+            <span class="text-cyan-300 group-hover:rotate-90 transition-transform duration-300 text-xl">&#9654;</span>
+          </div>
+          <div class="faq-content mt-3 text-white hidden">Viele Teilnehmer berichten schon nach wenigen Tagen von mehr Überblick und ersten Ersparnissen!</div>
+        </div>
+        <div class="glass rounded-xl shadow-lg p-6 cursor-pointer group transition-all duration-300 hover:ring-2 hover:ring-lime-400" data-aos="fade-right" data-aos-delay="400" onclick="toggleFaq(4)">
+          <div class="flex justify-between items-center">
+            <span class="font-semibold text-lime-200 text-lg">Wie lange habe ich Zugriff auf die Inhalte?</span>
+            <span class="text-lime-300 group-hover:rotate-90 transition-transform duration-300 text-xl">&#9654;</span>
+          </div>
+          <div class="faq-content mt-3 text-white hidden">Du hast lebenslangen Zugriff auf alle Kursinhalte und Updates!</div>
+        </div>
+        <div class="glass rounded-xl shadow-lg p-6 cursor-pointer group transition-all duration-300 hover:ring-2 hover:ring-violet-400" data-aos="fade-right" data-aos-delay="500" onclick="toggleFaq(5)">
+          <div class="flex justify-between items-center">
+            <span class="font-semibold text-violet-200 text-lg">Was, wenn ich nicht zufrieden bin?</span>
+            <span class="text-violet-300 group-hover:rotate-90 transition-transform duration-300 text-xl">&#9654;</span>
+          </div>
+          <div class="faq-content mt-3 text-white hidden">Kein Problem! Du bekommst 30 Tage lang dein Geld zurück – ohne Wenn und Aber.</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function toggleFaq(idx) {
+        document.querySelectorAll('#faq .faq-content').forEach((el, i) => {
+          if (i === idx) {
+            el.classList.toggle('hidden');
+          } else {
+            el.classList.add('hidden');
+          }
+        });
+      }
+    </script>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 text-center text-cyan-100 bg-[#0f172a]">
+    <div class="mb-2 font-bold text-white">Finanzverwaltung für Auszubildende</div>
+    <div class="text-sm">© 2024 – Mit Herz & Know-how für deinen Erfolg</div>
+  </footer>
+
+  <script>
+    AOS.init({ once: true, duration: 900 });
+  </script>
+</body>
+</html>
