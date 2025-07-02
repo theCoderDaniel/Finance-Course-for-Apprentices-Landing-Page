@@ -7,16 +7,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --bg:#0b0d13;
-      --card:#181c24;
-      --txt:#f1f2f6;
-      --muted:#a0a6bb;
-      --accent:#ff4040;
-      --accent2:#00bfae; /* sanftes Türkis als Kontrast */
-      --radius:1.5rem;
-      --glow:rgba(0,191,174,0.10);
-      --fast:.25s cubic-bezier(.4,0,.2,1);
-      --med:.6s cubic-bezier(.4,0,.2,1)
+      --bg: #18191b;
+      --card: #23242a;
+      --txt: #fff;
+      --muted: #b0b4c0;
+      --accent: #ff4040;   /* Rot */
+      --accent2: #fff;     /* Weiß für Kontrast */
+      --radius: 1.1rem;
+      --fast: .25s cubic-bezier(.4,0,.2,1);
+      --med: .6s cubic-bezier(.4,0,.2,1);
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html {
@@ -25,9 +24,9 @@
     }
     body{
       font-family:'Poppins',sans-serif;
-      background: linear-gradient(120deg, #181c24 60%, #1a2327 100%);
-      color:var(--txt);
-      overflow-x:hidden
+      background: var(--bg);
+      color: var(--txt);
+      overflow-x:hidden;
     }
     a{text-decoration:none;color:inherit}
     img{max-width:100%;display:block;border-radius:var(--radius)}
@@ -37,46 +36,30 @@
       border-radius:2.5rem;
       font-weight:800;
       font-size:1.15rem;
-      background:var(--accent); /* rot */
+      background:var(--accent);
       color:#fff;
-      box-shadow:0 0 18px rgba(255,64,64,0.13);
       border:none;
-      transition:transform .18s cubic-bezier(.4,0,.2,1),box-shadow .18s cubic-bezier(.4,0,.2,1)
+      box-shadow:none;
+      transition:background .18s, transform .18s;
     }
     .btn:hover{
+      background:#b71c1c;
+      color:#fff;
       transform:translateY(-4px) scale(1.05);
-      box-shadow:0 0 32px rgba(255,64,64,.18),0 2px 18px rgba(255,64,64,0.22);
-      background:#d32f2f;
     }
     section {
-      background: rgba(24,28,36,0.98);
-      box-shadow: 0 8px 40px 0 rgba(0,233,213,0.04);
+      background: var(--card);
+      box-shadow: none;
       border-radius: var(--radius);
       margin: 2.5rem auto;
-      max-width: 1100px;
-      padding: 3.5rem 1.2rem;
-      opacity: 0;
-      transform: translateY(60px) scale(0.98);
-      animation: sectionFadeIn 1.2s cubic-bezier(.4,0,.2,1) forwards;
-      animation-delay: 0.2s;
-    }
-    section.visible {
+      max-width: 900px;
+      padding: 3rem 1.2rem;
       opacity: 1;
       transform: none;
-      animation: sectionFadeIn 1.2s cubic-bezier(.4,0,.2,1) forwards;
+      animation: none;
+      border: none;
     }
-    @keyframes sectionFadeIn {
-      from { opacity: 0; transform: translateY(60px) scale(0.98);}
-      to   { opacity: 1; transform: none;}
-    }
-    @media (max-width: 900px) {
-      section {
-        padding: 2.2rem 0.7rem;
-        border-radius: 1rem;
-        margin: 1.2rem auto;
-      }
-    }
-    .wrap{max-width:1100px;margin:auto}
+    .wrap{max-width:900px;margin:auto}
     h2{
       font-size:2.2rem;
       text-align:center;
@@ -85,35 +68,16 @@
       letter-spacing:-0.01em;
       background:none;
       color:#fff;
-      text-shadow:0 2px 12px rgba(0,0,0,0.18);
-      opacity: 0;
-      transform: translateY(40px);
-      animation: h2FadeIn 1.1s cubic-bezier(.4,0,.2,1) forwards;
-      animation-delay: 0.3s;
-    }
-    h2.visible {
+      text-shadow:none;
       opacity: 1;
       transform: none;
-      animation: h2FadeIn 1.1s cubic-bezier(.4,0,.2,1) forwards;
+      animation: none;
     }
-    @keyframes h2FadeIn {
-      from { opacity: 0; transform: translateY(40px);}
-      to   { opacity: 1; transform: none;}
-    }
-    h3 {
-      font-size:1.22rem;
+    h3, h4 {
+      color:#fff;
       font-weight:800;
-      color:var(--accent2);
-      margin-bottom:.7rem;
-      letter-spacing:-0.01em;
-      line-height:1.2;
-      text-shadow:0 2px 12px rgba(0,191,174,0.08);
-    }
-    h4 {
-      font-size:1.13rem;
-      color:var(--accent2);
-      font-weight:700;
-      margin:1rem 0 0.5rem 0;
+      text-shadow:none;
+      margin-bottom: 1rem;
     }
     .grid {
       display: grid;
@@ -123,37 +87,22 @@
       align-items: stretch;
     }
     .card {
-      background: linear-gradient(120deg, #191d25 80%, #181c24 100%);
+      background: var(--card);
       padding: 2rem 1.5rem 1.5rem 1.5rem;
       border-radius: 1.2rem;
-      position: relative;
-      box-shadow: 0 6px 32px 0 rgba(0,0,0,0.22), 0 1.5px 0 0 rgba(0,233,213,0.03);
-      opacity: 0;
-      transform: translateY(40px);
-      transition: var(--med), box-shadow 0.22s;
-      animation: cardFadeIn 1.1s cubic-bezier(.4,0,.2,1) forwards;
-      animation-delay: 0.4s;
+      box-shadow: none;
+      border: none;
       min-height: 160px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
-      border: 1.5px solid rgba(0,233,213,0.07);
       overflow: hidden;
       z-index: 1;
-    }
-    .card.reveal, .card.visible {
       opacity: 1;
       transform: none;
-      animation: cardFadeIn 1.1s cubic-bezier(.4,0,.2,1) forwards;
-    }
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 70% 30%, rgba(255,64,64,0.10) 0%, transparent 70%);
-      z-index: 0;
-      pointer-events: none;
+      animation: none;
+      transition: border-color .18s, transform .18s;
     }
     .card p {
       color: var(--muted);
@@ -164,10 +113,9 @@
       margin-bottom: 0;
     }
     .card:hover, .card:focus-within {
-      box-shadow: 0 8px 40px 0 rgba(0,233,213,0.10), 0 2px 24px 0 rgba(255,64,64,0.13);
-      border-color: var(--accent2);
-      background: linear-gradient(120deg, #1a2327 80%, #181c24 100%);
-      transform: translateY(-4px) scale(1.025);
+      background: #23242a;
+      box-shadow: none;
+      transform: translateY(-2px) scale(1.01);
     }
     @media (max-width: 700px) {
       .grid {
@@ -180,54 +128,43 @@
       }
     }
     .table{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
-    .table div{background:var(--card);padding:2rem;border-radius:var(--radius);box-shadow:0 0 12px rgba(0,0,0,.45)}
-    .table h4{font-size:1.13rem;color:var(--accent);margin:1rem 0 0.5rem 0;}
+    .table div{
+      background:var(--card);
+      padding:2rem;
+      border-radius:var(--radius);
+      box-shadow: none;
+      border: none;
+    }
+    .table h4{font-size:1.13rem;color:#fff;font-weight:800;margin:1rem 0 0.5rem 0;}
     .table ul{list-style:disc;padding-left:1.2rem;color:var(--muted);line-height:1.55}
     .pricing {
       background: var(--card);
-      border: 2.5px solid var(--accent);
+      border: none;
       border-radius: 2rem;
-      box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+      box-shadow: none;
       position: relative;
       overflow: hidden;
-      padding: 3.5rem 2.2rem 2.7rem 2.2rem;
+      padding: 3rem 2.2rem 2.7rem 2.2rem;
       margin: 0 auto 2.5rem auto;
-      max-width: 520px;
+      max-width: 400px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      animation: pricingPopIn 1.1s cubic-bezier(.4,0,.2,1) 0.1s both;
-      opacity: 0;
-      transform: translateY(40px);
-      animation-fill-mode: forwards;
-    }
-    .pricing.visible {
       opacity: 1;
       transform: none;
-      animation: pricingPopIn 1.1s cubic-bezier(.4,0,.2,1) forwards;
-    }
-    @keyframes pricingPopIn {
-      from { opacity: 0; transform: scale(0.96) translateY(40px);}
-      to   { opacity: 1; transform: scale(1) translateY(0);}
+      animation: none;
     }
     .pricing h3 {
-      font-size: 3.4rem;
+      font-size: 2.2rem;
       font-weight: 900;
       margin-bottom: 0.8rem;
-      background: linear-gradient(90deg,var(--accent),var(--accent2));
-      background-size: 200%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: shine 3s linear infinite, pricePopIn 1s cubic-bezier(.4,0,.2,1) 0.2s both;
+      color: #fff;
+      background: none;
       letter-spacing: -0.01em;
       z-index: 1;
       position: relative;
       text-shadow: none;
-    }
-    @keyframes pricePopIn {
-      from { opacity: 0; transform: scale(0.92) translateY(20px);}
-      to   { opacity: 1; transform: scale(1) translateY(0);}
+      animation: none;
     }
     .pricing p {
       color: var(--muted);
@@ -240,29 +177,25 @@
       text-shadow: none;
     }
     .pricing .btn {
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      background: var(--accent);
       color: #fff;
-      font-size: 1.22rem;
-      font-weight: 800;
-      padding: 1.1rem 2.6rem;
+      font-size: 1.15rem;
+      font-weight: 900;
+      padding: 1rem 2.5rem;
       border-radius: 2rem;
-      box-shadow: 0 2px 16px 0 rgba(255,64,64,0.18);
+      box-shadow: none;
       margin-top: 0.2rem;
-      transition: transform 0.18s cubic-bezier(.4,0,.2,1), box-shadow 0.18s cubic-bezier(.4,0,.2,1);
+      letter-spacing: 0.01em;
+      border: none;
+      transition: background 0.18s, transform 0.18s;
       z-index: 1;
       position: relative;
-      animation: btnBounceIn 1s cubic-bezier(.4,0,.2,1) 0.5s both;
-      letter-spacing: 0.01em;
-    }
-    @keyframes btnBounceIn {
-      0% { opacity: 0; transform: scale(0.85);}
-      60% { opacity: 1; transform: scale(1.08);}
-      100% { opacity: 1; transform: scale(1);}
+      animation: none;
     }
     .pricing .btn:hover {
+      background: #b71c1c;
+      color: #fff;
       transform: scale(1.04) translateY(-2px);
-      box-shadow: 0 0 24px 0 var(--accent2), 0 2px 18px rgba(255,64,64,0.22);
-      background: linear-gradient(90deg, var(--accent2), var(--accent));
     }
 
     /* FAQ Styles */
@@ -278,33 +211,79 @@
       margin-bottom: 1.1rem;
       cursor: pointer;
       color: var(--txt);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+      box-shadow: none;
       border: none;
       overflow: hidden;
       transition: box-shadow 0.2s;
     }
     #faq details[open] {
-      box-shadow: 0 0 14px rgba(255,64,64,.18);
+      box-shadow: none;
     }
     #faq summary {
       font-weight: 700;
       color: var(--accent);
-      outline: none;
-      font-size: 1.08rem;
+      font-size: 1.13rem;
+      padding: 1.1rem 1.2rem;
       cursor: pointer;
       background: none;
+      outline: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      transition: color 0.18s;
     }
-    #faq details .faq-content {
-      max-height: 0;
-      opacity: 0;
+    #faq .faq-q {
+      flex: 1;
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 1.13rem;
+      letter-spacing: 0.01em;
+    }
+    #faq .faq-content {
+      padding: 0 1.2rem 1.1rem 1.2rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.6;
+      background: none;
+      border: none;
       transition: max-height 0.45s cubic-bezier(.4,0,.2,1), opacity 0.35s cubic-bezier(.4,0,.2,1);
-      overflow: hidden;
-      will-change: max-height, opacity;
+    }
+    #faq .faq-box[open] summary {
+      color: #fff;
+    }
+    #faq .faq-box[open] .faq-q {
+      color: #fff;
     }
     #faq details[open] .faq-content {
-      opacity: 1;
-      max-height: 400px;
-      transition: max-height 0.45s cubic-bezier(.4,0,.2,1), opacity 0.35s cubic-bezier(.4,0,.2,1) 0.05s;
+      background: none;
+    }
+    #faq summary::-webkit-details-marker {
+      display: none;
+    }
+    #faq summary:after {
+      content: "▼";
+      font-size: 1rem;
+      color: var(--accent);
+      margin-left: 0.8rem;
+      transition: transform 0.3s;
+    }
+    #faq .faq-box[open] summary:after {
+      transform: rotate(-180deg);
+      color: #fff;
+    }
+    @media (max-width: 700px) {
+      #faq .faq-box {
+        border-radius: 0.7rem;
+        padding: 0;
+      }
+      #faq summary {
+        font-size: 1.01rem;
+        padding: 0.9rem 0.7rem;
+      }
+      #faq .faq-content {
+        font-size: 0.99rem;
+        padding: 0 0.7rem 0.9rem 0.7rem;
+      }
     }
 
     header {
@@ -316,18 +295,17 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: linear-gradient(120deg, #181c24 60%, #1a2327 100%);
+      background: var(--bg);
       overflow: hidden;
-      box-shadow: 0 8px 40px 0 rgba(0,233,213,0.08);
-      opacity: 0;
-      transform: translateY(-60px) scale(0.98);
-      animation: headerFadeIn 1.2s cubic-bezier(.4,0,.2,1) forwards;
-      animation-delay: 0.15s;
+      box-shadow: none;
+      opacity: 1;
+      transform: none;
+      animation: none;
     }
     header.animated {
       opacity: 1;
       transform: none;
-      animation: headerFadeIn 1.2s cubic-bezier(.4,0,.2,1) forwards;
+      animation: none;
     }
     @keyframes headerFadeIn {
       from { opacity: 0; transform: translateY(-60px) scale(0.98);}
@@ -359,30 +337,30 @@
     #problem {
       display: grid;
       place-items: center;
-      min-height: 100vh;
-      background: transparent;
+      /* min-height: 100vh;  <-- ENTFERNEN! */
+      background: var(--card);
       box-shadow: none;
-      padding: 4rem 1.5rem;
-      margin: 0 auto 2.5rem auto;
-      max-width: 1180px; /* optional, für Konsistenz */
-      border-radius: 1.5rem; /* optional, für Konsistenz */
+      padding: 0.2rem 0 0.7rem 0; /* weniger vertikaler Abstand */
+      margin: 0.5rem auto 0.5rem auto; /* minimaler Abstand zu anderen Sektionen */
+      max-width: 900px;
+      border-radius: 1.5rem;
+      border: none;
     }
 
     /* Angebot und Social Proof */
     #angebot, #social-proof {
-      background: rgba(24,28,36,0.98);
+      background: var(--card);
       border-radius: 1.3rem;
-      box-shadow: 0 6px 32px 0 rgba(0,0,0,0.22), 0 0 0 2px rgba(0,233,213,0.07);
+      box-shadow: none;
       max-width: 700px;
       margin: 2.5rem auto;
       padding: 2.5rem 2rem 2rem 2rem;
       position: relative;
       overflow: hidden;
-      /* Glassmorphism Effekt */
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border: 1.5px solid rgba(0,233,213,0.10);
+      border: none;
       text-align: center;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
     #angebot h2, #social-proof h2 {
       width: 100%;
@@ -391,14 +369,14 @@
       margin-bottom: 1.2rem;
       background: none;
       color: #fff;
-      text-shadow:0 2px 12px rgba(0,0,0,0.18);
+      text-shadow: none;
       font-weight: 900;
       letter-spacing: -0.01em;
       position: relative;
       z-index: 1;
     }
     #angebot h2 span, #social-proof h2 span {
-      color: var(--accent2);
+      color: #fff;
     }
     #angebot .angebot-content,
     #social-proof .social-content {
@@ -414,7 +392,7 @@
     }
     #angebot .angebot-content strong {
       font-size: 1.18rem;
-      color: var(--accent2);
+      color: var(--accent);
     }
     #angebot .angebot-stats {
       color: var(--muted);
@@ -426,7 +404,7 @@
       font-weight: 700;
     }
     #angebot .angebot-stats .green {
-      color: var(--accent2);
+      color: var(--accent);
       font-weight: 700;
     }
     #angebot .angebot-price {
@@ -472,19 +450,20 @@
       margin-bottom: 1.1rem;
     }
     .social-proof-card {
-      background: rgba(0,233,213,0.13);
+      background: var(--card);
       border-radius: 1rem;
       padding: 1.1rem 1rem 1.2rem 1rem;
       max-width: 220px;
       min-width: 0;
       flex: 1 1 140px;
-      box-shadow: 0 2px 18px 0 rgba(0,191,174,0.10);
+      box-shadow: none;
       display: flex;
       flex-direction: column;
       align-items: center;
       margin-bottom: 0.5rem;
       position: relative;
       z-index: 1;
+      border: none;
     }
     .social-proof-card .text {
       color: #fff;
@@ -495,9 +474,6 @@
     }
     .social-proof-card .stars {
       color: #FFD600;
-      font-size: 1.15rem;
-      margin-bottom: 0.1rem;
-      letter-spacing: 0.08em;
     }
     @media (max-width: 700px) {
       .social-proof-cards {
@@ -520,6 +496,538 @@
       letter-spacing: 0.01em;
       z-index: 1;
       position: relative;
+    }
+
+    /* Footer Styles */
+    footer {
+      background: transparent;
+      border-top: none;
+      box-shadow: none;
+      margin-top: 3rem;
+      padding-bottom: 1.2rem;
+      font-family: 'Poppins',sans-serif;
+      letter-spacing: 0.01em;
+      opacity: 0.95;
+      transition: opacity 0.3s;
+      color: var(--muted);
+    }
+    footer a {
+      color: var(--accent2);
+      text-decoration: none;
+      margin: 0 0.7rem;
+      transition: color 0.2s;
+    }
+    footer a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    @media (max-width: 700px) {
+      footer {
+        font-size: 0.98rem;
+        padding: 1.2rem 0 0.7rem 0;
+      }
+    }
+
+    /* Verbesserte Problem-Sektion */
+    #problem-cards-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      gap: 2.5rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0.1rem;
+    }
+    .problem-card {
+      background: none;
+      border: none;
+      box-shadow: none;
+      border-radius: 0.9rem;
+      padding: 0;
+      margin: 0;
+      min-width: 0;
+      max-width: 320px;
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: flex-start;
+    }
+    .problem-card span.emoji {
+      font-size: 2.4rem;
+      margin-bottom: 1.1rem;
+      display: block;
+      line-height: 1;
+    }
+    .problem-card span.text {
+      font-size: 1.18rem;
+      color: #fff;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+      margin-bottom: 0;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      display: block;
+    }
+    @media (max-width: 800px) {
+      #problem-cards-row {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+      }
+      .problem-card {
+        max-width: 100%;
+      }
+    }
+
+    /* Optimierung der Abstände im Problem-Abschnitt */
+    #problem {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      background: var(--card);
+      box-shadow: none;
+      padding: 0.2rem 0 0.7rem 0; /* weniger vertikaler Abstand */
+      margin: 0.5rem auto 0.5rem auto; /* minimaler Abstand zu anderen Sektionen */
+      max-width: 900px;
+      border-radius: 1.5rem;
+      border: none;
+    }
+    #problem h2 {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: #fff;
+      text-align: center;
+      margin: 0.7rem 0 1.3rem 0;
+      letter-spacing: -0.01em;
+    }
+    #problem .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #problem-cards-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      gap: 1.5rem;
+      width: 100%;
+    }
+    .problem-card {
+      flex: 1 1 220px;
+      max-width: 320px;
+      min-width: 180px;
+      text-align: center;
+    }
+    .problem-card span.emoji {
+      font-size: 2.2rem;
+      margin-bottom: 0.7rem;
+    }
+    .problem-card span.text {
+      font-size: 1.13rem;
+      color: #fff;
+      font-weight: 800;
+      line-height: 1.4;
+      letter-spacing: 0.01em;
+      margin-bottom: 0;
+      display: block;
+    }
+    @media (max-width: 800px) {
+      #problem-cards-row {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+      }
+      .problem-card {
+        max-width: 100%;
+      }
+    }
+
+    /* Einheitliche Breite für Problem-, Angebot- und Social-Proof-Abschnitt */
+    #problem.section-box,
+    #angebot.section-box,
+    #social-proof {
+      max-width: 900px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      border-radius: var(--radius);
+    }
+    #problem .wrap,
+    #angebot .wrap,
+    #social-proof .wrap {
+      max-width: 900px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: 100% !important;
+    }
+    #angebot {
+      background: var(--card);
+      border-radius: 1.3rem;
+      box-shadow: none;
+      max-width: 900px !important;
+      margin: 2.5rem auto !important;
+      padding: 2.5rem 1.2rem 2rem 1.2rem !important;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      text-align: center;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      width: 100% !important;
+    }
+    #angebot h2 {
+      width: 100%;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      background: none;
+      color: #fff;
+      text-shadow: none;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      position: relative;
+      z-index: 1;
+    }
+    #angebot h2 span {
+      color: #fff;
+    }
+    #angebot .angebot-content {
+      color: #fff;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin-bottom: 1.1rem;
+      text-align: center;
+    }
+    #angebot .angebot-content strong {
+      font-size: 1.18rem;
+      color: var(--accent);
+    }
+    #angebot .angebot-stats {
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 1.1rem;
+    }
+    #angebot .angebot-stats .red {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    #angebot .angebot-stats .green {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    #angebot .angebot-price {
+      color: var(--accent);
+      font-size: 1.13rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      background: rgba(255,64,64,0.09);
+      display: inline-block;
+      padding: 0.25em 1em;
+      border-radius: 0.8em;
+      letter-spacing: 0.01em;
+    }
+    #angebot .angebot-price span {
+      color: #fff;
+    }
+    @media (max-width: 700px) {
+      #angebot {
+        padding: 1.3rem 0.5rem 1.1rem 0.5rem;
+        border-radius: 0.9rem;
+        margin: 1.2rem auto;
+        box-shadow: 0 2px 16px 0 rgba(0,0,0,0.18);
+      }
+      #angebot h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.9rem;
+      }
+      #angebot .angebot-content {
+        font-size: 1.01rem;
+      }
+      #angebot .angebot-price {
+        font-size: 1.01rem;
+        padding: 0.18em 0.7em;
+      }
+    }
+
+    /* Social Proof Cards */
+    .social-proof-cards {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+    }
+    .social-proof-card {
+      background: var(--card);
+      border-radius: 1rem;
+      padding: 1.1rem 1rem 1.2rem 1rem;
+      max-width: 220px;
+      min-width: 0;
+      flex: 1 1 140px;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+      border: none;
+    }
+    .social-proof-card .text {
+      color: #fff;
+      font-size: 1.01rem;
+      line-height: 1.5;
+      margin-bottom: 0.7rem;
+      text-align: center;
+    }
+    .social-proof-card .stars {
+      color: #FFD600;
+    }
+    @media (max-width: 700px) {
+      .social-proof-cards {
+        flex-direction: column;
+        gap: 0.7rem;
+        align-items: center;
+      }
+      .social-proof-card {
+        max-width: 98vw;
+        min-width: 0;
+        padding: 1rem 0.7rem 1.1rem 0.7rem;
+      }
+    }
+    .social-proof-summary {
+      margin-top: 1.1rem;
+      text-align: center;
+      color: var(--accent2);
+      font-size: 1.08rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      z-index: 1;
+      position: relative;
+    }
+
+    /* Footer Styles */
+    footer {
+      background: transparent;
+      border-top: none;
+      box-shadow: none;
+      margin-top: 3rem;
+      padding-bottom: 1.2rem;
+      font-family: 'Poppins',sans-serif;
+      letter-spacing: 0.01em;
+      opacity: 0.95;
+      transition: opacity 0.3s;
+      color: var(--muted);
+    }
+    footer a {
+      color: var(--accent2);
+      text-decoration: none;
+      margin: 0 0.7rem;
+      transition: color 0.2s;
+    }
+    footer a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    @media (max-width: 700px) {
+      footer {
+        font-size: 0.98rem;
+        padding: 1.2rem 0 0.7rem 0;
+      }
+    }
+
+    /* Verbesserte Problem-Sektion */
+    #problem-cards-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      gap: 2.5rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0.1rem;
+    }
+    .problem-card {
+      background: none;
+      border: none;
+      box-shadow: none;
+      border-radius: 0.9rem;
+      padding: 0;
+      margin: 0;
+      min-width: 0;
+      max-width: 320px;
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: flex-start;
+    }
+    .problem-card span.emoji {
+      font-size: 2.4rem;
+      margin-bottom: 1.1rem;
+      display: block;
+      line-height: 1;
+    }
+    .problem-card span.text {
+      font-size: 1.18rem;
+      color: #fff;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+      margin-bottom: 0;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      display: block;
+    }
+    @media (max-width: 800px) {
+      #problem-cards-row {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+      }
+      .problem-card {
+        max-width: 100%;
+      }
+    }
+
+    /* Optimierung der Abstände im Problem-Abschnitt */
+    #problem {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      background: var(--card);
+      box-shadow: none;
+      padding: 0.2rem 0 0.7rem 0; /* weniger vertikaler Abstand */
+      margin: 0.5rem auto 0.5rem auto; /* minimaler Abstand zu anderen Sektionen */
+      max-width: 900px;
+      border-radius: 1.5rem;
+      border: none;
+    }
+    #problem h2 {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: #fff;
+      text-align: center;
+      margin: 0.7rem 0 1.3rem 0;
+      letter-spacing: -0.01em;
+    }
+    #problem .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #problem-cards-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      gap: 1.5rem;
+      width: 100%;
+    }
+    .problem-card {
+      flex: 1 1 220px;
+      max-width: 320px;
+      min-width: 180px;
+      text-align: center;
+    }
+    .problem-card span.emoji {
+      font-size: 2.2rem;
+      margin-bottom: 0.7rem;
+    }
+    .problem-card span.text {
+      font-size: 1.13rem;
+      color: #fff;
+      font-weight: 800;
+      line-height: 1.4;
+      letter-spacing: 0.01em;
+      margin-bottom: 0;
+      display: block;
+    }
+    @media (max-width: 800px) {
+      #problem-cards-row {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+      }
+      .problem-card {
+        max-width: 100%;
+      }
+    }
+
+    /* Einheitliche Breite für Problem- und Social-Proof-Abschnitt */
+    #problem.section-box,
+    #social-proof {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: var(--radius);
+    }
+    #problem .wrap,
+    #social-proof .wrap {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #problem {
+      background: var(--card);
+      box-shadow: none;
+      padding: 0.2rem 1.2rem 0.7rem 1.2rem;
+      margin: 0.5rem auto 0.5rem auto;
+      border-radius: 1.5rem;
+      border: none;
+    }
+    #problem h2 {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: #fff;
+      text-align: center;
+      margin: 0.7rem 0 1.3rem 0;
+      letter-spacing: -0.01em;
+    }
+    #problem-cards-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      gap: 1.5rem;
+      width: 100%;
+    }
+    .problem-card {
+      flex: 1 1 220px;
+      max-width: 320px;
+      min-width: 180px;
+      text-align: center;
+    }
+    .problem-card .emoji {
+      font-size: 2.2rem;
+      margin-bottom: 0.7rem;
+      display: block;
+    }
+    .problem-card .text {
+      font-size: 1.13rem;
+      color: #fff;
+      font-weight: 800;
+      line-height: 1.4;
+      letter-spacing: 0.01em;
+      margin-bottom: 0;
+      display: block;
+    }
+    @media (max-width: 800px) {
+      #problem-cards-row {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+      }
+      .problem-card {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -556,6 +1064,39 @@
     <div style="height:2.5rem;"></div>
     <div class="scroll-down"></div>
   </header>
+
+  <!-- PROBLEM-SECTION: Hintergrund geht über die ganze Seite, Inhalt mittig, jetzt mit noch mehr Abstand oben/unten -->
+  <div style="width:100vw;background:var(--card);margin:0;padding:0;">
+    <div style="max-width:900px;margin:0 auto;padding:7rem 4rem 7rem 1.2rem;">
+      <h2 style="font-size:2.1rem;font-weight:900;color:#fff;text-align:center;margin:0 0 1.1rem 0;letter-spacing:-0.01em;">
+        Kommt dir das bekannt vor?
+      </h2>
+      <div style="display:flex;gap:1.2rem;justify-content:center;align-items:stretch;flex-wrap:wrap;">
+        <div style="flex:1 1 220px;max-width:320px;min-width:180px;text-align:center;">
+          <div style="font-size:2.2rem;margin-bottom:0.7rem;">😡</div>
+          <div style="font-size:1.13rem;font-weight:800;color:#fff;line-height:1.4;">
+            Du lernst viel – aber die Noten bleiben schlecht.<br>
+            Andere sind besser, obwohl sie weniger tun.
+          </div>
+        </div>
+        <div style="flex:1 1 220px;max-width:320px;min-width:180px;text-align:center;">
+          <div style="font-size:2.2rem;margin-bottom:0.7rem;">🔥</div>
+          <div style="font-size:1.13rem;font-weight:800;color:#fff;line-height:1.4;">
+            Dein Azubi-Gehalt reicht nie bis Monatsende.<br>
+            Sparen oder investieren? Keine Chance.
+          </div>
+        </div>
+        <div style="flex:1 1 220px;max-width:320px;min-width:180px;text-align:center;">
+          <div style="font-size:2.2rem;margin-bottom:0.7rem;">🤷‍♂️</div>
+          <div style="font-size:1.13rem;font-weight:800;color:#fff;line-height:1.4;">
+            Niemand zeigt dir, wie du wirklich erfolgreich wirst.<br>
+            Du fühlst dich allein gelassen.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Alles in DOMContentLoaded, damit IDs und Elemente sicher existieren
     document.addEventListener('DOMContentLoaded', function() {
@@ -603,8 +1144,9 @@
 
       function getOfferEndTime() {
         let end = localStorage.getItem(OFFER_TIMER_KEY);
-        if (!end) {
-          end = Math.floor(Date.now() / 1000) + OFFER_DURATION;
+        const now = Math.floor(Date.now() / 1000);
+        if (!end || Number(end) < now) {
+          end = now + OFFER_DURATION;
           localStorage.setItem(OFFER_TIMER_KEY, end);
         }
         return parseInt(end, 10);
@@ -615,8 +1157,10 @@
         const end = getOfferEndTime();
         let left = end - now;
         if (left <= 0) {
-          offerTimerEl.textContent = '00:00:00';
-          return;
+          // Timer abgelaufen: von vorne starten
+          const newEnd = now + OFFER_DURATION;
+          localStorage.setItem(OFFER_TIMER_KEY, newEnd);
+          left = OFFER_DURATION;
         }
         const h = Math.floor(left / 3600);
         const m = Math.floor((left % 3600) / 60);
@@ -659,248 +1203,17 @@
       }
     });
   </script>
-  <style>
-    /* Footer Styles */
-    footer {
-      background: transparent;
-      border-top: none;
-      box-shadow: none;
-      margin-top: 3rem;
-      padding-bottom: 1.2rem;
-      font-family: 'Poppins',sans-serif;
-      letter-spacing: 0.01em;
-      opacity: 0.95;
-      transition: opacity 0.3s;
-      color: var(--muted);
-    }
-    footer a {
-      color: var(--accent2);
-      text-decoration: none;
-      margin: 0 0.7rem;
-      transition: color 0.2s;
-    }
-    footer a:hover {
-      color: var(--accent);
-      text-decoration: underline;
-    }
-    @media (max-width: 700px) {
-      footer {
-        font-size: 0.98rem;
-        padding: 1.2rem 0 0.7rem 0;
-      }
-    }
-
-    /* Verbesserte Problem-Sektion */
-    #problem-cards-row {
-      display: flex;
-      flex-direction: row;
-      gap: 1.5rem;
-      justify-content: center;
-      align-items: stretch;
-      flex-wrap: wrap;
-      width: 100%;
-      margin-bottom: 0.5rem;
-    }
-    .problem-card {
-      flex: 1 1 300px;
-      max-width: 340px;
-      min-width: 260px;
-      background: linear-gradient(120deg,#181c24 60%,#1a2327 100%);
-      border-radius: 1.2rem;
-      box-shadow: 0 4px 24px 0 rgba(0,233,213,0.08);
-      padding: 1.5rem 1.2rem 1.7rem 1.2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      margin: 0 auto;
-      text-align: center;
-      /* Text kürzen, falls zu lang */
-      overflow: hidden;
-    }
-    .problem-card span.emoji {
-      font-size: 2.1rem;
-      line-height: 1;
-      color: var(--accent);
-      margin-bottom: 0.7rem;
-      display: block;
-    }
-    .problem-card span.text {
-      font-size: 1.25rem;
-      color: #fff;
-      font-weight: 600;
-      text-align: center;
-      display: block;
-      width: 100%;
-      line-height: 1.5;
-      font-family: 'Poppins', sans-serif;
-      /* Text auf 8 Zeilen begrenzen, mit ... */
-      display: -webkit-box;
-      -webkit-line-clamp: 8;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      letter-spacing: 0.01em;
-    }
-    @media (max-width: 700px) {
-      .problem-card span.text {
-        font-size: 1.07rem;
-        line-height: 1.45;
-        padding-left: 0;
-        padding-right: 0;
-      }
-      .problem-card {
-        padding: 0.7rem 0.3rem 0.9rem 0.3rem;
-        min-width: 0;
-        max-width: 100vw;
-        margin: 0.1rem 0;
-        /* Noch kompakter, weniger Rand */
-      }
-      #problem-cards-row {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: center;
-      }
-    }
-  </style>
-
-  <!-- PROBLEME -->
-  <section id="problem" style="background:rgba(24,28,36,0.98);border-radius:1.5rem;box-shadow:0 8px 40px 0 rgba(0,233,213,0.04);margin:2.5rem auto 0 auto;max-width:1100px;padding:3.5rem 1.2rem 2.5rem 1.2rem;">
-    <div class="wrap" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-      <h2 class="flow-h2" style="
-        font-size:2.3rem;
-        font-weight:900;
-        letter-spacing:-0.01em;
-        margin:0 auto 2.2rem auto;
-        max-width:900px;
-        text-align:center;
-        background:linear-gradient(90deg,#ff4040,#00e9d5 80%);
-        -webkit-background-clip:text;
-        background-clip:text;
-        color:transparent;
-        font-family:'Poppins',sans-serif;
-        text-shadow:0 2px 12px rgba(0,0,0,0.18);
-      ">
-        Kommt dir das bekannt vor?
-      </h2>
-      <div id="problem-cards-row" style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;">
-        <div class="problem-card" style="
-          background: linear-gradient(120deg,#191d25 80%,#181c24 100%);
-          border-radius: 1.2rem;
-          box-shadow: 0 4px 24px 0 rgba(0,233,213,0.08);
-          padding: 2rem 1.2rem 2rem 1.2rem;
-          min-width: 260px;
-          max-width: 340px;
-          margin: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: flex-start;
-          text-align: center;
-          font-family: 'Poppins',sans-serif;
-        ">
-          <span class="emoji" style="font-size:2.2rem;line-height:1;margin-bottom:1rem;display:block;">&#129324;</span>
-          <span class="text" style="
-            font-size:1.18rem;
-            color:#fff;
-            font-weight:600;
-            line-height:1.5;
-            font-family:'Poppins',sans-serif;
-            margin-bottom:0;
-            letter-spacing:0.01em;
-            text-shadow:0 2px 12px rgba(0,0,0,0.13);
-          ">
-            Du lernst viel – aber die Noten bleiben schlecht.<br>
-            Andere sind besser, obwohl sie weniger tun.
-          </span>
-        </div>
-        <div class="problem-card" style="
-          background: linear-gradient(120deg,#191d25 80%,#181c24 100%);
-          border-radius: 1.2rem;
-          box-shadow: 0 4px 24px 0 rgba(0,233,213,0.08);
-          padding: 2rem 1.2rem 2rem 1.2rem;
-          min-width: 260px;
-          max-width: 340px;
-          margin: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: flex-start;
-          text-align: center;
-          font-family: 'Poppins',sans-serif;
-        ">
-          <span class="emoji" style="font-size:2.2rem;line-height:1;margin-bottom:1rem;display:block;">&#128293;</span>
-          <span class="text" style="
-            font-size:1.18rem;
-            color:#fff;
-            font-weight:600;
-            line-height:1.5;
-            font-family:'Poppins',sans-serif;
-            margin-bottom:0;
-            letter-spacing:0.01em;
-            text-shadow:0 2px 12px rgba(0,0,0,0.13);
-          ">
-            Dein Azubi-Gehalt reicht nie bis Monatsende.<br>
-            Sparen oder investieren? Keine Chance.
-          </span>
-        </div>
-        <div class="problem-card" style="
-          background: linear-gradient(120deg,#191d25 80%,#181c24 100%);
-          border-radius: 1.2rem;
-          box-shadow: 0 4px 24px 0 rgba(0,233,213,0.08);
-          padding: 2rem 1.2rem 2rem 1.2rem;
-          min-width: 260px;
-          max-width: 340px;
-          margin: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: flex-start;
-          text-align: center;
-          font-family: 'Poppins',sans-serif;
-        ">
-          <span class="emoji" style="font-size:2.2rem;line-height:1;margin-bottom:1rem;display:block;">&#129335;</span>
-          <span class="text" style="
-            font-size:1.18rem;
-            color:#fff;
-            font-weight:600;
-            line-height:1.5;
-            font-family:'Poppins',sans-serif;
-            margin-bottom:0;
-            letter-spacing:0.01em;
-            text-shadow:0 2px 12px rgba(0,0,0,0.13);
-          ">
-            Niemand zeigt dir, wie du wirklich erfolgreich wirst.<br>
-            Du fühlst dich allein gelassen.
-          </span>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- VORHER / NACHHER -->
-  <section id="comparison" style="background:rgba(24,28,36,0.98);border-radius:1.5rem;box-shadow:0 8px 40px 0 rgba(0,233,213,0.04);margin:2.5rem auto;max-width:1100px;padding:3.5rem 1.2rem;">
-    <h2 class="flow-h2" style="
-      font-size:2.1rem;
-      font-weight:900;
-      letter-spacing:-0.01em;
-      margin:0 auto 2.2rem auto;
-      max-width:900px;
-      text-align:center;
-      background:linear-gradient(90deg,#ff4040,#00e9d5 80%);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      font-family:'Poppins',sans-serif;
-      text-shadow:0 2px 12px rgba(0,0,0,0.18);
-    ">
+  <section id="comparison">
+    <h2 class="flow-h2">
       Von 3,4 auf 1,4 – so geht's!
     </h2>
-    <div class="wrap table" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2.2rem;justify-items:center;align-items:stretch;">
-      <div style="background:linear-gradient(120deg,#191d25 80%,#181c24 100%);border-radius:1.2rem;box-shadow:0 4px 24px 0 rgba(0,233,213,0.08);padding:2rem 1.5rem 1.5rem 1.5rem;display:flex;flex-direction:column;align-items:flex-start;">
-        <img src="https://dummyimage.com/500x300/242630/ffffff&text=Schulzeugnis+Ø+3,4" alt="Vorher" style="border-radius:1rem;margin-bottom:1.2rem;">
-        <h4 style="font-size:1.13rem;color:var(--accent2);font-weight:700;margin:1rem 0 0.5rem 0;">Vor dem System</h4>
-        <ul style="list-style:disc;padding-left:1.2rem;color:var(--muted);line-height:1.55;font-size:1.05rem;">
+    <div class="wrap table">
+      <div>
+        <img src="1.png" alt="Vorher" style="border-radius:1rem;margin-bottom:1.2rem;">
+        <h4>Vor dem System</h4>
+        <ul>
           <li>Schlechte Noten, kein Geld</li>
           <li>Pleite & gestresst</li>
           <li>Minus im Konto, Angst vor Prüfungen</li>
@@ -910,10 +1223,10 @@
           <li>Eltern enttäuscht</li>
         </ul>
       </div>
-      <div style="background:linear-gradient(120deg,#191d25 80%,#181c24 100%);border-radius:1.2rem;box-shadow:0 4px 24px 0 rgba(0,233,213,0.08);padding:2rem 1.5rem 1.5rem 1.5rem;display:flex;flex-direction:column;align-items:flex-start;">
-        <img src="https://dummyimage.com/500x300/3a3d48/ffffff&text=Berufsschule+Ø+1,4" alt="Nachher" style="border-radius:1rem;margin-bottom:1.2rem;">
-        <h4 style="font-size:1.13rem;color:var(--accent2);font-weight:700;margin:1rem 0 0.5rem 0;">Nach 8 Wochen Kurs</h4>
-        <ul style="list-style:disc;padding-left:1.2rem;color:var(--muted);line-height:1.55;font-size:1.05rem;">
+      <div>
+        <img src="2.png" alt="Nachher" style="border-radius:1rem;margin-bottom:1.2rem;">
+        <h4>Nach 8 Wochen Kurs</h4>
+        <ul>
           <li>Gute Noten, Geld gespart</li>
           <li>200€ Plus & Bestnoten</li>
           <li>Rücklagen gebildet, Note 1,4</li>
@@ -927,7 +1240,7 @@
   </section>
 
   <!-- MODULES -->
-<section id="modules" style="background: linear-gradient(135deg, rgba(255,64,64,0.05), rgba(0,233,213,0.05)); padding:6rem 1rem;">
+<section id="modules">
   <h2>Was dich erwartet – 6 Module + Bonus</h2>
   <div class="wrap grid">
     <div class="card" style="transition: transform .4s ease, box-shadow .4s ease;">
@@ -964,22 +1277,10 @@
 </section>
 
 <!-- ANGEBOT: Kompakter Angebots-Abschnitt vor Pricing -->
-<section id="angebot" style="background:rgba(24,28,36,0.98);border-radius:1.3rem;box-shadow:0 6px 32px 0 rgba(0,0,0,0.22),0 0 0 2px rgba(0,233,213,0.07);max-width:700px;margin:2.5rem auto;padding:2.5rem 2rem 2rem 2rem;position:relative;overflow:hidden;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(0,233,213,0.10);text-align:center;">
-    <h2 class="flow-h2" style="
-      font-size:2rem;
-      font-weight:900;
-      letter-spacing:-0.01em;
-      margin:0 auto 1.2rem auto;
-      max-width:700px;
-      text-align:center;
-      background:linear-gradient(90deg,#ff4040,#00e9d5 80%);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      font-family:'Poppins',sans-serif;
-      text-shadow:0 2px 12px rgba(0,0,0,0.18);
-    ">
-      Dein Angebot auf einen <span style="color:var(--accent2)">Blick</span>
+<section id="angebot" class="section-box">
+  <div class="wrap">
+    <h2 class="flow-h2">
+      Dein Angebot auf einen <span> Blick</span>
     </h2>
     <div class="angebot-content" style="color:#fff;font-size:1.15rem;line-height:1.6;margin-bottom:1.1rem;text-align:center;">
       <strong style="font-size:1.18rem;color:var(--accent2);">Alle 6 Module + Bonus</strong><br>
@@ -987,46 +1288,34 @@
       <span style="color:var(--accent2);font-weight:700;">347+ Azubis erfolgreich</span>
     </div>
     <div class="angebot-stats" style="color:var(--muted);font-size:1.08rem;margin-bottom:1.1rem;">
-      <span class="red" style="color:var(--accent);font-weight:700;">94% Erfolgsquote</span> &nbsp;|&nbsp; <span class="green" style="color:var(--accent2);font-weight:700;">1,2 Noten besser</span>
+      <span class="red" style="color:var(--accent);font-weight:700;">94% Erfolgsquote</span> &nbsp;|&nbsp; <span class="green" style="color:var(--accent);font-weight:700;">1,2 Noten besser</span>
     </div>
     <div class="angebot-price" style="color:var(--accent);font-size:1.13rem;font-weight:700;margin-bottom:0.7rem;background:rgba(255,64,64,0.09);display:inline-block;padding:0.25em 1em;border-radius:0.8em;letter-spacing:0.01em;">
       Nur für kurze Zeit: <span style="color:#fff;">59&nbsp;€ statt 179&nbsp;€</span>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- SOCIAL PROOF: Direkt vor Pricing, jetzt kompakt und kurz -->
-  <section id="social-proof" style="background:rgba(24,28,36,0.98);border-radius:1.3rem;box-shadow:0 6px 32px 0 rgba(0,0,0,0.22),0 0 0 2px rgba(0,233,213,0.07);max-width:700px;margin:2.5rem auto;padding:2.5rem 2rem 2rem 2rem;position:relative;overflow:hidden;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(0,233,213,0.10);text-align:center;">
-    <h2 class="flow-h2" style="
-      font-size:2rem;
-      font-weight:900;
-      letter-spacing:-0.01em;
-      margin:0 auto 1.2rem auto;
-      max-width:700px;
-      text-align:center;
-      background:linear-gradient(90deg,#ff4040,#00e9d5 80%);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      font-family:'Poppins',sans-serif;
-      text-shadow:0 2px 12px rgba(0,0,0,0.18);
-    ">
-      Was Azubis <span style="color:var(--accent2)">berichten</span>
+  <section id="social-proof">
+    <h2 class="flow-h2">
+      Was Azubis <span>berichten</span>
     </h2>
-    <div class="social-proof-cards" style="display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.1rem;">
-      <div class="social-proof-card" style="background:rgba(0,233,213,0.13);border-radius:1rem;padding:1.1rem 1rem 1.2rem 1rem;max-width:220px;min-width:0;flex:1 1 140px;box-shadow:0 2px 18px 0 rgba(0,191,174,0.10);display:flex;flex-direction:column;align-items:center;margin-bottom:0.5rem;position:relative;z-index:1;">
-        <div class="text" style="color:#fff;font-size:1.01rem;line-height:1.5;margin-bottom:0.7rem;text-align:center;font-family:'Poppins',sans-serif;">"Endlich spare ich Geld und schreibe bessere Noten!"</div>
-        <div class="stars" style="color:#FFD600;font-size:1.15rem;margin-bottom:0.1rem;letter-spacing:0.08em;">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+    <div class="social-proof-cards">
+      <div class="social-proof-card">
+        <div class="text">"Endlich spare ich Geld und schreibe bessere Noten!"</div>
+        <div class="stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
       </div>
-      <div class="social-proof-card" style="background:rgba(0,233,213,0.13);border-radius:1rem;padding:1.1rem 1rem 1.2rem 1rem;max-width:220px;min-width:0;flex:1 1 140px;box-shadow:0 2px 18px 0 rgba(0,191,174,0.10);display:flex;flex-direction:column;align-items:center;margin-bottom:0.5rem;position:relative;z-index:1;">
-        <div class="text" style="color:#fff;font-size:1.01rem;line-height:1.5;margin-bottom:0.7rem;text-align:center;font-family:'Poppins',sans-serif;">"Klarer Plan, mehr Freizeit, weniger Stress."</div>
-        <div class="stars" style="color:#FFD600;font-size:1.15rem;margin-bottom:0.1rem;letter-spacing:0.08em;">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+      <div class="social-proof-card">
+        <div class="text">"Klarer Plan, mehr Freizeit, weniger Stress."</div>
+        <div class="stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
       </div>
-      <div class="social-proof-card" style="background:rgba(0,233,213,0.13);border-radius:1rem;padding:1.1rem 1rem 1.2rem 1rem;max-width:220px;min-width:0;flex:1 1 140px;box-shadow:0 2px 18px 0 rgba(0,191,174,0.10);display:flex;flex-direction:column;align-items:center;margin-bottom:0.5rem;position:relative;z-index:1;">
-        <div class="text" style="color:#fff;font-size:1.01rem;line-height:1.5;margin-bottom:0.7rem;text-align:center;font-family:'Poppins',sans-serif;">"Beste Entscheidung für meine Ausbildung!"</div>
-        <div class="stars" style="color:#FFD600;font-size:1.15rem;margin-bottom:0.1rem;letter-spacing:0.08em;">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+      <div class="social-proof-card">
+        <div class="text">"Beste Entscheidung für meine Ausbildung!"</div>
+        <div class="stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
       </div>
     </div>
-    <div class="social-proof-summary" style="margin-top:1.1rem;text-align:center;color:var(--accent2);font-size:1.08rem;font-weight:700;letter-spacing:0.01em;z-index:1;position:relative;">
+    <div class="social-proof-summary">
       347+ Azubis erfolgreich &bull; 94% bestehen besser
     </div>
   </section>
@@ -1034,64 +1323,38 @@
 <!-- PRICING -->
   <section id="pricing">
     <h2>Starte jetzt</h2>
-    <div class="wrap pricing" style="
-      background: #181c24;
-      border: 3px solid var(--accent2);
-      box-shadow: 0 8px 40px 0 rgba(0,233,213,0.13), 0 2px 24px 0 rgba(255,64,64,0.18);
-      max-width: 440px;
-      margin: 0 auto 2.5rem auto;
-      padding: 2.2rem 1.2rem 2rem 1.2rem;
-      border-radius: 2.2rem;
-      position: relative;
-      text-align: center;
-      z-index: 2;
-    ">
-      <div style="position:absolute;inset:0;pointer-events:none;z-index:0;border-radius:2.2rem;box-shadow:0 0 60px 0 rgba(0,233,213,0.13),0 0 80px 0 rgba(255,64,64,0.10);"></div>
-      <div style="position:relative;z-index:2;">
-        <div style="font-size:1.5rem;font-weight:800;color:var(--accent2);margin-bottom:0.5rem;">
-          Nur für kurze Zeit
+    <div class="wrap pricing" style="max-width:400px;margin:0 auto;">
+      <div style="width:100%;text-align:center;">
+        <div style="font-size:1.18rem;font-weight:700;color:var(--muted);margin-bottom:0.7rem;">
+          <span style="text-decoration:line-through;color:#ff4040;font-weight:700;">299&nbsp;€</span>
+          <span style="margin:0 0.5rem;">|</span>
+          Einzelcoaching: <span style="color:#fff;font-weight:700;">800&nbsp;€+</span>
         </div>
-        <div style="margin-bottom:0.5rem;font-size:1rem;color:var(--muted);">
-          <span style="text-decoration:line-through;color:#ff4040;font-weight:700;">299&nbsp;€</span> &nbsp;|&nbsp; Einzelcoaching: <span style="color:var(--accent2);font-weight:700;">800&nbsp;€+</span>
-        </div>
-        <div style="margin-bottom:0.7rem;">
-          <span id="offer-timer" style="display:inline-block;font-size:1.5rem;font-weight:900;color:#00e9d5;background:rgba(0,233,213,0.08);border:1.5px solid var(--accent2);padding:0.2em 1.1em;border-radius:1.2em;">
+        <div style="margin-bottom:1.2rem;">
+          <span id="offer-timer" style="display:inline-block;font-size:1.25rem;font-weight:800;color:#00e9d5;background:rgba(0,233,213,0.08);border:1.5px solid #00e9d5;padding:0.2em 1.1em;border-radius:1.2em;letter-spacing:0.03em;">
             05:00:00
           </span>
         </div>
-        <div style="font-size:1rem;color:var(--accent);font-weight:700;margin-bottom:0.5rem;">
-          ⚠️ Nur noch 23 Plätze – nächster Kursstart in 3 Monaten!
+        <div style="font-size:1.02rem;color:#ff4040;font-weight:600;margin-bottom:1.1rem;">
+          Nur noch 23 Plätze – nächster Kursstart in 3 Monaten!
         </div>
-        <div style="font-size:2.5rem;font-weight:900;color:var(--accent2);margin-bottom:0.3rem;">
+        <div style="font-size:2.3rem;font-weight:900;color:#fff;margin-bottom:0.2rem;">
           59&nbsp;€
         </div>
-        <div style="font-size:1.1rem;margin-bottom:0.7rem;">
+        <div style="font-size:1.1rem;margin-bottom:1.1rem;">
           <span style="color:#ff4040;font-weight:700;text-decoration:line-through;opacity:0.7;">179&nbsp;€</span>
-          <span style="color:var(--accent2);font-weight:700;margin-left:0.5rem;">jetzt nur 59&nbsp;€</span>
+          <span style="color:#fff;font-weight:700;margin-left:0.5rem;">jetzt nur 59&nbsp;€</span>
         </div>
-        <div style="color:#fff;font-weight:700;font-size:1rem;line-height:1.5;margin-bottom:1.1rem;">
+        <div style="color:#fff;font-weight:600;font-size:1rem;line-height:1.5;margin-bottom:1.3rem;">
           Einmalig • lebenslanger Zugriff • Updates inklusive
         </div>
-        <a href="#" class="btn" style="
-          background:linear-gradient(90deg,#00e9d5,#ff4040 90%);
-          color:#fff;
-          font-size:1.15rem;
-          font-weight:900;
-          padding:1rem 2.5rem;
-          border-radius:2rem;
-          box-shadow:0 2px 18px 0 rgba(0,233,213,0.13);
-          margin-bottom:0.7rem;
-          margin-top:0.2rem;
-          letter-spacing:0.01em;
-          border:none;
-          transition:transform 0.18s cubic-bezier(.4,0,.2,1),box-shadow 0.18s cubic-bezier(.4,0,.2,1);
-        ">
+        <a href="#" class="btn" style="width:100%;justify-content:center;font-size:1.18rem;margin-bottom:1.2rem;">
           Kurs sichern
         </a>
-        <div style="margin-top:0.5rem;color:var(--accent2);font-weight:700;font-size:0.98rem;">
+        <div style="margin-top:0.2rem;color:#fff;font-weight:700;font-size:1.01rem;">
           14 Tage Geld-zurück-Garantie
         </div>
-        <div style="color:var(--muted);font-size:0.95rem;margin-top:0.1rem;">
+        <div style="color:var(--muted);font-size:0.97rem;margin-top:0.1rem;">
           Zahlung per PayPal, Kreditkarte oder Überweisung
         </div>
       </div>
@@ -1100,168 +1363,123 @@
 
   <!-- FAQ -->
   <section id="faq">
-    <h2>FAQ – deine Fragen beantwortet</h2>
-    <div style="height:2.5rem;"></div>
-    <div class="wrap" style="max-width:1000px;margin:0 auto;">
-      <details>
-        <summary>Wie lange habe ich Zugriff?</summary>
+  <h2>FAQ – deine Fragen beantwortet</h2>
+  <div style="height:2.5rem;"></div>
+  <div class="wrap" style="max-width:1000px;margin:0 auto;">
+    <div style="display:grid;gap:1.2rem;">
+      <details class="faq-box">
+        <summary><span class="faq-q">Wie lange habe ich Zugriff?</span></summary>
         <div class="faq-content"><p>Lebenslang – inkl. aller zukünftigen Updates.</p></div>
       </details>
-      <details>
-        <summary>Brauche ich Vorkenntnisse?</summary>
+      <details class="faq-box">
+        <summary><span class="faq-q">Brauche ich Vorkenntnisse?</span></summary>
         <div class="faq-content"><p>Nein – alles wird Schritt für Schritt erklärt. Du kannst sofort starten, egal auf welchem Level du bist.</p></div>
       </details>
-      <details>
-        <summary>Gibt es eine Garantie?</summary>
+      <details class="faq-box">
+        <summary><span class="faq-q">Gibt es eine Garantie?</span></summary>
         <div class="faq-content"><p>14 Tage Geld-zurück, 100% risikofrei. Du kannst ohne Risiko testen.</p></div>
       </details>
-      <details>
-        <summary>Wie läuft der Kurs ab?</summary>
+      <details class="faq-box">
+        <summary><span class="faq-q">Wie läuft der Kurs ab?</span></summary>
         <div class="faq-content"><p>Du bekommst sofort Zugang zu allen Modulen und kannst in deinem eigenen Tempo lernen. Es gibt Videos, Vorlagen und praktische Tools.</p></div>
       </details>
-      <details>
-        <summary>Was ist, wenn ich Fragen habe?</summary>
+      <details class="faq-box">
+        <summary><span class="faq-q">Was ist, wenn ich Fragen habe?</span></summary>
         <div class="faq-content"><p>Du bekommst Zugang zu einer Community und kannst jederzeit Fragen stellen.</p></div>
       </details>
-      <details>
-        <summary>Funktioniert es wirklich so schnell?</summary>
+      <details class="faq-box">
+        <summary><span class="faq-q">Funktioniert es wirklich so schnell?</span></summary>
         <div class="faq-content">
           <p>Ja! Viele Azubis berichten schon nach wenigen Wochen von besseren Noten und mehr Geld. Entscheidend ist, dass du die Schritte umsetzt – dann klappt es auch bei dir.</p>
         </div>
       </details>
     </div>
-  </section>
-
-  
-  <!-- FOOTER -->
-  <footer style="margin-top:3rem;padding:2.5rem 0 1.2rem 0;text-align:center;background:transparent;">
-    <div style="max-width:900px;margin:0 auto;opacity:0.85;">
-      <div style="font-size:1.15rem;color:var(--muted);margin-bottom:0.7rem;">
-        &copy; 2024 Azubi Masterclass &ndash; Finanzen &amp; Fokus
-      </div>
-      <div style="font-size:1rem;color:var(--muted);margin-bottom:0.5rem;">
-        <a href="#" style="color:var(--accent2);text-decoration:none;margin:0 0.7rem;">Impressum</a>
-        <span style="color:#444;">|</span>
-        <a href="#" style="color:var(--accent2);text-decoration:none;margin:0 0.7rem;">Datenschutz</a>
-      </div>
-      <div style="font-size:0.98rem;color:var(--muted);opacity:0.7;">
-        Made with <span style="color:var(--accent);font-size:1.1em;">&#10084;</span> in Germany
-      </div>
-    </div>
-  </footer>
-
-  <!-- REVEAL SCRIPT -->
-  <script>
-    // Scroll-Reveal for Cards
-    const cards=document.querySelectorAll('.card');
-    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('reveal');io.unobserve(e.target);}}),{threshold:0.15});
-    cards.forEach(c=>io.observe(c));
-
-    // Scroll-Reveal for Sections and h2
-    document.querySelectorAll('section').forEach(section=>{
-      section.classList.remove('visible');
-      const observer = new IntersectionObserver(entries=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting){
-            e.target.classList.add('visible');
-            observer.unobserve(e.target);
-          }
-        });
-      },{threshold:0.12});
-      observer.observe(section);
-    });
-    document.querySelectorAll('h2').forEach(h2=>{
-      h2.classList.remove('visible');
-      const observer = new IntersectionObserver(entries=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting){
-            e.target.classList.add('visible');
-            observer.unobserve(e.target);
-          }
-        });
-      },{threshold:0.12});
-      observer.observe(h2);
-    });
-
-    // Countdown for Limited Offer Banner
-    const offerTimerEl = document.getElementById('offer-timer');
-    let offerSeconds = 5 * 60 * 60;
-    function updateOfferTimer() {
-      if (offerSeconds <= 0) {
-        offerTimerEl.textContent = '00:00:00';
-        return;
-      }
-      offerSeconds--;
-      const h = Math.floor(offerSeconds / 3600);
-      const m = Math.floor((offerSeconds % 3600) / 60);
-      const s = offerSeconds % 60;
-      offerTimerEl.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-    }
-    updateOfferTimer();
-    setInterval(updateOfferTimer, 1000);
-
-    // Modernes Play-Button-Overlay für das Video
-    const video = document.getElementById('introVideo');
-    const playBtn = document.getElementById('customPlayBtn');
-    const pauseBtn = document.getElementById('customPauseBtn');
-    playBtn.addEventListener('click', () => {
-      video.play();
-      playBtn.style.display = 'none';
-      pauseBtn.style.display = '';
-    });
-    video.addEventListener('play', () => {
-      playBtn.style.display = 'none';
-      pauseBtn.style.display = '';
-    });
-    video.addEventListener('pause', () => {
-      if (video.currentTime === 0 || video.currentTime === video.duration) {
-        playBtn.style.display = '';
-        pauseBtn.style.display = 'none';
-      }
-    });
-    // video.removeAttribute('controls');
-    playBtn.style.display = 'none';
-    pauseBtn.style.display = 'none';
-
-    // FAQ Animation: Smooth open/close for details
-    document.querySelectorAll('#faq details').forEach(details => {
-      details.addEventListener('toggle', function() {
-        const content = details.querySelector('.faq-content');
-        if (details.open) {
-          // Force reflow for transition
-          content.style.maxHeight = content.scrollHeight + 'px';
-        } else {
-          content.style.maxHeight = '0px';
-        }
-      });
-      // Set initial max-height if open by default
-      if (details.open) {
-        const content = details.querySelector('.faq-content');
-        content.style.maxHeight = content.scrollHeight + 'px';
-      }
-    });
-
-    // Countdown für Limited Offer Banner (Pricing-Timer)
-    (function() {
-      const offerTimerEl = document.getElementById('offer-timer');
-      let offerSeconds = 5 * 60 * 60; // 5 Stunden
-      function updateOfferTimer() {
-        if (!offerTimerEl) return;
-        if (offerSeconds <= 0) {
-          offerTimerEl.textContent = '00:00:00';
-          return;
-        }
-        offerSeconds--;
-        const h = Math.floor(offerSeconds / 3600);
-        const m = Math.floor((offerSeconds % 3600) / 60);
-        const s = offerSeconds % 60;
-        offerTimerEl.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-      }
-      if (offerTimerEl) {
-        updateOfferTimer();
-        setInterval(updateOfferTimer, 1000);
-      }
-    })();
-  </script>
+  </div>
+</section>
+<style>
+/* ...existing code... */
+#faq .faq-box {
+  background: #23242a;
+  border-radius: 1.1rem;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.11);
+  border: 1.5px solid #26272c;
+  padding: 0;
+  margin: 0;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  overflow: hidden;
+}
+#faq .faq-box[open] {
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+  border-color: var(--accent);
+}
+#faq summary {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 1.13rem;
+  padding: 1.1rem 1.2rem;
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  transition: color 0.18s;
+}
+#faq .faq-q {
+  flex: 1;
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 1.13rem;
+  letter-spacing: 0.01em;
+}
+#faq .faq-content {
+  padding: 0 1.2rem 1.1rem 1.2rem;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.6;
+  background: none;
+  border: none;
+  transition: max-height 0.45s cubic-bezier(.4,0,.2,1), opacity 0.35s cubic-bezier(.4,0,.2,1);
+}
+#faq .faq-box[open] summary {
+  color: #fff;
+}
+#faq .faq-box[open] .faq-q {
+  color: #fff;
+}
+#faq details[open] .faq-content {
+  background: none;
+}
+#faq summary::-webkit-details-marker {
+  display: none;
+}
+#faq summary:after {
+  content: "▼";
+  font-size: 1rem;
+  color: var(--accent);
+  margin-left: 0.8rem;
+  transition: transform 0.3s;
+}
+#faq .faq-box[open] summary:after {
+  transform: rotate(-180deg);
+  color: #fff;
+}
+@media (max-width: 700px) {
+  #faq .faq-box {
+    border-radius: 0.7rem;
+    padding: 0;
+  }
+  #faq summary {
+    font-size: 1.01rem;
+    padding: 0.9rem 0.7rem;
+  }
+  #faq .faq-content {
+    font-size: 0.99rem;
+    padding: 0 0.7rem 0.9rem 0.7rem;
+  }
+}
+/* ...existing code... */
+</style>
+<!-- ...existing code... -->
 </body>
 </html>
