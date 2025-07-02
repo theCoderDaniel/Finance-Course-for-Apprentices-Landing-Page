@@ -789,29 +789,111 @@
   </style>
 
   <!-- PROBLEME -->
-  <section id="problem">
-    <div style="max-width:1000px;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-      <h2 style="font-size:2.3rem;font-weight:900;letter-spacing:-0.01em;margin:0 auto 2.5rem auto;max-width:900px;text-align:center;background:linear-gradient(90deg,#ff4040,#00e9d5 80%);-webkit-background-clip:text;background-clip:text;color:transparent;">
+  <section id="problem" style="background:rgba(24,28,36,0.98);border-radius:1.5rem;box-shadow:0 8px 40px 0 rgba(0,233,213,0.04);margin:2.5rem auto 0 auto;max-width:1100px;padding:3.5rem 1.2rem 2.5rem 1.2rem;">
+    <div class="wrap" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+      <h2 class="flow-h2" style="
+        font-size:2.3rem;
+        font-weight:900;
+        letter-spacing:-0.01em;
+        margin:0 auto 2.2rem auto;
+        max-width:900px;
+        text-align:center;
+        background:linear-gradient(90deg,#ff4040,#00e9d5 80%);
+        -webkit-background-clip:text;
+        background-clip:text;
+        color:transparent;
+        font-family:'Poppins',sans-serif;
+        text-shadow:0 2px 12px rgba(0,0,0,0.18);
+      ">
         Kommt dir das bekannt vor?
       </h2>
-      <div id="problem-cards-row">
-        <div class="problem-card">
-          <span class="emoji">&#129324;</span>
-          <span class="text">
+      <div id="problem-cards-row" style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;">
+        <div class="problem-card" style="
+          background: linear-gradient(120deg,#191d25 80%,#181c24 100%);
+          border-radius: 1.2rem;
+          box-shadow: 0 4px 24px 0 rgba(0,233,213,0.08);
+          padding: 2rem 1.2rem 2rem 1.2rem;
+          min-width: 260px;
+          max-width: 340px;
+          margin: 0 0.5rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          text-align: center;
+          font-family: 'Poppins',sans-serif;
+        ">
+          <span class="emoji" style="font-size:2.2rem;line-height:1;margin-bottom:1rem;display:block;">&#129324;</span>
+          <span class="text" style="
+            font-size:1.18rem;
+            color:#fff;
+            font-weight:600;
+            line-height:1.5;
+            font-family:'Poppins',sans-serif;
+            margin-bottom:0;
+            letter-spacing:0.01em;
+            text-shadow:0 2px 12px rgba(0,0,0,0.13);
+          ">
             Du lernst viel – aber die Noten bleiben schlecht.<br>
             Andere sind besser, obwohl sie weniger tun.
           </span>
         </div>
-        <div class="problem-card">
-          <span class="emoji">&#128293;</span>
-          <span class="text">
+        <div class="problem-card" style="
+          background: linear-gradient(120deg,#191d25 80%,#181c24 100%);
+          border-radius: 1.2rem;
+          box-shadow: 0 4px 24px 0 rgba(0,233,213,0.08);
+          padding: 2rem 1.2rem 2rem 1.2rem;
+          min-width: 260px;
+          max-width: 340px;
+          margin: 0 0.5rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          text-align: center;
+          font-family: 'Poppins',sans-serif;
+        ">
+          <span class="emoji" style="font-size:2.2rem;line-height:1;margin-bottom:1rem;display:block;">&#128293;</span>
+          <span class="text" style="
+            font-size:1.18rem;
+            color:#fff;
+            font-weight:600;
+            line-height:1.5;
+            font-family:'Poppins',sans-serif;
+            margin-bottom:0;
+            letter-spacing:0.01em;
+            text-shadow:0 2px 12px rgba(0,0,0,0.13);
+          ">
             Dein Azubi-Gehalt reicht nie bis Monatsende.<br>
             Sparen oder investieren? Keine Chance.
           </span>
         </div>
-        <div class="problem-card">
-          <span class="emoji">&#129335;</span>
-          <span class="text">
+        <div class="problem-card" style="
+          background: linear-gradient(120deg,#191d25 80%,#181c24 100%);
+          border-radius: 1.2rem;
+          box-shadow: 0 4px 24px 0 rgba(0,233,213,0.08);
+          padding: 2rem 1.2rem 2rem 1.2rem;
+          min-width: 260px;
+          max-width: 340px;
+          margin: 0 0.5rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          text-align: center;
+          font-family: 'Poppins',sans-serif;
+        ">
+          <span class="emoji" style="font-size:2.2rem;line-height:1;margin-bottom:1rem;display:block;">&#129335;</span>
+          <span class="text" style="
+            font-size:1.18rem;
+            color:#fff;
+            font-weight:600;
+            line-height:1.5;
+            font-family:'Poppins',sans-serif;
+            margin-bottom:0;
+            letter-spacing:0.01em;
+            text-shadow:0 2px 12px rgba(0,0,0,0.13);
+          ">
             Niemand zeigt dir, wie du wirklich erfolgreich wirst.<br>
             Du fühlst dich allein gelassen.
           </span>
@@ -821,13 +903,28 @@
   </section>
 
   <!-- VORHER / NACHHER -->
-  <section id="comparison">
-    <h2>Von 3,4 auf 1,4 – so geht's!</h2>
-    <div class="wrap table">
-      <div>
-        <img src="https://dummyimage.com/500x300/242630/ffffff&text=Schulzeugnis+Ø+3,4" alt="Vorher">
-        <h4>Vor dem System</h4>
-        <ul>
+  <section id="comparison" style="background:rgba(24,28,36,0.98);border-radius:1.5rem;box-shadow:0 8px 40px 0 rgba(0,233,213,0.04);margin:2.5rem auto;max-width:1100px;padding:3.5rem 1.2rem;">
+    <h2 class="flow-h2" style="
+      font-size:2.1rem;
+      font-weight:900;
+      letter-spacing:-0.01em;
+      margin:0 auto 2.2rem auto;
+      max-width:900px;
+      text-align:center;
+      background:linear-gradient(90deg,#ff4040,#00e9d5 80%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      font-family:'Poppins',sans-serif;
+      text-shadow:0 2px 12px rgba(0,0,0,0.18);
+    ">
+      Von 3,4 auf 1,4 – so geht's!
+    </h2>
+    <div class="wrap table" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2.2rem;justify-items:center;align-items:stretch;">
+      <div style="background:linear-gradient(120deg,#191d25 80%,#181c24 100%);border-radius:1.2rem;box-shadow:0 4px 24px 0 rgba(0,233,213,0.08);padding:2rem 1.5rem 1.5rem 1.5rem;display:flex;flex-direction:column;align-items:flex-start;">
+        <img src="https://dummyimage.com/500x300/242630/ffffff&text=Schulzeugnis+Ø+3,4" alt="Vorher" style="border-radius:1rem;margin-bottom:1.2rem;">
+        <h4 style="font-size:1.13rem;color:var(--accent2);font-weight:700;margin:1rem 0 0.5rem 0;">Vor dem System</h4>
+        <ul style="list-style:disc;padding-left:1.2rem;color:var(--muted);line-height:1.55;font-size:1.05rem;">
           <li>Schlechte Noten, kein Geld</li>
           <li>Pleite & gestresst</li>
           <li>Minus im Konto, Angst vor Prüfungen</li>
@@ -837,10 +934,10 @@
           <li>Eltern enttäuscht</li>
         </ul>
       </div>
-      <div>
-        <img src="https://dummyimage.com/500x300/3a3d48/ffffff&text=Berufsschule+Ø+1,4" alt="Nachher">
-        <h4>Nach 8 Wochen Kurs</h4>
-        <ul>
+      <div style="background:linear-gradient(120deg,#191d25 80%,#181c24 100%);border-radius:1.2rem;box-shadow:0 4px 24px 0 rgba(0,233,213,0.08);padding:2rem 1.5rem 1.5rem 1.5rem;display:flex;flex-direction:column;align-items:flex-start;">
+        <img src="https://dummyimage.com/500x300/3a3d48/ffffff&text=Berufsschule+Ø+1,4" alt="Nachher" style="border-radius:1rem;margin-bottom:1.2rem;">
+        <h4 style="font-size:1.13rem;color:var(--accent2);font-weight:700;margin:1rem 0 0.5rem 0;">Nach 8 Wochen Kurs</h4>
+        <ul style="list-style:disc;padding-left:1.2rem;color:var(--muted);line-height:1.55;font-size:1.05rem;">
           <li>Gute Noten, Geld gespart</li>
           <li>200€ Plus & Bestnoten</li>
           <li>Rücklagen gebildet, Note 1,4</li>
@@ -891,42 +988,72 @@
 </section>
 
 <!-- ANGEBOT: Kompakter Angebots-Abschnitt vor Pricing -->
-<section id="angebot">
-  <h2><span>Dein Angebot auf einen <span style="color:var(--accent2)">Blick</span></span></h2>
-  <div class="angebot-content">
-    <strong>Alle 6 Module + Bonus</strong><br>
-    Sofortiger Zugang &bull; Schritt-für-Schritt-Videos &bull; Vorlagen & Tools<br>
-    <span style="color:var(--accent2);font-weight:700;">347+ Azubis erfolgreich</span>
-  </div>
-  <div class="angebot-stats">
-    <span class="red">94% Erfolgsquote</span> &nbsp;|&nbsp; <span class="green">1,2 Noten besser</span>
-  </div>
-  <div class="angebot-price">
-    Nur für kurze Zeit: <span>59&nbsp;€ statt 179&nbsp;€</span>
-  </div>
-</section>
+<section id="angebot" style="background:rgba(24,28,36,0.98);border-radius:1.3rem;box-shadow:0 6px 32px 0 rgba(0,0,0,0.22),0 0 0 2px rgba(0,233,213,0.07);max-width:700px;margin:2.5rem auto;padding:2.5rem 2rem 2rem 2rem;position:relative;overflow:hidden;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(0,233,213,0.10);text-align:center;">
+    <h2 class="flow-h2" style="
+      font-size:2rem;
+      font-weight:900;
+      letter-spacing:-0.01em;
+      margin:0 auto 1.2rem auto;
+      max-width:700px;
+      text-align:center;
+      background:linear-gradient(90deg,#ff4040,#00e9d5 80%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      font-family:'Poppins',sans-serif;
+      text-shadow:0 2px 12px rgba(0,0,0,0.18);
+    ">
+      Dein Angebot auf einen <span style="color:var(--accent2)">Blick</span>
+    </h2>
+    <div class="angebot-content" style="color:#fff;font-size:1.15rem;line-height:1.6;margin-bottom:1.1rem;text-align:center;">
+      <strong style="font-size:1.18rem;color:var(--accent2);">Alle 6 Module + Bonus</strong><br>
+      Sofortiger Zugang &bull; Schritt-für-Schritt-Videos &bull; Vorlagen & Tools<br>
+      <span style="color:var(--accent2);font-weight:700;">347+ Azubis erfolgreich</span>
+    </div>
+    <div class="angebot-stats" style="color:var(--muted);font-size:1.08rem;margin-bottom:1.1rem;">
+      <span class="red" style="color:var(--accent);font-weight:700;">94% Erfolgsquote</span> &nbsp;|&nbsp; <span class="green" style="color:var(--accent2);font-weight:700;">1,2 Noten besser</span>
+    </div>
+    <div class="angebot-price" style="color:var(--accent);font-size:1.13rem;font-weight:700;margin-bottom:0.7rem;background:rgba(255,64,64,0.09);display:inline-block;padding:0.25em 1em;border-radius:0.8em;letter-spacing:0.01em;">
+      Nur für kurze Zeit: <span style="color:#fff;">59&nbsp;€ statt 179&nbsp;€</span>
+    </div>
+  </section>
 
-<!-- SOCIAL PROOF: Direkt vor Pricing, jetzt kompakt und kurz -->
-<section id="social-proof">
-  <h2><span>Was Azubis <span style="color:var(--accent2)">berichten</span></span></h2>
-  <div class="social-proof-cards">
-    <div class="social-proof-card">
-      <div class="text">"Endlich spare ich Geld und schreibe bessere Noten!"</div>
-      <div class="stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+  <!-- SOCIAL PROOF: Direkt vor Pricing, jetzt kompakt und kurz -->
+  <section id="social-proof" style="background:rgba(24,28,36,0.98);border-radius:1.3rem;box-shadow:0 6px 32px 0 rgba(0,0,0,0.22),0 0 0 2px rgba(0,233,213,0.07);max-width:700px;margin:2.5rem auto;padding:2.5rem 2rem 2rem 2rem;position:relative;overflow:hidden;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(0,233,213,0.10);text-align:center;">
+    <h2 class="flow-h2" style="
+      font-size:2rem;
+      font-weight:900;
+      letter-spacing:-0.01em;
+      margin:0 auto 1.2rem auto;
+      max-width:700px;
+      text-align:center;
+      background:linear-gradient(90deg,#ff4040,#00e9d5 80%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      font-family:'Poppins',sans-serif;
+      text-shadow:0 2px 12px rgba(0,0,0,0.18);
+    ">
+      Was Azubis <span style="color:var(--accent2)">berichten</span>
+    </h2>
+    <div class="social-proof-cards" style="display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.1rem;">
+      <div class="social-proof-card" style="background:rgba(0,233,213,0.13);border-radius:1rem;padding:1.1rem 1rem 1.2rem 1rem;max-width:220px;min-width:0;flex:1 1 140px;box-shadow:0 2px 18px 0 rgba(0,191,174,0.10);display:flex;flex-direction:column;align-items:center;margin-bottom:0.5rem;position:relative;z-index:1;">
+        <div class="text" style="color:#fff;font-size:1.01rem;line-height:1.5;margin-bottom:0.7rem;text-align:center;font-family:'Poppins',sans-serif;">"Endlich spare ich Geld und schreibe bessere Noten!"</div>
+        <div class="stars" style="color:#FFD600;font-size:1.15rem;margin-bottom:0.1rem;letter-spacing:0.08em;">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+      </div>
+      <div class="social-proof-card" style="background:rgba(0,233,213,0.13);border-radius:1rem;padding:1.1rem 1rem 1.2rem 1rem;max-width:220px;min-width:0;flex:1 1 140px;box-shadow:0 2px 18px 0 rgba(0,191,174,0.10);display:flex;flex-direction:column;align-items:center;margin-bottom:0.5rem;position:relative;z-index:1;">
+        <div class="text" style="color:#fff;font-size:1.01rem;line-height:1.5;margin-bottom:0.7rem;text-align:center;font-family:'Poppins',sans-serif;">"Klarer Plan, mehr Freizeit, weniger Stress."</div>
+        <div class="stars" style="color:#FFD600;font-size:1.15rem;margin-bottom:0.1rem;letter-spacing:0.08em;">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+      </div>
+      <div class="social-proof-card" style="background:rgba(0,233,213,0.13);border-radius:1rem;padding:1.1rem 1rem 1.2rem 1rem;max-width:220px;min-width:0;flex:1 1 140px;box-shadow:0 2px 18px 0 rgba(0,191,174,0.10);display:flex;flex-direction:column;align-items:center;margin-bottom:0.5rem;position:relative;z-index:1;">
+        <div class="text" style="color:#fff;font-size:1.01rem;line-height:1.5;margin-bottom:0.7rem;text-align:center;font-family:'Poppins',sans-serif;">"Beste Entscheidung für meine Ausbildung!"</div>
+        <div class="stars" style="color:#FFD600;font-size:1.15rem;margin-bottom:0.1rem;letter-spacing:0.08em;">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+      </div>
     </div>
-    <div class="social-proof-card">
-      <div class="text">"Klarer Plan, mehr Freizeit, weniger Stress."</div>
-      <div class="stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+    <div class="social-proof-summary" style="margin-top:1.1rem;text-align:center;color:var(--accent2);font-size:1.08rem;font-weight:700;letter-spacing:0.01em;z-index:1;position:relative;">
+      347+ Azubis erfolgreich &bull; 94% bestehen besser
     </div>
-    <div class="social-proof-card">
-      <div class="text">"Beste Entscheidung für meine Ausbildung!"</div>
-      <div class="stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
-    </div>
-  </div>
-  <div class="social-proof-summary">
-    347+ Azubis erfolgreich &bull; 94% bestehen besser
-  </div>
-</section>
+  </section>
 
 <!-- PRICING -->
   <section id="pricing">
