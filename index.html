@@ -368,113 +368,158 @@
       border-radius: 1.5rem; /* optional, für Konsistenz */
     }
 
-    /* Social Proof, Angebot, Pricing, etc. */
-    #angebot, #social-proof, #pricing {
-      background: var(--card);
-      border-radius: 1.2rem;
-      box-shadow: 0 2px 16px 0 rgba(0,0,0,0.07);
+    /* Angebot und Social Proof */
+    #angebot, #social-proof {
+      background: rgba(24,28,36,0.98);
+      border-radius: 1.3rem;
+      box-shadow: 0 6px 32px 0 rgba(0,0,0,0.22), 0 0 0 2px rgba(0,233,213,0.07);
       max-width: 700px;
       margin: 2.5rem auto;
-      padding: 2.2rem 1.2rem 1.7rem 1.2rem;
+      padding: 2.5rem 2rem 2rem 2rem;
+      position: relative;
+      overflow: hidden;
+      /* Glassmorphism Effekt */
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1.5px solid rgba(0,233,213,0.10);
+      text-align: center;
     }
-    #angebot h2, #social-proof h2, #pricing h2 {
+    #angebot h2, #social-proof h2 {
+      width: 100%;
+      text-align: center;
       font-size: 2rem;
       margin-bottom: 1.2rem;
       background: none;
       color: #fff;
       text-shadow:0 2px 12px rgba(0,0,0,0.18);
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      position: relative;
+      z-index: 1;
     }
-
-    /* Footer Styles */
-    footer {
-      background: transparent;
-      border-top: none;
-      box-shadow: none;
-      margin-top: 3rem;
-      padding-bottom: 1.2rem;
-      font-family: 'Poppins',sans-serif;
-      letter-spacing: 0.01em;
-      opacity: 0.95;
-      transition: opacity 0.3s;
-      color: var(--muted);
-    }
-    footer a {
+    #angebot h2 span, #social-proof h2 span {
       color: var(--accent2);
-      text-decoration: none;
-      margin: 0 0.7rem;
-      transition: color 0.2s;
     }
-    footer a:hover {
+    #angebot .angebot-content,
+    #social-proof .social-content {
+      position: relative;
+      z-index: 1;
+    }
+    #angebot .angebot-content {
+      color: #fff;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin-bottom: 1.1rem;
+      text-align: center;
+    }
+    #angebot .angebot-content strong {
+      font-size: 1.18rem;
+      color: var(--accent2);
+    }
+    #angebot .angebot-stats {
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 1.1rem;
+    }
+    #angebot .angebot-stats .red {
       color: var(--accent);
-      text-decoration: underline;
+      font-weight: 700;
+    }
+    #angebot .angebot-stats .green {
+      color: var(--accent2);
+      font-weight: 700;
+    }
+    #angebot .angebot-price {
+      color: var(--accent);
+      font-size: 1.13rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      background: rgba(255,64,64,0.09);
+      display: inline-block;
+      padding: 0.25em 1em;
+      border-radius: 0.8em;
+      letter-spacing: 0.01em;
+    }
+    #angebot .angebot-price span {
+      color: #fff;
     }
     @media (max-width: 700px) {
-      footer {
-        font-size: 0.98rem;
-        padding: 1.2rem 0 0.7rem 0;
+      #angebot {
+        padding: 1.3rem 0.5rem 1.1rem 0.5rem;
+        border-radius: 0.9rem;
+        margin: 1.2rem auto;
+        box-shadow: 0 2px 16px 0 rgba(0,0,0,0.18);
+      }
+      #angebot h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.9rem;
+      }
+      #angebot .angebot-content {
+        font-size: 1.01rem;
+      }
+      #angebot .angebot-price {
+        font-size: 1.01rem;
+        padding: 0.18em 0.7em;
       }
     }
 
-    /* Verbesserte Problem-Sektion */
-    #problem-cards-row {
+    /* Social Proof Cards */
+    .social-proof-cards {
       display: flex;
-      flex-direction: row;
-      gap: 1.5rem;
-      justify-content: center;
-      align-items: stretch;
+      gap: 1.2rem;
       flex-wrap: wrap;
-      width: 100%;
-      margin-bottom: 0.5rem;
+      justify-content: center;
+      margin-bottom: 1.1rem;
     }
-    .problem-card {
-      flex: 1 1 300px;
-      max-width: 340px;
-      min-width: 260px;
-      background: linear-gradient(120deg,#181c24 60%,#1a2327 100%);
-      border-radius: 1.2rem;
-      box-shadow: 0 4px 24px 0 rgba(0,233,213,0.08);
-      padding: 1.5rem 1.2rem 1.7rem 1.2rem;
+    .social-proof-card {
+      background: rgba(0,233,213,0.13);
+      border-radius: 1rem;
+      padding: 1.1rem 1rem 1.2rem 1rem;
+      max-width: 220px;
+      min-width: 0;
+      flex: 1 1 140px;
+      box-shadow: 0 2px 18px 0 rgba(0,191,174,0.10);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      margin: 0 auto;
-      text-align: center;
-      /* Text kürzen, falls zu lang */
-      overflow: hidden;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
     }
-    .problem-card span.emoji {
-      font-size: 2.1rem;
-      line-height: 1;
-      color: var(--accent);
-      margin-bottom: 0.7rem;
-      display: block;
-    }
-    .problem-card span.text {
-      font-size: 1.08rem;
+    .social-proof-card .text {
       color: #fff;
-      font-weight: 600;
+      font-size: 1.01rem;
+      line-height: 1.5;
+      margin-bottom: 0.7rem;
       text-align: center;
-      display: block;
-      width: 100%;
-      line-height: 1.6;
-      /* Text auf 8 Zeilen begrenzen, mit ... */
-      display: -webkit-box;
-      -webkit-line-clamp: 8;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
-    @media (max-width: 1100px) {
-      #problem-cards-row {
+    .social-proof-card .stars {
+      color: #FFD600;
+      font-size: 1.15rem;
+      margin-bottom: 0.1rem;
+      letter-spacing: 0.08em;
+    }
+    @media (max-width: 700px) {
+      .social-proof-cards {
         flex-direction: column;
-        gap: 1.3rem;
+        gap: 0.7rem;
         align-items: center;
       }
-      .problem-card {
+      .social-proof-card {
         max-width: 98vw;
         min-width: 0;
+        padding: 1rem 0.7rem 1.1rem 0.7rem;
       }
+    }
+    .social-proof-summary {
+      margin-top: 1.1rem;
+      text-align: center;
+      color: var(--accent2);
+      font-size: 1.08rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      z-index: 1;
+      position: relative;
     }
   </style>
 </head>
@@ -711,29 +756,38 @@
       display: block;
     }
     .problem-card span.text {
-      font-size: 1.08rem;
+      font-size: 1.25rem;
       color: #fff;
       font-weight: 600;
       text-align: center;
       display: block;
       width: 100%;
-      line-height: 1.6;
+      line-height: 1.5;
+      font-family: 'Poppins', sans-serif;
       /* Text auf 8 Zeilen begrenzen, mit ... */
       display: -webkit-box;
       -webkit-line-clamp: 8;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
+      letter-spacing: 0.01em;
     }
-    @media (max-width: 1100px) {
-      #problem-cards-row {
-        flex-direction: column;
-        gap: 1.3rem;
-        align-items: center;
+    @media (max-width: 700px) {
+      .problem-card span.text {
+        font-size: 1.07rem;
+        line-height: 1.45;
+        padding-left: 0.1em;
+        padding-right: 0.1em;
       }
       .problem-card {
-        max-width: 98vw;
+        padding: 1.1rem 0.7rem 1.2rem 0.7rem;
         min-width: 0;
+        max-width: 98vw;
+      }
+      #problem-cards-row {
+        flex-direction: column;
+        gap: 1.1rem;
+        align-items: center;
       }
     }
   </style>
@@ -841,44 +895,40 @@
 </section>
 
 <!-- ANGEBOT: Kompakter Angebots-Abschnitt vor Pricing -->
-<section id="angebot" style="background:linear-gradient(120deg,#181c24 60%,#1a2327 100%);margin:2.5rem auto;max-width:700px;border-radius:1.2rem;box-shadow:0 2px 16px 0 rgba(0,233,213,0.07);padding:2.2rem 1.2rem 1.7rem 1.2rem;text-align:center;">
-  <h2 style="margin-bottom:1.2rem;font-size:1.7rem;font-weight:900;background:linear-gradient(90deg,#ff4040,#00e9d5 80%);-webkit-background-clip:text;background-clip:text;color:transparent;">
-    Dein Angebot auf einen Blick
-  </h2>
-  <div style="color:#fff;font-size:1.18rem;line-height:1.6;margin-bottom:1.1rem;">
-    <b>Alle 6 Module + Bonus</b> <br>
-    Sofortiger Zugang • Schritt-für-Schritt-Videos • Vorlagen & Tools <br>
+<section id="angebot">
+  <h2><span>Dein Angebot auf einen <span style="color:var(--accent2)">Blick</span></span></h2>
+  <div class="angebot-content">
+    <strong>Alle 6 Module + Bonus</strong><br>
+    Sofortiger Zugang &bull; Schritt-für-Schritt-Videos &bull; Vorlagen & Tools<br>
     <span style="color:var(--accent2);font-weight:700;">347+ Azubis erfolgreich</span>
   </div>
-  <div style="color:var(--muted);font-size:1.08rem;margin-bottom:1.1rem;">
-    <span style="color:var(--accent);font-weight:700;">94% Erfolgsquote</span> &nbsp;|&nbsp; <span style="color:var(--accent2);font-weight:700;">1,2 Noten besser</span>
+  <div class="angebot-stats">
+    <span class="red">94% Erfolgsquote</span> &nbsp;|&nbsp; <span class="green">1,2 Noten besser</span>
   </div>
-  <div style="color:var(--accent);font-size:1.13rem;font-weight:700;">
-    <span style="background:rgba(255,64,64,0.09);padding:0.2em 0.7em;border-radius:0.7em;">Nur für kurze Zeit: <span style="color:#fff;">59&nbsp;€ statt 179&nbsp;€</span></span>
+  <div class="angebot-price">
+    Nur für kurze Zeit: <span>59&nbsp;€ statt 179&nbsp;€</span>
   </div>
 </section>
 
 <!-- SOCIAL PROOF: Direkt vor Pricing, jetzt kompakt und kurz -->
-<section id="social-proof" style="background:linear-gradient(120deg,#181c24 60%,#1a2327 100%);margin:2.5rem auto;max-width:700px;border-radius:1.2rem;box-shadow:0 2px 16px 0 rgba(0,233,213,0.07);padding:2.2rem 1.2rem 1.7rem 1.2rem;">
-  <h2 style="margin-bottom:1.2rem;font-size:1.5rem;font-weight:900;background:linear-gradient(90deg,#00e9d5,#ff4040 80%);-webkit-background-clip:text;background-clip:text;color:transparent;">
-    Was Azubis berichten
-  </h2>
-  <div style="display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center;">
-    <div style="background:rgba(0,233,213,0.07);border-radius:0.8rem;padding:1rem 0.9rem;max-width:200px;flex:1 1 140px;">
-      <div style="color:#fff;font-size:1rem;line-height:1.5;">"Endlich spare ich Geld und schreibe bessere Noten!"</div>
-      <div style="color:var(--muted);font-size:0.95rem;margin-top:0.3rem;">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+<section id="social-proof">
+  <h2><span>Was Azubis <span style="color:var(--accent2)">berichten</span></span></h2>
+  <div class="social-proof-cards">
+    <div class="social-proof-card">
+      <div class="text">"Endlich spare ich Geld und schreibe bessere Noten!"</div>
+      <div class="stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
     </div>
-    <div style="background:rgba(0,233,213,0.07);border-radius:0.8rem;padding:1rem 0.9rem;max-width:200px;flex:1 1 140px;">
-      <div style="color:#fff;font-size:1rem;line-height:1.5;">"Klarer Plan, mehr Freizeit, weniger Stress."</div>
-      <div style="color:var(--muted);font-size:0.95rem;margin-top:0.3rem;">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+    <div class="social-proof-card">
+      <div class="text">"Klarer Plan, mehr Freizeit, weniger Stress."</div>
+      <div class="stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
     </div>
-    <div style="background:rgba(0,233,213,0.07);border-radius:0.8rem;padding:1rem 0.9rem;max-width:200px;flex:1 1 140px;">
-      <div style="color:#fff;font-size:1rem;line-height:1.5;">"Beste Entscheidung für meine Ausbildung!"</div>
-      <div style="color:var(--muted);font-size:0.95rem;margin-top:0.3rem;">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+    <div class="social-proof-card">
+      <div class="text">"Beste Entscheidung für meine Ausbildung!"</div>
+      <div class="stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
     </div>
   </div>
-  <div style="margin-top:1.2rem;text-align:center;color:var(--accent2);font-size:1.08rem;font-weight:700;">
-    347+ Azubis erfolgreich • 94% bestehen besser
+  <div class="social-proof-summary">
+    347+ Azubis erfolgreich &bull; 94% bestehen besser
   </div>
 </section>
 
@@ -1071,7 +1121,7 @@
       }
     });
     // video.removeAttribute('controls');
-    playBtn.style.display = '';
+    playBtn.style.display = 'none';
     pauseBtn.style.display = 'none';
 
     // FAQ Animation: Smooth open/close for details
