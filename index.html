@@ -537,18 +537,13 @@
       <video 
         id="introVideo"
         src="video.mp4" 
-        poster="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=700&q=80"
+        poster="3.6.png"
         style="width:100%;height:394px;object-fit:cover;display:block;background:#181c24;border-radius:1.5rem;cursor:pointer;z-index:1;"
         preload="metadata"
         playsinline
+        tabindex="0"
       ></video>
-      <button id="customPlayBtn" aria-label="Video abspielen"
-        style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.65);border:none;border-radius:50%;width:74px;height:74px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 16px rgba(0,0,0,0.22);cursor:pointer;transition:background 0.2s;z-index:3;outline:none;">
-        <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
-          <circle cx="19" cy="19" r="19" fill="#fff" fill-opacity="0.92"/>
-          <polygon points="15,11 29,19 15,27" fill="#ff4040"/>
-        </svg>
-      </button>
+      <!-- Kein controls-Attribut, keine Leiste sichtbar -->
     </div>
     <!-- Text und Button darunter -->
     <div style="max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:2;">
@@ -635,20 +630,8 @@
 
       // Video ohne sichtbare Buttons, Play/Pause durch Klick auf das Video
       const video = document.getElementById('introVideo');
-      const playBtn = document.getElementById('customPlayBtn');
-      if (video && playBtn) {
+      if (video) {
         video.removeAttribute('controls');
-        // Play-Button anfangs sichtbar
-        playBtn.style.display = '';
-
-        // Play-Button Klick: Video abspielen, Button ausblenden
-        playBtn.addEventListener('click', function(e) {
-          e.stopPropagation();
-          video.play();
-          playBtn.style.display = 'none';
-        });
-
-        // Video-Klick: Play/Pause toggeln
         video.addEventListener('click', function() {
           if (video.paused) {
             video.play();
@@ -656,23 +639,16 @@
             video.pause();
           }
         });
-
-        // Wenn Video spielt: Button ausblenden
-        video.addEventListener('play', function() {
-          playBtn.style.display = 'none';
-        });
-
-        // Wenn Video pausiert: Button nur zeigen, wenn am Anfang oder nicht mitten im Video
-        function showPlayBtnIfPaused() {
-          // Button zeigen, wenn pausiert (immer, außer wenn Video zu 100% geladen aber noch nicht gestartet)
-          playBtn.style.display = '';
-        }
-        video.addEventListener('pause', showPlayBtnIfPaused);
-        video.addEventListener('ended', showPlayBtnIfPaused);
-
-        // Optional: Button auch nach Seek zeigen, falls pausiert
-        video.addEventListener('seeked', function() {
-          if (video.paused) playBtn.style.display = '';
+        // Optional: Space/Enter auf Video starten/stoppen
+        video.addEventListener('keydown', function(e) {
+          if (e.code === 'Space' || e.code === 'Enter') {
+            e.preventDefault();
+            if (video.paused) {
+              video.play();
+            } else {
+              video.pause();
+            }
+          }
         });
       }
 
