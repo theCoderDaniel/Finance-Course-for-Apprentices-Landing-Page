@@ -260,6 +260,7 @@
       color: var(--txt);
       box-shadow: 0 2px 10px rgba(0,0,0,0.10);
       border: none;
+      overflow: hidden;
       transition: box-shadow 0.2s;
     }
     #faq details[open] {
@@ -272,11 +273,17 @@
       font-size: 1.08rem;
       cursor: pointer;
     }
-    #faq details p {
-      margin-top: .7rem;
-      color: var(--muted);
-      font-size: .98rem;
-      line-height: 1.5;
+    #faq details .faq-content {
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.45s cubic-bezier(.4,0,.2,1), opacity 0.35s cubic-bezier(.4,0,.2,1);
+      overflow: hidden;
+      will-change: max-height, opacity;
+    }
+    #faq details[open] .faq-content {
+      opacity: 1;
+      max-height: 400px;
+      transition: max-height 0.45s cubic-bezier(.4,0,.2,1), opacity 0.35s cubic-bezier(.4,0,.2,1) 0.05s;
     }
 
     header {
@@ -329,25 +336,109 @@
     }
     /* PROBLEME */
     #problem {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      place-items: center;
       min-height: 100vh;
       background: transparent;
       box-shadow: none;
-      padding: 0;
-      margin: 0;
+      padding: 4rem 1.5rem;
+      margin: 0 auto 2.5rem auto;
+      max-width: 1180px; /* optional, für Konsistenz */
+      border-radius: 1.5rem; /* optional, für Konsistenz */
+    }
+
+    /* Footer Styles */
+    footer {
+      background: transparent;
+      border-top: none;
+      box-shadow: none;
+      margin-top: 3rem;
+      padding-bottom: 1.2rem;
+      font-family: 'Poppins',sans-serif;
+      letter-spacing: 0.01em;
+      opacity: 0.95;
+      transition: opacity 0.3s;
+    }
+    footer a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    @media (max-width: 700px) {
+      footer {
+        font-size: 0.98rem;
+        padding: 1.2rem 0 0.7rem 0;
+      }
+    }
+
+    /* Verbesserte Problem-Sektion */
+    #problem-cards-row {
+      display: flex;
+      flex-direction: row;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+    .problem-card {
+      flex: 1 1 300px;
+      max-width: 340px;
+      min-width: 260px;
+      background: linear-gradient(120deg,#181c24 60%,#1a2327 100%);
+      border-radius: 1.2rem;
+      box-shadow: 0 4px 24px 0 rgba(0,233,213,0.08);
+      padding: 1.5rem 1.2rem 1.7rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 0 auto;
+      text-align: center;
+      /* Text kürzen, falls zu lang */
+      overflow: hidden;
+    }
+    .problem-card span.emoji {
+      font-size: 2.1rem;
+      line-height: 1;
+      color: var(--accent);
+      margin-bottom: 0.7rem;
+      display: block;
+    }
+    .problem-card span.text {
+      font-size: 1.08rem;
+      color: #fff;
+      font-weight: 600;
+      text-align: center;
+      display: block;
+      width: 100%;
+      line-height: 1.6;
+      /* Text auf 8 Zeilen begrenzen, mit ... */
+      display: -webkit-box;
+      -webkit-line-clamp: 8;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    @media (max-width: 1100px) {
+      #problem-cards-row {
+        flex-direction: column;
+        gap: 1.3rem;
+        align-items: center;
+      }
+      .problem-card {
+        max-width: 98vw;
+        min-width: 0;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <!-- Klare, motivierende Überschrift -->
     <div style="margin-top:2.5rem;margin-bottom:1.2rem;">
-      <h1 style="font-size:2.3rem;font-weight:900;letter-spacing:-0.01em;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,0.18);max-width:700px;margin:0 auto;">
+      <h1 style="font-size:2.3rem;font-weight:900;letter-spacing:-0.01em;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,0.18);max-width:800px;margin:0 auto;">
         <span style="background:linear-gradient(90deg,#fff,#fff 80%,#ff4040);-webkit-background-clip:text;background-clip:text;color:transparent;">
-          Mehr Geld, weniger Stress – so einfach kann Ausbildung sein!
+          Von Note 3,4 auf 1,4 in nur 8 Wochen – Das bewährte System, mit dem bereits über 300 Azubis ihre Ausbildung gemeistert haben
         </span>
       </h1>
     </div>
@@ -380,11 +471,12 @@
     <!-- Text und Button darunter -->
     <div style="max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:2;">
       <p style="font-size:1.35rem;color:var(--muted);margin-bottom:2.2rem;line-height:1.6;">
-        Vom <span class="highlight">Geldchaos</span> zum System – vom <span class="highlight">Lernstress</span> zu Bestnoten.<br>
-        Setze bewährte Strategien &amp; KI‑Tools ein und dominiere deine Ausbildung.
+        Von <span class="highlight">schlechten Noten & leerem Konto</span> zu <span class="highlight">Bestnoten & 500€ gespart</span> – <br>
+        mit den gleichen Strategien, die bereits über 300 Azubis erfolgreich gemacht haben.
       </p>
       <a href="#modules" class="btn" style="position:relative;z-index:2;margin-bottom:0.5rem;">Jetzt Kurs entdecken</a>
     </div>
+    <div style="height:2.5rem;"></div>
     <div class="scroll-down"></div>
   </header>
   <script>
@@ -504,51 +596,130 @@
         padding: 1.2rem 0 0.7rem 0;
       }
     }
+
+    /* Verbesserte Problem-Sektion */
+    #problem-cards-row {
+      display: flex;
+      flex-direction: row;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+    .problem-card {
+      flex: 1 1 300px;
+      max-width: 340px;
+      min-width: 260px;
+      background: linear-gradient(120deg,#181c24 60%,#1a2327 100%);
+      border-radius: 1.2rem;
+      box-shadow: 0 4px 24px 0 rgba(0,233,213,0.08);
+      padding: 1.5rem 1.2rem 1.7rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 0 auto;
+      text-align: center;
+      /* Text kürzen, falls zu lang */
+      overflow: hidden;
+    }
+    .problem-card span.emoji {
+      font-size: 2.1rem;
+      line-height: 1;
+      color: var(--accent);
+      margin-bottom: 0.7rem;
+      display: block;
+    }
+    .problem-card span.text {
+      font-size: 1.08rem;
+      color: #fff;
+      font-weight: 600;
+      text-align: center;
+      display: block;
+      width: 100%;
+      line-height: 1.6;
+      /* Text auf 8 Zeilen begrenzen, mit ... */
+      display: -webkit-box;
+      -webkit-line-clamp: 8;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    @media (max-width: 1100px) {
+      #problem-cards-row {
+        flex-direction: column;
+        gap: 1.3rem;
+        align-items: center;
+      }
+      .problem-card {
+        max-width: 98vw;
+        min-width: 0;
+      }
+    }
   </style>
 
   <!-- PROBLEME -->
   <section id="problem">
-    <div style="max-width:700px;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-      <h2 style="font-size:2.3rem;font-weight:900;letter-spacing:-0.01em;margin:0 auto 2.5rem auto;max-width:700px;text-align:center;background:linear-gradient(90deg,#ff4040,#00e9d5 80%);-webkit-background-clip:text;background-clip:text;color:transparent;">
-        Das fühlt jeder Azubi wirklich
+    <div style="max-width:1000px;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+      <h2 style="font-size:2.3rem;font-weight:900;letter-spacing:-0.01em;margin:0 auto 2.5rem auto;max-width:900px;text-align:center;background:linear-gradient(90deg,#ff4040,#00e9d5 80%);-webkit-background-clip:text;background-clip:text;color:transparent;">
+        Kommt dir das bekannt vor?
       </h2>
-      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:2.2rem;width:100%;align-items:center;justify-content:center;">
-        <li style="background:linear-gradient(120deg,#181c24 60%,#1a2327 100%);border-radius:1.2rem;box-shadow:0 4px 24px 0 rgba(0,233,213,0.08);padding:2.1rem 2.2rem;display:flex;align-items:center;gap:1.3rem;max-width:480px;width:100%;justify-content:center;margin:0 auto;">
-          <span style="font-size:2.1rem;line-height:1;color:#ff4040;flex-shrink:0;display:flex;align-items:center;justify-content:center;">&#128184;</span>
-          <span style="font-size:1.13rem;color:#fff;font-weight:600;text-align:center;display:block;width:100%;">Du gibst alles – und trotzdem reicht das Geld nie bis Monatsende.</span>
-        </li>
-        <li style="background:linear-gradient(120deg,#181c24 60%,#1a2327 100%);border-radius:1.2rem;box-shadow:0 4px 24px 0 rgba(0,233,213,0.08);padding:2.1rem 2.2rem;display:flex;align-items:center;gap:1.3rem;max-width:480px;width:100%;justify-content:center;margin:0 auto;">
-          <span style="font-size:2.1rem;line-height:1;color:#ff4040;flex-shrink:0;display:flex;align-items:center;justify-content:center;">&#128218;</span>
-          <span style="font-size:1.13rem;color:#fff;font-weight:600;text-align:center;display:block;width:100%;">Du lernst, kämpfst, funktionierst – aber fühlst dich oft allein und überfordert.</span>
-        </li>
-        <li style="background:linear-gradient(120deg,#181c24 60%,#1a2327 100%);border-radius:1.2rem;box-shadow:0 4px 24px 0 rgba(0,233,213,0.08);padding:2.1rem 2.2rem;display:flex;align-items:center;gap:1.3rem;max-width:480px;width:100%;justify-content:center;margin:0 auto;">
-          <span style="font-size:2.1rem;line-height:1;color:#ff4040;flex-shrink:0;display:flex;align-items:center;justify-content:center;">&#128161;</span>
-          <span style="font-size:1.13rem;color:#fff;font-weight:600;text-align:center;display:block;width:100%;">Du willst mehr vom Leben – aber weißt nicht, wo du anfangen sollst.</span>
-        </li>
-      </ul>
+      <div id="problem-cards-row">
+        <div class="problem-card">
+          <span class="emoji">&#129324;</span>
+          <span class="text">
+            Du lernst viel – aber die Noten bleiben schlecht.<br>
+            Andere sind besser, obwohl sie weniger tun.
+          </span>
+        </div>
+        <div class="problem-card">
+          <span class="emoji">&#128293;</span>
+          <span class="text">
+            Dein Azubi-Gehalt reicht nie bis Monatsende.<br>
+            Sparen oder investieren? Keine Chance.
+          </span>
+        </div>
+        <div class="problem-card">
+          <span class="emoji">&#129335;</span>
+          <span class="text">
+            Niemand zeigt dir, wie du wirklich erfolgreich wirst.<br>
+            Du fühlst dich allein gelassen.
+          </span>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- VORHER / NACHHER -->
   <section id="comparison">
-    <h2>Vorher ↔ Nachher – mein Proof</h2>
+    <h2>Von 3,4 auf 1,4 – so geht's!</h2>
     <div class="wrap table">
       <div>
         <img src="https://dummyimage.com/500x300/242630/ffffff&text=Schulzeugnis+Ø+3,4" alt="Vorher">
         <h4>Vor dem System</h4>
         <ul>
-          <li>Ø Schulnote 3,4</li>
-          <li>–150 €/Monat</li>
-          <li>Dauerstress & Überforderung</li>
+          <li>Schlechte Noten, kein Geld</li>
+          <li>Pleite & gestresst</li>
+          <li>Minus im Konto, Angst vor Prüfungen</li>
+          <li>150€ Schulden, Note 3,4</li>
+          <li>Panikattacken vor Prüfungen</li>
+          <li>Chef unzufrieden – Übernahme gefährdet</li>
+          <li>Eltern enttäuscht</li>
         </ul>
       </div>
       <div>
         <img src="https://dummyimage.com/500x300/3a3d48/ffffff&text=Berufsschule+Ø+1,4" alt="Nachher">
         <h4>Nach 8 Wochen Kurs</h4>
         <ul>
-          <li>Ø Berufsschule 1,4</li>
-          <li>+200 € Rücklagen/Monat</li>
-          <li>Klare Struktur & 0 Stress</li>
+          <li>Gute Noten, Geld gespart</li>
+          <li>200€ Plus & Bestnoten</li>
+          <li>Rücklagen gebildet, Note 1,4</li>
+          <li>Finanzen im Griff, Prüfungen easy</li>
+          <li>Selbstbewusst in jede Prüfung</li>
+          <li>Chef lobt deine Leistung</li>
+          <li>Stolze Eltern</li>
         </ul>
       </div>
     </div>
@@ -561,56 +732,180 @@
     <div class="card" style="transition: transform .4s ease, box-shadow .4s ease;">
       <div style="font-size:1.5rem;font-weight:800;color:var(--accent);margin-bottom:1rem;">01</div>
       <h3>Budget Mastery</h3>
-      <p>3-Konten-Strategie • Automatische Rücklagen • Spaß-Geld-Plan</p>
+      <p>50/30/20-Regel für Azubis • Ausgaben-Kategorien • Notfall-Puffer aufbauen • Azubi-spezifische Budget-Tipps</p>
     </div>
     <div class="card" style="transition: transform .4s ease, box-shadow .4s ease;">
       <div style="font-size:1.5rem;font-weight:800;color:var(--accent);margin-bottom:1rem;">02</div>
       <h3>Finanz-Tools</h3>
-      <p>Notion-Dashboard • Finanz-Apps Setup • Vertrags-Tracker</p>
+      <p>Banking-Apps optimal nutzen • Ausgaben-Tracker • Spar-Apps • Automatische Überweisungen einrichten</p>
     </div>
     <div class="card" style="transition: transform .4s ease, box-shadow .4s ease;">
       <div style="font-size:1.5rem;font-weight:800;color:var(--accent);margin-bottom:1rem;">03</div>
       <h3>Lernen mit KI</h3>
-      <p>ChatGPT-Prompts • Spaced Repetition • Effiziente Lernpläne</p>
+      <p>ChatGPT-Prompts für Prüfungen • KI-Lernpläne erstellen • Zusammenfassungen generieren • Prüfungsvorbereitung automatisieren</p>
     </div>
     <div class="card" style="transition: transform .4s ease, box-shadow .4s ease;">
       <div style="font-size:1.5rem;font-weight:800;color:var(--accent);margin-bottom:1rem;">04</div>
-      <h3>Organisation & Fokus</h3>
-      <p>Berichtsheft-Automation • Fokus-Timer • Prüfungs-Roadmap</p>
+      <h3>Sparen & Investieren</h3>
+      <p>Grundlagen Aktien & ETFs • Wie viel investieren als Azubi? • Broker-Vergleich & Depot eröffnen • Risiko verstehen & managen</p>
     </div>
     <div class="card" style="transition: transform .4s ease, box-shadow .4s ease;">
       <div style="font-size:1.5rem;font-weight:800;color:var(--accent);margin-bottom:1rem;">05</div>
-      <h3>Disziplin & Motivation</h3>
-      <p>Habit-Stacking • Dopamin-Detox • Gamification</p>
+      <h3>Azubi-Rechte & Geld</h3>
+      <p>BAföG & Berufsausbildungsbeihilfe • Fahrtkosten absetzen • Azubi-Rabatte nutzen • Überstunden richtig abrechnen</p>
     </div>
     <div class="card" style="transition: transform .4s ease, box-shadow .4s ease;">
       <div style="font-size:1.5rem;font-weight:800;color:var(--accent);margin-bottom:1rem;">06</div>
-      <h3>Future Boost</h3>
-      <p>Azubi→Profi Roadmap • Networking-Tipps • Bewerbungsvorlagen</p>
+      <h3>Prüfungs-Power</h3>
+      <p>Prüfungsangst überwinden • Zeitmanagement bei Klausuren • Mündliche Prüfungen meistern • Last-Minute Lerntechniken</p>
     </div>
+  </div>
+</section>
+
+<!-- ANGEBOT: Kompakter Angebots-Abschnitt vor Pricing -->
+<section id="angebot" style="background:linear-gradient(120deg,#181c24 60%,#1a2327 100%);margin:2.5rem auto;max-width:700px;border-radius:1.2rem;box-shadow:0 2px 16px 0 rgba(0,233,213,0.07);padding:2.2rem 1.2rem 1.7rem 1.2rem;text-align:center;">
+  <h2 style="margin-bottom:1.2rem;font-size:1.7rem;font-weight:900;background:linear-gradient(90deg,#ff4040,#00e9d5 80%);-webkit-background-clip:text;background-clip:text;color:transparent;">
+    Dein Angebot auf einen Blick
+  </h2>
+  <div style="color:#fff;font-size:1.18rem;line-height:1.6;margin-bottom:1.1rem;">
+    <b>Alle 6 Module + Bonus</b> <br>
+    Sofortiger Zugang • Schritt-für-Schritt-Videos • Vorlagen & Tools <br>
+    <span style="color:var(--accent2);font-weight:700;">347+ Azubis erfolgreich</span>
+  </div>
+  <div style="color:var(--muted);font-size:1.08rem;margin-bottom:1.1rem;">
+    <span style="color:var(--accent);font-weight:700;">94% Erfolgsquote</span> &nbsp;|&nbsp; <span style="color:var(--accent2);font-weight:700;">1,2 Noten besser</span>
+  </div>
+  <div style="color:var(--accent);font-size:1.13rem;font-weight:700;">
+    <span style="background:rgba(255,64,64,0.09);padding:0.2em 0.7em;border-radius:0.7em;">Nur für kurze Zeit: <span style="color:#fff;">59&nbsp;€ statt 179&nbsp;€</span></span>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF: Direkt vor Pricing, jetzt kompakt und kurz -->
+<section id="social-proof" style="background:linear-gradient(120deg,#181c24 60%,#1a2327 100%);margin:2.5rem auto;max-width:700px;border-radius:1.2rem;box-shadow:0 2px 16px 0 rgba(0,233,213,0.07);padding:2.2rem 1.2rem 1.7rem 1.2rem;">
+  <h2 style="margin-bottom:1.2rem;font-size:1.5rem;font-weight:900;background:linear-gradient(90deg,#00e9d5,#ff4040 80%);-webkit-background-clip:text;background-clip:text;color:transparent;">
+    Was Azubis berichten
+  </h2>
+  <div style="display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center;">
+    <div style="background:rgba(0,233,213,0.07);border-radius:0.8rem;padding:1rem 0.9rem;max-width:200px;flex:1 1 140px;">
+      <div style="color:#fff;font-size:1rem;line-height:1.5;">"Endlich spare ich Geld und schreibe bessere Noten!"</div>
+      <div style="color:var(--muted);font-size:0.95rem;margin-top:0.3rem;">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+    </div>
+    <div style="background:rgba(0,233,213,0.07);border-radius:0.8rem;padding:1rem 0.9rem;max-width:200px;flex:1 1 140px;">
+      <div style="color:#fff;font-size:1rem;line-height:1.5;">"Klarer Plan, mehr Freizeit, weniger Stress."</div>
+      <div style="color:var(--muted);font-size:0.95rem;margin-top:0.3rem;">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+    </div>
+    <div style="background:rgba(0,233,213,0.07);border-radius:0.8rem;padding:1rem 0.9rem;max-width:200px;flex:1 1 140px;">
+      <div style="color:#fff;font-size:1rem;line-height:1.5;">"Beste Entscheidung für meine Ausbildung!"</div>
+      <div style="color:var(--muted);font-size:0.95rem;margin-top:0.3rem;">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
+    </div>
+  </div>
+  <div style="margin-top:1.2rem;text-align:center;color:var(--accent2);font-size:1.08rem;font-weight:700;">
+    347+ Azubis erfolgreich • 94% bestehen besser
   </div>
 </section>
 
 <!-- PRICING -->
   <section id="pricing">
     <h2>Starte jetzt</h2>
-    <div class="wrap pricing">
-      <h3>59 €</h3>
-      <p>statt <del>179 €</del> • einmalig • lebenslanger Zugriff + Updates</p>
-      <a href="#" class="btn">Kurs sichern</a>
+    <div class="wrap pricing" style="
+      background: #181c24;
+      border: 3px solid var(--accent2);
+      box-shadow: 0 8px 40px 0 rgba(0,233,213,0.13), 0 2px 24px 0 rgba(255,64,64,0.18);
+      max-width: 440px;
+      margin: 0 auto 2.5rem auto;
+      padding: 2.2rem 1.2rem 2rem 1.2rem;
+      border-radius: 2.2rem;
+      position: relative;
+      text-align: center;
+      z-index: 2;
+    ">
+      <div style="position:absolute;inset:0;pointer-events:none;z-index:0;border-radius:2.2rem;box-shadow:0 0 60px 0 rgba(0,233,213,0.13),0 0 80px 0 rgba(255,64,64,0.10);"></div>
+      <div style="position:relative;z-index:2;">
+        <div style="font-size:1.5rem;font-weight:800;color:var(--accent2);margin-bottom:0.5rem;">
+          Nur für kurze Zeit
+        </div>
+        <div style="margin-bottom:0.5rem;font-size:1rem;color:var(--muted);">
+          <span style="text-decoration:line-through;color:#ff4040;font-weight:700;">299&nbsp;€</span> &nbsp;|&nbsp; Einzelcoaching: <span style="color:var(--accent2);font-weight:700;">800&nbsp;€+</span>
+        </div>
+        <div style="margin-bottom:0.7rem;">
+          <span id="offer-timer" style="display:inline-block;font-size:1.5rem;font-weight:900;color:#00e9d5;background:rgba(0,233,213,0.08);border:1.5px solid var(--accent2);padding:0.2em 1.1em;border-radius:1.2em;">
+            05:00:00
+          </span>
+        </div>
+        <div style="font-size:1rem;color:var(--accent);font-weight:700;margin-bottom:0.5rem;">
+          ⚠️ Nur noch 23 Plätze – nächster Kursstart in 3 Monaten!
+        </div>
+        <div style="font-size:2.5rem;font-weight:900;color:var(--accent2);margin-bottom:0.3rem;">
+          59&nbsp;€
+        </div>
+        <div style="font-size:1.1rem;margin-bottom:0.7rem;">
+          <span style="color:#ff4040;font-weight:700;text-decoration:line-through;opacity:0.7;">179&nbsp;€</span>
+          <span style="color:var(--accent2);font-weight:700;margin-left:0.5rem;">jetzt nur 59&nbsp;€</span>
+        </div>
+        <div style="color:#fff;font-weight:700;font-size:1rem;line-height:1.5;margin-bottom:1.1rem;">
+          Einmalig • lebenslanger Zugriff • Updates inklusive
+        </div>
+        <a href="#" class="btn" style="
+          background:linear-gradient(90deg,#00e9d5,#ff4040 90%);
+          color:#fff;
+          font-size:1.15rem;
+          font-weight:900;
+          padding:1rem 2.5rem;
+          border-radius:2rem;
+          box-shadow:0 2px 18px 0 rgba(0,233,213,0.13);
+          margin-bottom:0.7rem;
+          margin-top:0.2rem;
+          letter-spacing:0.01em;
+          border:none;
+          transition:transform 0.18s cubic-bezier(.4,0,.2,1),box-shadow 0.18s cubic-bezier(.4,0,.2,1);
+        ">
+          Kurs sichern
+        </a>
+        <div style="margin-top:0.5rem;color:var(--accent2);font-weight:700;font-size:0.98rem;">
+          14 Tage Geld-zurück-Garantie
+        </div>
+        <div style="color:var(--muted);font-size:0.95rem;margin-top:0.1rem;">
+          Zahlung per PayPal, Kreditkarte oder Überweisung
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- FAQ -->
   <section id="faq">
     <h2>FAQ – deine Fragen beantwortet</h2>
-    <div class="wrap">
-      <details><summary>Wie lange habe ich Zugriff?</summary><p>Lebenslang – inkl. aller zukünftigen Updates.</p></details>
-      <details><summary>Brauche ich Vorkenntnisse?</summary><p>Nein – alles wird Schritt für Schritt erklärt.</p></details>
-      <details><summary>Gibt es eine Garantie?</summary><p>14 Tage Geld-zurück, 100% risikofrei.</p></details>
+    <div style="height:2.5rem;"></div>
+    <div class="wrap" style="max-width:1000px;margin:0 auto;">
+      <details>
+        <summary>Wie lange habe ich Zugriff?</summary>
+        <div class="faq-content"><p>Lebenslang – inkl. aller zukünftigen Updates.</p></div>
+      </details>
+      <details>
+        <summary>Brauche ich Vorkenntnisse?</summary>
+        <div class="faq-content"><p>Nein – alles wird Schritt für Schritt erklärt. Du kannst sofort starten, egal auf welchem Level du bist.</p></div>
+      </details>
+      <details>
+        <summary>Gibt es eine Garantie?</summary>
+        <div class="faq-content"><p>14 Tage Geld-zurück, 100% risikofrei. Du kannst ohne Risiko testen.</p></div>
+      </details>
+      <details>
+        <summary>Wie läuft der Kurs ab?</summary>
+        <div class="faq-content"><p>Du bekommst sofort Zugang zu allen Modulen und kannst in deinem eigenen Tempo lernen. Es gibt Videos, Vorlagen und praktische Tools.</p></div>
+      </details>
+      <details>
+        <summary>Was ist, wenn ich Fragen habe?</summary>
+        <div class="faq-content"><p>Du bekommst Zugang zu einer Community und kannst jederzeit Fragen stellen.</p></div>
+      </details>
+      <details>
+        <summary>Funktioniert es wirklich so schnell?</summary>
+        <div class="faq-content">
+          <p>Ja! Viele Azubis berichten schon nach wenigen Wochen von besseren Noten und mehr Geld. Entscheidend ist, dass du die Schritte umsetzt – dann klappt es auch bei dir.</p>
+        </div>
+      </details>
     </div>
   </section>
 
+  
   <!-- FOOTER -->
   <footer style="margin-top:3rem;padding:2.5rem 0 1.2rem 0;text-align:center;background:transparent;">
     <div style="max-width:900px;margin:0 auto;opacity:0.85;">
@@ -700,6 +995,46 @@
     // video.removeAttribute('controls');
     playBtn.style.display = '';
     pauseBtn.style.display = 'none';
+
+    // FAQ Animation: Smooth open/close for details
+    document.querySelectorAll('#faq details').forEach(details => {
+      details.addEventListener('toggle', function() {
+        const content = details.querySelector('.faq-content');
+        if (details.open) {
+          // Force reflow for transition
+          content.style.maxHeight = content.scrollHeight + 'px';
+        } else {
+          content.style.maxHeight = '0px';
+        }
+      });
+      // Set initial max-height if open by default
+      if (details.open) {
+        const content = details.querySelector('.faq-content');
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    });
+
+    // Countdown für Limited Offer Banner (Pricing-Timer)
+    (function() {
+      const offerTimerEl = document.getElementById('offer-timer');
+      let offerSeconds = 5 * 60 * 60; // 5 Stunden
+      function updateOfferTimer() {
+        if (!offerTimerEl) return;
+        if (offerSeconds <= 0) {
+          offerTimerEl.textContent = '00:00:00';
+          return;
+        }
+        offerSeconds--;
+        const h = Math.floor(offerSeconds / 3600);
+        const m = Math.floor((offerSeconds % 3600) / 60);
+        const s = offerSeconds % 60;
+        offerTimerEl.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+      }
+      if (offerTimerEl) {
+        updateOfferTimer();
+        setInterval(updateOfferTimer, 1000);
+      }
+    })();
   </script>
 </body>
 </html>
