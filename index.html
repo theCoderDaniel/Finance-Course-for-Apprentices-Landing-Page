@@ -1594,6 +1594,17 @@
   </div>
   <style>
     @media (max-width: 700px) {
+      .problem-mobile-center {
+        padding: 3.5rem 0.5rem 3.5rem 0.5rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 auto !important;
+        width: 100vw !important;
+        box-sizing: border-box;
+        text-align: center !important;
+      }
       .problem-cards-row-mobile {
         flex-direction: column !important;
         align-items: center !important;
@@ -1613,6 +1624,11 @@
         align-items: center !important;
         display: flex !important;
         flex-direction: column !important;
+      }
+      /* Fix: Remove left padding on mobile for true centering */
+      .problem-mobile-center {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
       }
     }
   </style>
