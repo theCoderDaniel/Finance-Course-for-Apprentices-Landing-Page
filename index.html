@@ -1658,6 +1658,42 @@
       }
     }
 
+    /* Kommt dir das bekannt vor: Inhalt mittig */
+    .problem-mobile-center > div {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      align-items: center; /* statt stretch */
+      flex-wrap: wrap;
+      width: 100%;
+      text-align: center; /* für alle Kinder */
+    }
+
+    /* Angebot-Überschrift größer */
+    #angebot .flow-h2,
+    #angebot h2 {
+      font-size: 2.3rem !important;
+      margin-bottom: 1.3rem !important;
+      line-height: 1.18 !important;
+      font-weight: 900 !important;
+    }
+
+    /* Button im Angebot: weniger Höhe, weniger Padding */
+    #angebot .btn.cta-strong,
+    #angebot .btn.cta-strong span {
+      font-size: 1.08rem !important;
+      font-weight: 800 !important;
+      padding: 0.55rem 1.2rem !important;
+      border-radius: 1.5rem !important;
+      margin: 0.7rem auto 0.7rem auto !important;
+      max-width: 96vw !important;
+      box-shadow: 0 2px 8px 0 rgba(255,64,64,0.10) !important;
+      letter-spacing: 0.01em !important;
+      height: 2.3rem !important;
+      min-height: 0 !important;
+      line-height: 1.2 !important;
+    }
+
     /* Header-Video: Immer innerhalb der Seitenränder, nie abgeschnitten */
     .header-video-container {
       width: 100%;
@@ -2025,9 +2061,10 @@
       display: flex;
       gap: 1.2rem;
       justify-content: center;
-      align-items: stretch;
+      align-items: center; /* statt stretch */
       flex-wrap: wrap;
       width: 100%;
+      text-align: center; /* für alle Kinder */
     }
     .problem-mobile-center > div > div {
       flex: 1 1 220px;
@@ -2125,7 +2162,7 @@
       <h2 style="font-size:2.1rem;font-weight:900;color:#fff;text-align:center;margin:0 0 1.1rem 0;letter-spacing:-0.01em;">
         Kommt dir das bekannt vor?
       </h2>
-      <div style="display:flex;gap:1.2rem;justify-content:center;align-items:stretch;flex-wrap:wrap;">
+      <div style="display:flex;gap:1.2rem;justify-content:center;align-items:center;flex-wrap:wrap;">
         <div style="flex:1 1 220px;max-width:320px;min-width:180px;text-align:center;">
           <div style="font-size:2.2rem;margin-bottom:0.7rem;">😡</div>
           <div style="font-size:1.13rem;font-weight:800;color:#fff;line-height:1.4;">
