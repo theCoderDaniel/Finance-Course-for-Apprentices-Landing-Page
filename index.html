@@ -996,6 +996,67 @@
       }
     }
 
+    /* Angebot-Überschrift deutlich größer */
+    #angebot .flow-h2,
+    #angebot h2 {
+      font-size: 2.7rem !important;
+      margin-bottom: 1.3rem !important;
+      line-height: 1.15 !important;
+      font-weight: 900 !important;
+    }
+
+    /* Button im Angebot: wieder höhere Höhe, aber nicht zu fett */
+    #angebot .btn.cta-strong,
+    #angebot .btn.cta-strong span {
+      font-size: 1.13rem !important;
+      font-weight: 800 !important;
+      padding: 0.95rem 2.2rem !important;
+      border-radius: 1.7rem !important;
+      margin: 0.7rem auto 0.7rem auto !important;
+      max-width: 96vw !important;
+      box-shadow: 0 2px 8px 0 rgba(255,64,64,0.10) !important;
+      letter-spacing: 0.01em !important;
+      height: auto !important;
+      min-height: 0 !important;
+      line-height: 1.2 !important;
+    }
+
+    /* Header-Video: Immer innerhalb der Seitenränder, nie abgeschnitten */
+    .header-video-container {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto 2.2rem auto;
+      position: relative;
+      padding-left: 1.2rem;
+      padding-right: 1.2rem;
+      box-sizing: border-box;
+    }
+    .header-video-container video {
+      width: 100%;
+      height: 394px;
+      object-fit: cover;
+      display: block;
+      background: #181c24;
+      border-radius: 1.5rem;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    /* Mobile: Video noch stärker einrücken, nie an den Rand */
+    @media (max-width: 700px) {
+      .header-video-container {
+        max-width: 100vw;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+      .header-video-container video {
+        height: 38vw;
+        min-height: 180px;
+        max-height: 55vw;
+        border-radius: 1.1rem;
+      }
+    }
+
     /* Verbesserte Problem-Sektion */
     #problem-cards-row {
       display: flex;
@@ -1672,24 +1733,24 @@
     /* Angebot-Überschrift größer */
     #angebot .flow-h2,
     #angebot h2 {
-      font-size: 2.3rem !important;
+      font-size: 2.7rem !important;
       margin-bottom: 1.3rem !important;
-      line-height: 1.18 !important;
+      line-height: 1.15 !important;
       font-weight: 900 !important;
     }
 
     /* Button im Angebot: weniger Höhe, weniger Padding */
     #angebot .btn.cta-strong,
     #angebot .btn.cta-strong span {
-      font-size: 1.08rem !important;
+      font-size: 1.13rem !important;
       font-weight: 800 !important;
-      padding: 0.55rem 1.2rem !important;
-      border-radius: 1.5rem !important;
+      padding: 0.95rem 2.2rem !important;
+      border-radius: 1.7rem !important;
       margin: 0.7rem auto 0.7rem auto !important;
       max-width: 96vw !important;
       box-shadow: 0 2px 8px 0 rgba(255,64,64,0.10) !important;
       letter-spacing: 0.01em !important;
-      height: 2.3rem !important;
+      height: auto !important;
       min-height: 0 !important;
       line-height: 1.2 !important;
     }
