@@ -11,11 +11,12 @@
       --card: #23242a;
       --txt: #fff;
       --muted: #b0b4c0;
-      --accent: #ff4040;   /* Rot */
-      --accent2: #fff;     /* Weiß für Kontrast */
+      --accent: #ff4040;
+      --accent2: #fff;
       --radius: 1.1rem;
       --fast: .25s cubic-bezier(.4,0,.2,1);
       --med: .6s cubic-bezier(.4,0,.2,1);
+      --success: #00e97a;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html {
@@ -160,30 +161,174 @@
       transform: none;
       animation: none;
     }
-    .pricing h2,
-    .pricing h3 {
-      margin-bottom: 1.1rem; /* falls du h2/h3 im Pricing hast */
-    }
-    .pricing .btn {
-      background: var(--accent);
-      color: #fff;
-      font-size: 1.15rem;
-      font-weight: 900;
-      padding: 1rem 2.5rem;
+    /* PRICING: Breiter Kasten, aber Button schmal */
+    #pricing {
+      background: #23242a;
       border-radius: 2rem;
-      box-shadow: none;
-      margin-top: 0.2rem;
-      letter-spacing: 0.01em;
-      border: none;
-      transition: background 0.18s, transform 0.18s;
-      z-index: 1;
+      max-width: 900px;
+      margin: 2.5rem auto;
+      padding: 2rem 1.2rem 1.5rem 1.2rem;
+      box-shadow: 0 2px 24px 0 rgba(0,0,0,0.18);
+      text-align: center;
       position: relative;
-      animation: none;
     }
-    .pricing .btn:hover {
+    #pricing h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 1.3rem;
+      letter-spacing: -0.01em;
+      font-family: 'Poppins',sans-serif;
+    }
+    #pricing .price-row {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #b0b4c0;
+      margin-bottom: 0.8rem;
+    }
+    #pricing .price-row .old {
+      text-decoration: line-through;
+      color: #ff4040;
+      font-weight: 900;
+      font-size: 1em;
+    }
+    #pricing .price-row .coaching {
+      color: #fff;
+      font-weight: 900;
+    }
+    #pricing .offer-timer-outer {
+      margin: 0 0 0.7rem 0;
+      display: flex;
+      justify-content: center;
+    }
+    #pricing #offer-timer {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: #00e9c6;
+      background: transparent;
+      border: 1.5px solid #00e9c6;
+      padding: 0.18em 1em;
+      border-radius: 1.1em;
+      letter-spacing: 0.03em;
+      box-shadow: none;
+      margin: 0 auto;
+      display: inline-block;
+      transition: box-shadow 0.3s;
+    }
+    #pricing .next-batch {
+      font-size: 1rem;
+      color: #ff4040;
+      font-weight: 700;
+      margin: 0.7rem 0 1.1rem 0;
+    }
+    #pricing .main-price {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 0.4rem;
+      margin-top: 0.4rem;
+      letter-spacing: 0.01em;
+    }
+    #pricing .save-row {
+      font-size: 1rem;
+      margin-bottom: 0.7rem;
+      font-weight: 700;
+    }
+    #pricing .save-row .old {
+      color: #ff4040;
+      font-weight: 900;
+      text-decoration: line-through;
+      opacity: 1;
+      margin-right: 0.5em;
+    }
+    #pricing .save-row .now {
+      color: #fff;
+      font-weight: 900;
+    }
+    #pricing .details-row {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+    }
+    #pricing .btn.cta-strong {
+      background: #ff4040;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 900;
+      padding: 1rem 0;
+      border-radius: 2rem;
+      box-shadow: 0 4px 24px 0 rgba(255,64,64,0.18);
+      margin: 1rem auto 1rem auto;
+      letter-spacing: 0.02em;
+      border: none;
+      outline: none;
+      transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+      display: block;
+      width: 75%;
+      max-width: 320px;
+    }
+    #pricing .btn.cta-strong:hover, #pricing .btn.cta-strong:focus {
       background: #b71c1c;
       color: #fff;
-      transform: scale(1.04) translateY(-2px);
+      transform: scale(1.045) translateY(-2px);
+      box-shadow: 0 8px 28px 0 rgba(255,64,64,0.18);
+    }
+    #pricing .guarantee-row {
+      margin-top: 1rem;
+      color: #fff;
+      font-weight: 900;
+      font-size: 1rem;
+      text-align: center;
+    }
+    #pricing .pay-row {
+      color: #b0b4c0;
+      font-size: 0.97rem;
+      margin-top: 0.2rem;
+      margin-bottom: 0.5rem;
+    }
+    #pricing .guarantee-box {
+      background: none;
+      color: #fff;
+      border: none;
+      padding: 0;
+      margin: 0.5rem auto 0 auto;
+      max-width: 320px;
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: center;
+      box-shadow: none;
+    }
+    #pricing .guarantee-box .text {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    @media (max-width: 700px) {
+      #pricing {
+        padding: 0.8rem 0.1rem 0.8rem 0.1rem;
+        max-width: 98vw;
+      }
+      #pricing h2 {
+        font-size: 1.15rem;
+      }
+      #pricing .main-price {
+        font-size: 1.3rem;
+      }
+      #pricing .btn.cta-strong {
+        font-size: 0.98rem;
+        padding: 0.7rem 0;
+        width: 95%;
+        max-width: 98vw;
+      }
+      #pricing .guarantee-box {
+        font-size: 0.95rem;
+        padding: 0.4rem 0.5rem;
+        max-width: 96vw;
+      }
     }
 
     /* FAQ Styles */
@@ -971,25 +1116,263 @@
       }
     }
 
-    /* Einheitliche Breite für Problem- und Social-Proof-Abschnitt */
+    /* Einheitliche Breite für Problem-, Angebot- und Social-Proof-Abschnitt */
     #problem.section-box,
+    #angebot.section-box,
     #social-proof {
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 900px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
       border-radius: var(--radius);
     }
     #problem .wrap,
+    #angebot .wrap,
     #social-proof .wrap {
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 900px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: 100% !important;
     }
+    #angebot {
+      background: var(--card);
+      border-radius: 1.3rem;
+      box-shadow: none;
+      max-width: 900px !important;
+      margin: 2.5rem auto !important;
+      padding: 2.5rem 1.2rem 2rem 1.2rem !important;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      text-align: center;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      width: 100% !important;
+    }
+    #angebot h2 {
+      width: 100%;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      background: none;
+      color: #fff;
+      text-shadow: none;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      position: relative;
+      z-index: 1;
+    }
+    #angebot h2 span {
+      color: #fff;
+    }
+    #angebot .angebot-content {
+      color: #fff;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin-bottom: 1.1rem;
+      text-align: center;
+    }
+    #angebot .angebot-content strong {
+      font-size: 1.18rem;
+      color: var(--accent);
+    }
+    #angebot .angebot-stats {
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 1.1rem;
+    }
+    #angebot .angebot-stats .red {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    #angebot .angebot-stats .green {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    #angebot .angebot-price {
+      color: var(--accent);
+      font-size: 1.13rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      background: rgba(255,64,64,0.09);
+      display: inline-block;
+      padding: 0.25em 1em;
+      border-radius: 0.8em;
+      letter-spacing: 0.01em;
+    }
+    #angebot .angebot-price span {
+      color: #fff;
+    }
+    @media (max-width: 700px) {
+      #angebot {
+        padding: 1.3rem 0.5rem 1.1rem 0.5rem;
+        border-radius: 0.9rem;
+        margin: 1.2rem auto;
+        box-shadow: 0 2px 16px 0 rgba(0,0,0,0.18);
+      }
+      #angebot h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.9rem;
+      }
+      #angebot .angebot-content {
+        font-size: 1.01rem;
+      }
+      #angebot .angebot-price {
+        font-size: 1.01rem;
+        padding: 0.18em 0.7em;
+      }
+    }
+
+    /* Social Proof Cards */
+    .social-proof-cards {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+    }
+    .social-proof-card {
+      background: var(--card);
+      border-radius: 1rem;
+      padding: 1.1rem 1rem 1.2rem 1rem;
+      max-width: 220px;
+      min-width: 0;
+      flex: 1 1 140px;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+      border: none;
+    }
+    .social-proof-card .text {
+      color: #fff;
+      font-size: 1.01rem;
+      line-height: 1.5;
+      margin-bottom: 0.7rem;
+      text-align: center;
+    }
+    .social-proof-card .stars {
+      color: #FFD600;
+    }
+    @media (max-width: 700px) {
+      .social-proof-cards {
+        flex-direction: column;
+        gap: 0.7rem;
+        align-items: center;
+      }
+      .social-proof-card {
+        max-width: 98vw;
+        min-width: 0;
+        padding: 1rem 0.7rem 1.1rem 0.7rem;
+      }
+    }
+    .social-proof-summary {
+      margin-top: 1.1rem;
+      text-align: center;
+      color: var(--accent2);
+      font-size: 1.08rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      z-index: 1;
+      position: relative;
+    }
+
+    /* Footer Styles */
+    footer {
+      background: transparent;
+      border-top: none;
+      box-shadow: none;
+      margin-top: 3rem;
+      padding-bottom: 1.2rem;
+      font-family: 'Poppins',sans-serif;
+      letter-spacing: 0.01em;
+      opacity: 0.95;
+      transition: opacity 0.3s;
+      color: var(--muted);
+    }
+    footer a {
+      color: var(--accent2);
+      text-decoration: none;
+      margin: 0 0.7rem;
+      transition: color 0.2s;
+    }
+    footer a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    @media (max-width: 700px) {
+      footer {
+        font-size: 0.98rem;
+        padding: 1.2rem 0 0.7rem 0;
+      }
+    }
+
+    /* Verbesserte Problem-Sektion */
+    #problem-cards-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      gap: 2.5rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0.1rem;
+    }
+    .problem-card {
+      background: none;
+      border: none;
+      box-shadow: none;
+      border-radius: 0.9rem;
+      padding: 0;
+      margin: 0;
+      min-width: 0;
+      max-width: 320px;
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: flex-start;
+    }
+    .problem-card span.emoji {
+      font-size: 2.4rem;
+      margin-bottom: 1.1rem;
+      display: block;
+      line-height: 1;
+    }
+    .problem-card span.text {
+      font-size: 1.18rem;
+      color: #fff;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+      margin-bottom: 0;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      display: block;
+    }
+    @media (max-width: 800px) {
+      #problem-cards-row {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+      }
+      .problem-card {
+        max-width: 100%;
+      }
+    }
+
+    /* Optimierung der Abstände im Problem-Abschnitt */
     #problem {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
       background: var(--card);
       box-shadow: none;
-      padding: 0.2rem 1.2rem 0.7rem 1.2rem;
-      margin: 0.5rem auto 0.5rem auto;
+      padding: 0.2rem 0 0.7rem 0; /* weniger vertikaler Abstand */
+      margin: 0.5rem auto 0.5rem auto; /* minimaler Abstand zu anderen Sektionen */
+      max-width: 900px;
       border-radius: 1.5rem;
       border: none;
     }
@@ -1000,6 +1383,13 @@
       text-align: center;
       margin: 0.7rem 0 1.3rem 0;
       letter-spacing: -0.01em;
+    }
+    #problem .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     #problem-cards-row {
       display: flex;
@@ -1015,12 +1405,11 @@
       min-width: 180px;
       text-align: center;
     }
-    .problem-card .emoji {
+    .problem-card span.emoji {
       font-size: 2.2rem;
       margin-bottom: 0.7rem;
-      display: block;
     }
-    .problem-card .text {
+    .problem-card span.text {
       font-size: 1.13rem;
       color: #fff;
       font-weight: 800;
@@ -1039,6 +1428,997 @@
         max-width: 100%;
       }
     }
+
+    /* Einheitliche Breite für Problem-, Angebot- und Social-Proof-Abschnitt */
+    #problem.section-box,
+    #angebot.section-box,
+    #social-proof {
+      max-width: 900px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      border-radius: var(--radius);
+    }
+    #problem .wrap,
+    #angebot .wrap,
+    #social-proof .wrap {
+      max-width: 900px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: 100% !important;
+    }
+    #angebot {
+      background: var(--card);
+      border-radius: 1.3rem;
+      box-shadow: none;
+      max-width: 900px !important;
+      margin: 2.5rem auto !important;
+      padding: 2.5rem 1.2rem 2rem 1.2rem !important;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      text-align: center;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      width: 100% !important;
+    }
+    #angebot h2 {
+      width: 100%;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      background: none;
+      color: #fff;
+      text-shadow: none;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      position: relative;
+      z-index: 1;
+    }
+    #angebot h2 span {
+      color: #fff;
+    }
+    #angebot .angebot-content {
+      color: #fff;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin-bottom: 1.1rem;
+      text-align: center;
+    }
+    #angebot .angebot-content strong {
+      font-size: 1.18rem;
+      color: var(--accent);
+    }
+    #angebot .angebot-stats {
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 1.1rem;
+    }
+    #angebot .angebot-stats .red {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    #angebot .angebot-stats .green {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    #angebot .angebot-price {
+      color: var(--accent);
+      font-size: 1.13rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      background: rgba(255,64,64,0.09);
+      display: inline-block;
+      padding: 0.25em 1em;
+      border-radius: 0.8em;
+      letter-spacing: 0.01em;
+    }
+    #angebot .angebot-price span {
+      color: #fff;
+    }
+    @media (max-width: 700px) {
+      #angebot {
+        padding: 1.3rem 0.5rem 1.1rem 0.5rem;
+        border-radius: 0.9rem;
+        margin: 1.2rem auto;
+        box-shadow: 0 2px 16px 0 rgba(0,0,0,0.18);
+      }
+      #angebot h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.9rem;
+      }
+      #angebot .angebot-content {
+        font-size: 1.01rem;
+      }
+      #angebot .angebot-price {
+        font-size: 1.01rem;
+        padding: 0.18em 0.7em;
+      }
+    }
+
+    /* Social Proof Cards */
+    .social-proof-cards {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+    }
+    .social-proof-card {
+      background: var(--card);
+      border-radius: 1rem;
+      padding: 1.1rem 1rem 1.2rem 1rem;
+      max-width: 220px;
+      min-width: 0;
+      flex: 1 1 140px;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+      border: none;
+    }
+    .social-proof-card .text {
+      color: #fff;
+      font-size: 1.01rem;
+      line-height: 1.5;
+      margin-bottom: 0.7rem;
+      text-align: center;
+    }
+    .social-proof-card .stars {
+      color: #FFD600;
+    }
+    @media (max-width: 700px) {
+      .social-proof-cards {
+        flex-direction: column;
+        gap: 0.7rem;
+        align-items: center;
+      }
+      .social-proof-card {
+        max-width: 98vw;
+        min-width: 0;
+        padding: 1rem 0.7rem 1.1rem 0.7rem;
+      }
+    }
+    .social-proof-summary {
+      margin-top: 1.1rem;
+      text-align: center;
+      color: var(--accent2);
+      font-size: 1.08rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      z-index: 1;
+      position: relative;
+    }
+
+    /* Footer Styles */
+    footer {
+      background: transparent;
+      border-top: none;
+      box-shadow: none;
+      margin-top: 3rem;
+      padding-bottom: 1.2rem;
+      font-family: 'Poppins',sans-serif;
+      letter-spacing: 0.01em;
+      opacity: 0.95;
+      transition: opacity 0.3s;
+      color: var(--muted);
+    }
+    footer a {
+      color: var(--accent2);
+      text-decoration: none;
+      margin: 0 0.7rem;
+      transition: color 0.2s;
+    }
+    footer a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    @media (max-width: 700px) {
+      footer {
+        font-size: 0.98rem;
+        padding: 1.2rem 0 0.7rem 0;
+      }
+    }
+
+    /* Verbesserte Problem-Sektion */
+    #problem-cards-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      gap: 2.5rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0.1rem;
+    }
+    .problem-card {
+      background: none;
+      border: none;
+      box-shadow: none;
+      border-radius: 0.9rem;
+      padding: 0;
+      margin: 0;
+      min-width: 0;
+      max-width: 320px;
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: flex-start;
+    }
+    .problem-card span.emoji {
+      font-size: 2.4rem;
+      margin-bottom: 1.1rem;
+      display: block;
+      line-height: 1;
+    }
+    .problem-card span.text {
+      font-size: 1.18rem;
+      color: #fff;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+      margin-bottom: 0;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      display: block;
+    }
+    @media (max-width: 800px) {
+      #problem-cards-row {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+      }
+      .problem-card {
+        max-width: 100%;
+      }
+    }
+
+    /* Optimierung der Abstände im Problem-Abschnitt */
+    #problem {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      background: var(--card);
+      box-shadow: none;
+      padding: 0.2rem 0 0.7rem 0; /* weniger vertikaler Abstand */
+      margin: 0.5rem auto 0.5rem auto; /* minimaler Abstand zu anderen Sektionen */
+      max-width: 900px;
+      border-radius: 1.5rem;
+      border: none;
+    }
+    #problem h2 {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: #fff;
+      text-align: center;
+      margin: 0.7rem 0 1.3rem 0;
+      letter-spacing: -0.01em;
+    }
+    #problem .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #problem-cards-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      gap: 1.5rem;
+      width: 100%;
+    }
+    .problem-card {
+      flex: 1 1 220px;
+      max-width: 320px;
+      min-width: 180px;
+      text-align: center;
+    }
+    .problem-card span.emoji {
+      font-size: 2.2rem;
+      margin-bottom: 0.7rem;
+    }
+    .problem-card span.text {
+      font-size: 1.13rem;
+      color: #fff;
+      font-weight: 800;
+      line-height: 1.4;
+      letter-spacing: 0.01em;
+      margin-bottom: 0;
+      display: block;
+    }
+    @media (max-width: 800px) {
+      #problem-cards-row {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+      }
+      .problem-card {
+        max-width: 100%;
+      }
+    }
+
+    /* Einheitliche Breite für Problem-, Angebot- und Social-Proof-Abschnitt */
+    #problem.section-box,
+    #angebot.section-box,
+    #social-proof {
+      max-width: 900px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      border-radius: var(--radius);
+    }
+    #problem .wrap,
+    #angebot .wrap,
+    #social-proof .wrap {
+      max-width: 900px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: 100% !important;
+    }
+    #angebot {
+      background: var(--card);
+      border-radius: 1.3rem;
+      box-shadow: none;
+      max-width: 900px !important;
+      margin: 2.5rem auto !important;
+      padding: 2.5rem 1.2rem 2rem 1.2rem !important;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      text-align: center;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      width: 100% !important;
+    }
+    #angebot h2 {
+      width: 100%;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      background: none;
+      color: #fff;
+      text-shadow: none;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      position: relative;
+      z-index: 1;
+    }
+    #angebot h2 span {
+      color: #fff;
+    }
+    #angebot .angebot-content {
+      color: #fff;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin-bottom: 1.1rem;
+      text-align: center;
+    }
+    #angebot .angebot-content strong {
+      font-size: 1.18rem;
+      color: var(--accent);
+    }
+    #angebot .angebot-stats {
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 1.1rem;
+    }
+    #angebot .angebot-stats .red {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    #angebot .angebot-stats .green {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    #angebot .angebot-price {
+      color: var(--accent);
+      font-size: 1.13rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      background: rgba(255,64,64,0.09);
+      display: inline-block;
+      padding: 0.25em 1em;
+      border-radius: 0.8em;
+      letter-spacing: 0.01em;
+    }
+    #angebot .angebot-price span {
+      color: #fff;
+    }
+    @media (max-width: 700px) {
+      #angebot {
+        padding: 1.3rem 0.5rem 1.1rem 0.5rem;
+        border-radius: 0.9rem;
+        margin: 1.2rem auto;
+        box-shadow: 0 2px 16px 0 rgba(0,0,0,0.18);
+      }
+      #angebot h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.9rem;
+      }
+      #angebot .angebot-content {
+        font-size: 1.01rem;
+      }
+      #angebot .angebot-price {
+        font-size: 1.01rem;
+        padding: 0.18em 0.7em;
+      }
+    }
+
+    /* Social Proof Cards */
+    .social-proof-cards {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+    }
+    .social-proof-card {
+      background: var(--card);
+      border-radius: 1rem;
+      padding: 1.1rem 1rem 1.2rem 1rem;
+      max-width: 220px;
+      min-width: 0;
+      flex: 1 1 140px;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+      border: none;
+    }
+    .social-proof-card .text {
+      color: #fff;
+      font-size: 1.01rem;
+      line-height: 1.5;
+      margin-bottom: 0.7rem;
+      text-align: center;
+    }
+    .social-proof-card .stars {
+      color: #FFD600;
+    }
+    @media (max-width: 700px) {
+      .social-proof-cards {
+        flex-direction: column;
+        gap: 0.7rem;
+        align-items: center;
+      }
+      .social-proof-card {
+        max-width: 98vw;
+        min-width: 0;
+        padding: 1rem 0.7rem 1.1rem 0.7rem;
+      }
+    }
+    .social-proof-summary {
+      margin-top: 1.1rem;
+      text-align: center;
+      color: var(--accent2);
+      font-size: 1.08rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      z-index: 1;
+      position: relative;
+    }
+
+    /* Footer Styles */
+    footer {
+      background: transparent;
+      border-top: none;
+      box-shadow: none;
+      margin-top: 3rem;
+      padding-bottom: 1.2rem;
+      font-family: 'Poppins',sans-serif;
+      letter-spacing: 0.01em;
+      opacity: 0.95;
+      transition: opacity 0.3s;
+      color: var(--muted);
+    }
+    footer a {
+      color: var(--accent2);
+      text-decoration: none;
+      margin: 0 0.7rem;
+      transition: color 0.2s;
+    }
+    footer a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    @media (max-width: 700px) {
+      footer {
+        font-size: 0.98rem;
+        padding: 1.2rem 0 0.7rem 0;
+      }
+    }
+
+    /* Verbesserte Problem-Sektion */
+    #problem-cards-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      gap: 2.5rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0.1rem;
+    }
+    .problem-card {
+      background: none;
+      border: none;
+      box-shadow: none;
+      border-radius: 0.9rem;
+      padding: 0;
+      margin: 0;
+      min-width: 0;
+      max-width: 320px;
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: flex-start;
+    }
+    .problem-card span.emoji {
+      font-size: 2.4rem;
+      margin-bottom: 1.1rem;
+      display: block;
+      line-height: 1;
+    }
+    .problem-card span.text {
+      font-size: 1.18rem;
+      color: #fff;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+      margin-bottom: 0;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      display: block;
+    }
+    @media (max-width: 800px) {
+      #problem-cards-row {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+      }
+      .problem-card {
+        max-width: 100%;
+      }
+    }
+
+    /* Optimierung der Abstände im Problem-Abschnitt */
+    #problem {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      background: var(--card);
+      box-shadow: none;
+      padding: 0.2rem 0 0.7rem 0; /* weniger vertikaler Abstand */
+      margin: 0.5rem auto 0.5rem auto; /* minimaler Abstand zu anderen Sektionen */
+      max-width: 900px;
+      border-radius: 1.5rem;
+      border: none;
+    }
+    #problem h2 {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: #fff;
+      text-align: center;
+      margin: 0.7rem 0 1.3rem 0;
+      letter-spacing: -0.01em;
+    }
+    #problem .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #problem-cards-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      gap: 1.5rem;
+      width: 100%;
+    }
+    .problem-card {
+      flex: 1 1 220px;
+      max-width: 320px;
+      min-width: 180px;
+      text-align: center;
+    }
+    .problem-card span.emoji {
+      font-size: 2.2rem;
+      margin-bottom: 0.7rem;
+    }
+    .problem-card span.text {
+      font-size: 1.13rem;
+      color: #fff;
+      font-weight: 800;
+      line-height: 1.4;
+      letter-spacing: 0.01em;
+      margin-bottom: 0;
+      display: block;
+    }
+    @media (max-width: 800px) {
+      #problem-cards-row {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+      }
+      .problem-card {
+        max-width: 100%;
+      }
+    }
+
+    /* Einheitliche Breite für Problem-, Angebot- und Social-Proof-Abschnitt */
+    #problem.section-box,
+    #angebot.section-box,
+    #social-proof {
+      max-width: 900px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      border-radius: var(--radius);
+    }
+    #problem .wrap,
+    #angebot .wrap,
+    #social-proof .wrap {
+      max-width: 900px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: 100% !important;
+    }
+    #angebot {
+      background: var(--card);
+      border-radius: 1.3rem;
+      box-shadow: none;
+      max-width: 900px !important;
+      margin: 2.5rem auto !important;
+      padding: 2.5rem 1.2rem 2rem 1.2rem !important;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      text-align: center;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      width: 100% !important;
+    }
+    #angebot h2 {
+      width: 100%;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      background: none;
+      color: #fff;
+      text-shadow: none;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      position: relative;
+      z-index: 1;
+    }
+    #angebot h2 span {
+      color: #fff;
+    }
+    #angebot .angebot-content {
+      color: #fff;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin-bottom: 1.1rem;
+      text-align: center;
+    }
+    #angebot .angebot-content strong {
+      font-size: 1.18rem;
+      color: var(--accent);
+    }
+    #angebot .angebot-stats {
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 1.1rem;
+    }
+    #angebot .angebot-stats .red {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    #angebot .angebot-stats .green {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    #angebot .angebot-price {
+      color: var(--accent);
+      font-size: 1.13rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      background: rgba(255,64,64,0.09);
+      display: inline-block;
+      padding: 0.25em 1em;
+      border-radius: 0.8em;
+      letter-spacing: 0.01em;
+    }
+    #angebot .angebot-price span {
+      color: #fff;
+    }
+    @media (max-width: 700px) {
+      #angebot {
+        padding: 1.3rem 0.5rem 1.1rem 0.5rem;
+        border-radius: 0.9rem;
+        margin: 1.2rem auto;
+        box-shadow: 0 2px 16px 0 rgba(0,0,0,0.18);
+      }
+      #angebot h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.9rem;
+      }
+      #angebot .angebot-content {
+        font-size: 1.01rem;
+      }
+      #angebot .angebot-price {
+        font-size: 1.01rem;
+        padding: 0.18em 0.7em;
+      }
+    }
+
+    /* Social Proof Cards */
+    .social-proof-cards {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+    }
+    .social-proof-card {
+      background: var(--card);
+      border-radius: 1rem;
+      padding: 1.1rem 1rem 1.2rem 1rem;
+      max-width: 220px;
+      min-width: 0;
+      flex: 1 1 140px;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+      border: none;
+    }
+    .social-proof-card .text {
+      color: #fff;
+      font-size: 1.01rem;
+      line-height: 1.5;
+      margin-bottom: 0.7rem;
+      text-align: center;
+    }
+    .social-proof-card .stars {
+      color: #FFD600;
+    }
+    @media (max-width: 700px) {
+      .social-proof-cards {
+        flex-direction: column;
+        gap: 0.7rem;
+        align-items: center;
+      }
+      .social-proof-card {
+        max-width: 98vw;
+        min-width: 0;
+        padding: 1rem 0.7rem 1.1rem 0.7rem;
+      }
+    }
+    .social-proof-summary {
+      margin-top: 1.1rem;
+      text-align: center;
+      color: var(--accent2);
+      font-size: 1.08rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      z-index: 1;
+      position: relative;
+    }
+
+    /* Footer Styles */
+    footer {
+      background: transparent;
+      border-top: none;
+      box-shadow: none;
+      margin-top: 3rem;
+      padding-bottom: 1.2rem;
+      font-family: 'Poppins',sans-serif;
+      letter-spacing: 0.01em;
+      opacity: 0.95;
+      transition: opacity 0.3s;
+      color: var(--muted);
+    }
+    footer a {
+      color: var(--accent2);
+      text-decoration: none;
+      margin: 0 0.7rem;
+      transition: color 0.2s;
+    }
+    footer a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    @media (max-width: 700px) {
+      footer {
+               font-size: 0.98rem;
+        padding: 1.2rem 0 0.7rem 0;
+      }
+    }
+
+    /* NEU: Auffälliger Hinweis für Verknappung */
+    .scarcity-hint {
+      color: #ff4040;
+      font-weight: 900;
+      font-size: 1.18rem;
+      margin-bottom: 0.7rem;
+      text-align: center;
+      letter-spacing: 0.01em;
+      animation: pulseScarcity 1.2s infinite alternate;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5em;
+    }
+    @keyframes pulseScarcity {
+      0% { text-shadow: 0 0 0 #ff4040; }
+      100% { text-shadow: 0 0 12px #ff4040; }
+    }
+    .scarcity-hint .icon {
+      font-size: 1.3em;
+      vertical-align: middle;
+      margin-right: 0.2em;
+    }
+
+    /* NEU: Auffälliger Countdown-Timer */
+    .offer-timer-outer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7em;
+      margin-bottom: 0.7rem;
+    }
+    .offer-timer-outer .timer-icon {
+      color: #ff4040;
+      font-size: 1.5em;
+      animation: timerPulse 1.2s infinite alternate;
+    }
+    @keyframes timerPulse {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.5); }
+    }
+    #offer-timer {
+      display: inline-block;
+      font-size: 1.35rem !important;
+      font-weight: 900 !important;
+      color: #ff4040 !important;
+      background: rgba(255,64,64,0.12) !important;
+      border: 2.5px solid #ff4040 !important;
+      padding: 0.28em 1.3em !important;
+      border-radius: 1.3em !important;
+      letter-spacing: 0.04em !important;
+      box-shadow: 0 0 12px 0 rgba(255,64,64,0.18);
+      transition: box-shadow 0.3s;
+      animation: timerPulse 1.2s infinite alternate;
+    }
+    .timer-after-hint {
+      color: #ff4040;
+      font-size: 1.01rem;
+      font-weight: 700;
+      margin-top: 0.2rem;
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
+
+    /* NEU: Auffälliger CTA-Button */
+    .btn.cta-strong {
+      background: linear-gradient(90deg,#ff4040 60%,#ff7b7b 100%);
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 900;
+      padding: 1.2rem 2.8rem;
+      border-radius: 2.7rem;
+      box-shadow: 0 4px 24px 0 rgba(255,64,64,0.18), 0 1.5px 0 #b71c1c;
+      margin: 1.1rem auto 1.2rem auto;
+      letter-spacing: 0.02em;
+      transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+      animation: ctaPulse 1.3s infinite alternate;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7em;
+      max-width: 98vw;
+    }
+    .btn.cta-strong:hover {
+      background: #b71c1c;
+      color: #fff;
+      transform: scale(1.06) translateY(-2px);
+      box-shadow: 0 8px 32px 0 rgba(255,64,64,0.22);
+    }
+    @keyframes ctaPulse {
+      0% { box-shadow: 0 4px 24px 0 rgba(255,64,64,0.18);}
+      100% { box-shadow: 0 8px 32px 0 rgba(255,64,64,0.28);}
+    }
+
+    /* NEU: Garantie-Box */
+    .guarantee-box {
+      background: #1e2e1e;
+      color: #00e97a;
+      border-radius: 0.7rem;
+      border: 1.5px solid #00e97a;
+      padding: 0.7rem 1rem 0.7rem 1rem;
+      margin: 1.1rem auto 0.7rem auto;
+      max-width: 340px;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 1.01rem;
+      font-weight: 700;
+      justify-content: center;
+      box-shadow: 0 2px 10px 0 rgba(0,233,100,0.07);
+    }
+    #pricing {
+      padding-top: 2.2rem;
+      padding-bottom: 2.2rem;
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    #pricing .scarcity-hint {
+      margin-bottom: 0.35rem !important;
+      margin-top: 0.1rem !important;
+    }
+    #pricing .offer-timer-outer {
+      margin-bottom: 0.25rem !important;
+      margin-top: 0.1rem !important;
+    }
+    #pricing .timer-after-hint {
+      margin-bottom: 1.0rem !important;
+      margin-top: 0.15rem !important;
+    }
+    #pricing .wrap.pricing {
+      margin-top: 0.5rem !important;
+      margin-bottom: 0.5rem !important;
+      padding-top: 1.2rem !important;
+      padding-bottom: 1.2rem !important;
+    }
+    #pricing .wrap.pricing > div {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    /* Button: Fix Hover-Effekt und Ränder */
+    .btn.cta-strong {
+      background: linear-gradient(90deg,#ff4040 60%,#ff7b7b 100%);
+      color: #fff;
+      font-size: 1.13rem;
+      font-weight: 900;
+      padding: 1.1rem 2.2rem;
+      border-radius: 2.2rem;
+      box-shadow: 0 4px 18px 0 rgba(255,64,64,0.13);
+      margin: 1.1rem auto 0.7rem auto;
+      letter-spacing: 0.02em;
+      border: none;
+      outline: none;
+      transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+      animation: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      max-width: 98vw;
+    }
+    .btn.cta-strong:hover, .btn.cta-strong:focus {
+      background: #b71c1c;
+      color: #fff;
+      transform: scale(1.045) translateY(-2px);
+      box-shadow: 0 8px 28px 0 rgba(255,64,64,0.18);
+      border: none;
+      outline: none;
+    }
+
+    /* ...existing code... */
   </style>
 </head>
 <body>
@@ -1046,7 +2426,7 @@
     <div style="margin-top:2.5rem;margin-bottom:1.2rem;">
       <h1 style="font-size:2.3rem;font-weight:900;letter-spacing:-0.01em;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,0.18);max-width:800px;margin:0 auto;">
         <span style="background:linear-gradient(90deg,#fff,#fff 80%,#ff4040);-webkit-background-clip:text;background-clip:text;color:transparent;">
-          Von Note 3,4 auf 1,4 in nur 8 Wochen – Das bewährte System, mit dem bereits über 300 Azubis ihre Ausbildung gemeistert haben
+          In 8 Wochen zu besseren Noten, mehr Geld & weniger Stress – Das erprobte System für Azubis, die mehr wollen
         </span>
       </h1>
     </div>
@@ -1066,8 +2446,8 @@
     <!-- Text und Button darunter -->
     <div style="max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:2;">
       <p style="font-size:1.35rem;color:var(--muted);margin-bottom:2.2rem;line-height:1.6;">
-        Von <span class="highlight">schlechten Noten & leerem Konto</span> zu <span class="highlight">Bestnoten & 500€ gespart</span> – <br>
-        mit den gleichen Strategien, die bereits über 300 Azubis erfolgreich gemacht haben.
+        Von <span class="highlight">schlechten Noten & leerem Konto</span> zu <span class="highlight">Bestnoten & mehr finanzieller Freiheit</span> – <br>
+        mit erprobten Strategien speziell für Auszubildende.
       </p>
       <a href="#modules" class="btn" style="position:relative;z-index:2;margin-bottom:0.5rem;">Jetzt Kurs entdecken</a>
     </div>
@@ -1295,13 +2675,18 @@
     <div class="angebot-content" style="color:#fff;font-size:1.15rem;line-height:1.6;margin-bottom:1.1rem;text-align:center;">
       <strong style="font-size:1.18rem;color:var(--accent2);">Alle 6 Module + Bonus</strong><br>
       Sofortiger Zugang &bull; Schritt-für-Schritt-Videos &bull; Vorlagen & Tools<br>
-      <span style="color:var(--accent2);font-weight:700;">347+ Azubis erfolgreich</span>
+      <span style="color:var(--accent2);font-weight:700;">Speziell entwickelt für Auszubildende</span>
     </div>
     <div class="angebot-stats" style="color:var(--muted);font-size:1.08rem;margin-bottom:1.1rem;">
-      <span class="red" style="color:var(--accent);font-weight:700;">94% Erfolgsquote</span> &nbsp;|&nbsp; <span class="green" style="color:var(--accent);font-weight:700;">1,2 Noten besser</span>
+      <span class="red" style="color:var(--accent);font-weight:700;">Praxisnah & verständlich</span> &nbsp;|&nbsp; <span class="green" style="color:var(--accent);font-weight:700;">Mehr Klarheit & Struktur</span>
     </div>
-    <div class="angebot-price" style="color:var(--accent);font-size:1.13rem;font-weight:700;margin-bottom:0.7rem;background:rgba(255,64,64,0.09);display:inline-block;padding:0.25em 1em;border-radius:0.8em;letter-spacing:0.01em;">
-      Nur für kurze Zeit: <span style="color:#fff;">59&nbsp;€ statt 179&nbsp;€</span>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.7rem;">
+      <div class="angebot-price" style="color:var(--accent);font-size:1.13rem;font-weight:700;margin-bottom:0;background:rgba(255,64,64,0.09);display:inline-block;padding:0.25em 1em;border-radius:0.8em;letter-spacing:0.01em;">
+        Nur für kurze Zeit: <span style="color:#fff;">59&nbsp;€ statt 179&nbsp;€</span>
+      </div>
+      <a href="#pricing" class="btn cta-strong" style="margin-top:0;">
+        <span>🚀</span> Jetzt zum Sonderpreis sichern
+      </a>
     </div>
   </div>
 </section>
@@ -1309,65 +2694,60 @@
   <!-- SOCIAL PROOF: Direkt vor Pricing, jetzt kompakt und kurz -->
   <section id="social-proof">
     <h2 class="flow-h2">
-      Was Azubis <span>berichten</span>
+      Was Azubis <span>erwarten können</span>
     </h2>
     <div class="social-proof-cards">
       <div class="social-proof-card">
-        <div class="text">"Endlich spare ich Geld und schreibe bessere Noten!"</div>
+        <div class="text">Mehr Überblick über Finanzen und bessere Noten sind möglich.</div>
         <div class="stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
       </div>
       <div class="social-proof-card">
-        <div class="text">"Klarer Plan, mehr Freizeit, weniger Stress."</div>
+        <div class="text">Strukturierte Lernmethoden und praktische Tipps für den Alltag.</div>
         <div class="stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
       </div>
       <div class="social-proof-card">
-        <div class="text">"Beste Entscheidung für meine Ausbildung!"</div>
+        <div class="text">Motivation und Klarheit für die Ausbildung.</div>
         <div class="stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
       </div>
     </div>
+    <!-- Button ENTFERNT -->
     <div class="social-proof-summary">
-      347+ Azubis erfolgreich &bull; 94% bestehen besser
+      Entwickelt, um Auszubildende optimal zu unterstützen
     </div>
   </section>
 
 <!-- PRICING -->
   <section id="pricing">
     <h2>Starte jetzt</h2>
-    <div class="wrap pricing" style="max-width:400px;margin:0 auto;">
-      <div style="width:100%;text-align:center;">
-        <div style="font-size:1.18rem;font-weight:700;color:var(--muted);margin-bottom:0.7rem;">
-          <span style="text-decoration:line-through;color:#ff4040;font-weight:700;">299&nbsp;€</span>
-          <span style="margin:0 0.5rem;">|</span>
-          Einzelcoaching: <span style="color:#fff;font-weight:700;">800&nbsp;€+</span>
-        </div>
-        <div style="margin-bottom:1.2rem;">
-          <span id="offer-timer" style="display:inline-block;font-size:1.25rem;font-weight:800;color:#00e9d5;background:rgba(0,233,213,0.08);border:1.5px solid #00e9d5;padding:0.2em 1.1em;border-radius:1.2em;letter-spacing:0.03em;">
-            05:00:00
-          </span>
-        </div>
-        <div style="font-size:1.02rem;color:#ff4040;font-weight:600;margin-bottom:1.1rem;">
-          Nur noch 23 Plätze – nächster Kursstart in 3 Monaten!
-        </div>
-        <div style="font-size:2.3rem;font-weight:900;color:#fff;margin-bottom:0.2rem;">
-          59&nbsp;€
-        </div>
-        <div style="font-size:1.1rem;margin-bottom:1.1rem;">
-          <span style="color:#ff4040;font-weight:700;text-decoration:line-through;opacity:0.7;">179&nbsp;€</span>
-          <span style="color:#fff;font-weight:700;margin-left:0.5rem;">jetzt nur 59&nbsp;€</span>
-        </div>
-        <div style="color:#fff;font-weight:600;font-size:1rem;line-height:1.5;margin-bottom:1.3rem;">
-          Einmalig • lebenslanger Zugriff • Updates inklusive
-        </div>
-        <a href="#" class="btn" style="width:100%;justify-content:center;font-size:1.18rem;margin-bottom:1.2rem;">
-          Kurs sichern
-        </a>
-        <div style="margin-top:0.2rem;color:#fff;font-weight:700;font-size:1.01rem;">
-          14 Tage Geld-zurück-Garantie
-        </div>
-        <div style="color:var(--muted);font-size:0.97rem;margin-top:0.1rem;">
-          Zahlung per PayPal, Kreditkarte oder Überweisung
-        </div>
-      </div>
+    <div class="price-row">
+      <span class="old">299&nbsp;€</span>
+      <span style="margin:0 0.5rem;">|</span>
+      Einzelcoaching: <span class="coaching">800&nbsp;€+</span>
+    </div>
+    <div class="offer-timer-outer">
+      <span id="offer-timer">05:00:00</span>
+    </div>
+    <div class="next-batch">
+      Nur noch 23 Plätze – nächster Kursstart in 3 Monaten!
+    </div>
+    <div class="main-price">
+      59&nbsp;€
+    </div>
+    <div class="save-row">
+      <span class="old">179&nbsp;€</span>
+      <span class="now">jetzt nur 59&nbsp;€</span>
+    </div>
+    <div class="details-row">
+      Einmalig • lebenslanger Zugriff • Updates inklusive
+    </div>
+    <a href="#" class="btn cta-strong">
+      Kurs sichern
+    </a>
+    <div class="guarantee-row">
+      14 Tage Geld-zurück-Garantie
+    </div>
+    <div class="pay-row">
+      Zahlung per PayPal, Kreditkarte oder Überweisung
     </div>
   </section>
 
@@ -1377,6 +2757,7 @@
   <div style="height:2.5rem;"></div>
   <div class="wrap" style="max-width:1000px;margin:0 auto;">
     <div style="display:grid;gap:1.2rem;">
+      <!-- ...existing FAQ... -->
       <details class="faq-box">
         <summary><span class="faq-q">Wie lange habe ich Zugriff?</span></summary>
         <div class="faq-content"><p>Lebenslang – inkl. aller zukünftigen Updates.</p></div>
@@ -1403,203 +2784,24 @@
           <p>Ja! Viele Azubis berichten schon nach wenigen Wochen von besseren Noten und mehr Geld. Entscheidend ist, dass du die Schritte umsetzt – dann klappt es auch bei dir.</p>
         </div>
       </details>
+      <!-- NEU: FAQ Zeitmangel -->
+      <details class="faq-box">
+        <summary><span class="faq-q">Was, wenn ich wenig Zeit habe?</span></summary>
+        <div class="faq-content">
+          <p>Der Kurs ist extra so aufgebaut, dass du ihn flexibel in deinen Alltag integrieren kannst. Schon mit 15 Minuten pro Tag kommst du Schritt für Schritt voran – und profitierst sofort von den ersten Ergebnissen!</p>
+        </div>
+      </details>
+      <!-- NEU: FAQ Skepsis -->
+      <details class="faq-box">
+        <summary><span class="faq-q">Was, wenn ich schon viele Kurse probiert habe und nichts geholfen hat?</span></summary>
+        <div class="faq-content">
+          <p>Viele Teilnehmer:innen waren anfangs skeptisch – und sind jetzt begeistert! Das System ist speziell für Azubis entwickelt, sofort umsetzbar und liefert schnelle, spürbare Ergebnisse. Und: Du gehst kein Risiko ein – dank Geld-zurück-Garantie!</p>
+        </div>
+      </details>
     </div>
+    <!-- Garantie-Box ENTFERNT -->
   </div>
 </section>
-<style>
-/* ...existing code... */
-#faq .faq-box {
-  background: #23242a;
-  border-radius: 1.1rem;
-  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.11);
-  border: 1.5px solid #26272c;
-  padding: 0;
-  margin: 0;
-  transition: box-shadow 0.2s, border-color 0.2s;
-  overflow: hidden;
-}
-#faq .faq-box[open] {
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
-  border-color: var(--accent);
-}
-#faq summary {
-  font-weight: 700;
-  color: var(--accent);
-  font-size: 1.13rem;
-  padding: 1.1rem 1.2rem;
-  cursor: pointer;
-  background: none;
-  outline: none;
-  border: none;
-  display: flex;
-  align-items: center;
-  transition: color 0.18s;
-}
-#faq .faq-q {
-  flex: 1;
-  color: var(--accent);
-  font-weight: 800;
-  font-size: 1.13rem;
-  letter-spacing: 0.01em;
-}
-#faq .faq-content {
-  padding: 0 1.2rem 1.1rem 1.2rem;
-  color: var(--muted);
-  font-size: 1.08rem;
-  line-height: 1.6;
-  background: none;
-  border: none;
-  transition: max-height 0.45s cubic-bezier(.4,0,.2,1), opacity 0.35s cubic-bezier(.4,0,.2,1);
-}
-#faq .faq-box[open] summary {
-  color: #fff;
-}
-#faq .faq-box[open] .faq-q {
-  color: #fff;
-}
-#faq details[open] .faq-content {
-  background: none;
-}
-#faq summary::-webkit-details-marker {
-  display: none;
-}
-#faq summary:after {
-  content: "▼";
-  font-size: 1rem;
-  color: var(--accent);
-  margin-left: 0.8rem;
-  transition: transform 0.3s;
-}
-#faq .faq-box[open] summary:after {
-  transform: rotate(-180deg);
-  color: #fff;
-}
-@media (max-width: 700px) {
-  #faq .wrap {
-    max-width: 98vw;
-    padding: 0 0.5rem;
-  }
-  #faq .faq-box {
-    border-radius: 0.7rem;
-    padding: 0;
-    margin: 0;
-    font-size: 0.99rem;
-  }
-  #faq summary {
-    font-size: 1.01rem;
-    padding: 0.9rem 0.7rem;
-  }
-  #faq .faq-content {
-    font-size: 0.99rem;
-    padding: 0 0.7rem 0.9rem 0.7rem;
-  }
-  #faq h2 {
-    font-size: 1.18rem;
-    margin-bottom: 1.1rem;
-  }
-  header > div:first-child {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    box-sizing: border-box;
-  }
-  header h1 {
-    font-size: 2rem !important; /* wieder groß, aber mit Abstand */
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    /* max-width bleibt, margin bleibt */
-    line-height: 1.18;
-  }
-}
-
-/* Video mobile full width */
-.header-video-container {
-  width: 700px;
-  max-width: 98vw;
-  margin: 0 auto 2.2rem auto;
-  position: relative;
-}
-#introVideo {
-  width: 100%;
-  height: 394px;
-  object-fit: cover;
-  display: block;
-  background: #181c24;
-  border-radius: 1.5rem;
-  cursor: pointer;
-  z-index: 1;
-}
-@media (max-width: 700px) {
-  .header-video-container {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin: 0;
-    padding: 0;
-  }
-  #introVideo {
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: 100vw !important;
-    height: 48vw !important;
-    min-height: 180px;
-    max-height: 60vw;
-    border-radius: 0;
-    object-fit: cover;
-    display: block;
-    margin: 0;
-  }
-}
-
-/* Mobile Anpassungen (max-width: 700px) */
-@media (max-width: 700px) {
-  .pricing {
-    padding: 1.1rem 0.7rem 1.1rem 0.7rem !important;
-    border-radius: 1rem;
-    max-width: 98vw;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  #pricing .wrap {
-    max-width: 98vw !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  /* Kommt dir das bekannt vor? Abschnitt mittig */
-  .problem-mobile-center {
-    padding: 2.5rem 0.5rem 2.5rem 0.5rem !important;
-    margin: 0 auto !important;
-    max-width: 98vw !important;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .problem-mobile-center > h2 {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  .problem-mobile-center > div {
-    justify-content: center !important;
-    align-items: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-}
-  </style>
-<!-- ...existing code... -->
-<!-- Ersetze im "Kommt dir das bekannt vor?"-Abschnitt das äußere div: -->
-<div class="problem-mobile-center" style="max-width:900px;margin:0 auto;padding:7rem 4rem 7rem 1.2rem;">
-  <!-- ...existing code... -->
-</div>
-<!-- ...existing code... -->
 <!-- Footer und Script gehören AUSSERHALB des <style> Blocks! -->
 <footer style="margin-top:3rem;padding:2.5rem 0 1.2rem 0;text-align:center;background:transparent;">
     <div style="max-width:900px;margin:0 auto;opacity:0.85;">
