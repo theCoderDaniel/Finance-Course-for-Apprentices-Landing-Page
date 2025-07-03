@@ -1563,26 +1563,26 @@
 
   <!-- PROBLEM-SECTION: Hintergrund geht über die ganze Seite, Inhalt mittig, jetzt mit noch mehr Abstand oben/unten -->
   <div style="width:100vw;background:var(--card);margin:0;padding:0;">
-    <div class="problem-mobile-center" style="max-width:900px;margin:0 auto;padding:7rem 4rem 7rem 1.2rem;">
+    <div class="problem-mobile-center" style="max-width:900px;margin:0 auto;padding:7rem 4rem 7rem 1.2rem;display:flex;flex-direction:column;align-items:center;justify-content:center;">
       <h2 style="font-size:2.1rem;font-weight:900;color:#fff;text-align:center;margin:0 0 1.1rem 0;letter-spacing:-0.01em;">
         Kommt dir das bekannt vor?
       </h2>
-      <div style="display:flex;gap:1.2rem;justify-content:center;align-items:stretch;flex-wrap:wrap;text-align:center;">
-        <div style="flex:1 1 220px;max-width:320px;min-width:180px;text-align:center;">
+      <div class="problem-cards-row-mobile" style="display:flex;gap:1.2rem;justify-content:center;align-items:stretch;flex-wrap:wrap;width:100%;max-width:1000px;">
+        <div style="flex:1 1 220px;max-width:320px;min-width:180px;text-align:center;display:flex;flex-direction:column;align-items:center;">
           <div style="font-size:2.2rem;margin-bottom:0.7rem;">😡</div>
           <div style="font-size:1.13rem;font-weight:800;color:#fff;line-height:1.4;">
             Du lernst viel – aber die Noten bleiben schlecht.<br>
             Andere sind besser, obwohl sie weniger tun.
           </div>
         </div>
-        <div style="flex:1 1 220px;max-width:320px;min-width:180px;text-align:center;">
+        <div style="flex:1 1 220px;max-width:320px;min-width:180px;text-align:center;display:flex;flex-direction:column;align-items:center;">
           <div style="font-size:2.2rem;margin-bottom:0.7rem;">🔥</div>
           <div style="font-size:1.13rem;font-weight:800;color:#fff;line-height:1.4;">
             Dein Azubi-Gehalt reicht nie bis Monatsende.<br>
             Sparen oder investieren? Keine Chance.
           </div>
         </div>
-        <div style="flex:1 1 220px;max-width:320px;min-width:180px;text-align:center;">
+        <div style="flex:1 1 220px;max-width:320px;min-width:180px;text-align:center;display:flex;flex-direction:column;align-items:center;">
           <div style="font-size:2.2rem;margin-bottom:0.7rem;">🤷‍♂️</div>
           <div style="font-size:1.13rem;font-weight:800;color:#fff;line-height:1.4;">
             Niemand zeigt dir, wie du wirklich erfolgreich wirst.<br>
@@ -1592,6 +1592,30 @@
       </div>
     </div>
   </div>
+  <style>
+    @media (max-width: 700px) {
+      .problem-cards-row-mobile {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 1.2rem !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+        display: flex !important;
+      }
+      .problem-cards-row-mobile > div {
+        max-width: 340px !important;
+        min-width: 0 !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+        align-items: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+      }
+    }
+  </style>
 
   <script>
     // Alles in DOMContentLoaded, damit IDs und Elemente sicher existieren
